@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRO Analytics — How to Measure What's Worth Optimizing (2026) — Growth Analytics Engine</title>
+  <meta name="description" content="How to use analytics to drive conversion rate optimization. Funnel analysis, segmentation, session data, and experiment design for CRO programs that actually improve revenue.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script src="/assets/js/analytics.js" defer></script>
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a good conversion rate for a landing page?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This depends entirely on traffic source and offer. Median landing page conversion rates by source: paid search 4\u20136%, organic search 2\u20134%, email 8\u201312%, direct 6\u201310%. These are medians \u2014 excellent landing pages in optimal niches convert at 20%+. The more relevant question is how your conversion rate compares to your historical baseline and to your internal segments, not to industry averages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you know if a CRO test result is reliable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A reliable test result has: reached its pre-calculated sample size, run for at least 7 days (to account for weekday/weekend variation), showed consistency across daily results (not a spike on one day that drove the average), and passed a simple sanity check (the variant's performance by day doesn't show a trend that suggests an implementation bug or data collection issue). Results that 'just barely' hit significance on the last day of a test should be treated with extra skepticism."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should CRO teams use Bayesian or frequentist statistics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both are valid, but they answer different questions. Frequentist testing (the standard approach) answers: 'Is this effect real or is it noise?' Bayesian testing answers: 'What is the probability that variant A is better than variant B?' For CRO teams that need to make clear ship/don't-ship decisions, frequentist testing with pre-registered sample sizes is simpler and harder to misinterpret. For teams with lower traffic who benefit from early stopping and continuous analysis, Bayesian methods are more appropriate."
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "CRO and Analytics: How to Measure What's Worth Optimizing",
+  "description": "How to use analytics to drive conversion rate optimization. Funnel analysis, segmentation, session data, and experiment design for CRO programs that actually improve revenue.",
+  "author": {
+    "@type": "Person",
+    "name": "Gregor Spielmann",
+    "url": "https://adasight.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Adasight",
+    "url": "https://adasight.com"
+  },
+  "datePublished": "March 2026",
+  "url": "https://growthanalyticsengine.com/guides/conversion-rate-optimization-analytics/"
+}
+  </script>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Growth Analytics <span>Engine</span></a>
+      <ul class="nav-links">
+        <li><a href="/tools/">Free Tools</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="https://adasight.com" target="_blank" rel="noopener">Adasight ↗</a></li>
+      </ul>
+      <a href="/tools/analytics-maturity/" class="btn nav-cta">Free Assessment →</a>
+    </div>
+  </nav>
+
+  <main class="guide-page">
+    <div class="guide-meta">
+      <span class="tag">Experimentation</span>
+      <span class="author">By Gregor Spielmann, Adasight</span>
+      <time>March 2026</time>
+    </div>
+
+    <h1>CRO and Analytics: How to Measure What's Worth Optimizing</h1>
+
+    <p style="font-size:1.05rem; color:var(--color-muted); margin:20px 0 36px; line-height:1.7;">Conversion rate optimization (CRO) is only as good as the analytics feeding it. Without the right analytical foundation, CRO programs optimize for the wrong thing (improving page metrics without improving business outcomes), run tests that are too underpowered to be reliable, or mistake correlation for causation in funnel analysis. This guide covers how to build the analytics foundation that makes CRO programs actually work.</p>
+
+    <div class="guide-content">
+
+      <div class="guide-tool-cta">
+        <p>🧮 <strong>Use the free tool:</strong> A/B Test Sample Size Calculator — no signup required</p>
+        <a href="/tools/sample-size-calculator/" class="btn btn-accent" style="white-space:nowrap;">Open tool →</a>
+      </div>
+
+      <h2>Funnel analysis: finding the highest-leverage drop-off points</h2>
+      <p>The first step in any CRO program is a clean funnel analysis: a sequential view of conversion from top of funnel to the desired outcome, broken down by the key dimensions that matter (traffic source, device type, user segment, time period). The goal is to find the funnel step with the highest absolute drop-off volume — not the highest drop-off rate. Fixing a step where 40% of users drop but only 100 users pass through is far less valuable than fixing a step where 10% drop but 10,000 users pass through. The product of users × drop-off rate is the optimization priority score.</p>
+      <h2>Session replay and qualitative data: why does the drop-off happen?</h2>
+      <p>Funnel analysis tells you where the problem is; session replay and user research tell you why. Tools like Hotjar, FullStory, and Heap's session replay feature let you watch actual user sessions at the drop-off point. The patterns you're looking for: rage clicks (users clicking repeatedly on a non-interactive element), form abandonment patterns, scroll depth vs. conversion correlation, and confusion indicators (users hovering over elements for a long time before leaving). This qualitative data generates the hypotheses that drive A/B tests — it's the bridge between analytics and experimentation.</p>
+      <h2>Segmentation: why your overall conversion rate is misleading</h2>
+      <p>An overall conversion rate of 3% can hide enormous variance by segment. The same checkout might convert at 6% for desktop users and 1.5% for mobile, at 8% for returning visitors and 1% for first-time visitors, at 10% for email traffic and 2% for paid search traffic. Before running any CRO test, segment your funnel by device type, traffic source, user type (new vs. returning), and geography. The segment with the lowest conversion rate relative to its expected behavior is almost always the highest-leverage optimization opportunity — and the segment where tests will show the largest absolute improvement.</p>
+      <h2>The CRO test hierarchy: what to test first</h2>
+      <p>Not all tests are equal. The hierarchy for most e-commerce and SaaS products: (1) Clear value proposition and headline on the primary landing or product page — the biggest impact on conversion comes from clarity, not design details. (2) Friction reduction in the checkout or signup flow — removing unnecessary fields, reducing steps, adding social proof near the conversion action. (3) Trust and credibility signals — reviews, security badges, social proof numbers. (4) Pricing presentation — plan comparison, anchoring, trial framing. (5) Design and layout details. Most CRO programs start at (4) and (5) and miss the larger opportunity at (1) and (2).</p>
+
+      <h2>CRO analytics foundation checklist</h2>
+      <ul class="checklist" style="margin:0 0 1rem 0.5rem;">
+          <li>Full funnel is instrumented from traffic source to conversion outcome</li>
+          <li>Funnel analysis is segmented by device type, traffic source, and user type</li>
+          <li>Session replay is configured for high-value funnel steps</li>
+          <li>Sample size is calculated before any A/B test launches</li>
+          <li>A/B tests have a primary metric, 1–2 guardrail metrics, and a minimum duration</li>
+          <li>Test results are analyzed after reaching pre-determined sample size (no peeking)</li>
+          <li>Revenue impact is calculated for each winning test (not just conversion rate change)</li>
+          <li>CRO test backlog is prioritized by estimated revenue impact, not ease of implementation</li>
+      </ul>
+    </div>
+
+    <div class="cta-block">
+      <h3>Need expert help applying this?</h3>
+      <p>Adasight works with scaling D2C and SaaS companies to build the analytics foundations and experimentation programs that make this work in practice.</p>
+      <a href="https://adasight.com" target="_blank" rel="noopener">Talk to Adasight →</a>
+    </div>
+
+      <div class="faq-block" style="margin-top:48px; padding-top:48px; border-top:1px solid var(--color-border);">
+        <h2>Frequently asked questions</h2>
+        
+        <div class="faq-item">
+          <h4>What is a good conversion rate for a landing page?</h4>
+          <p>This depends entirely on traffic source and offer. Median landing page conversion rates by source: paid search 4–6%, organic search 2–4%, email 8–12%, direct 6–10%. These are medians — excellent landing pages in optimal niches convert at 20%+. The more relevant question is how your conversion rate compares to your historical baseline and to your internal segments, not to industry averages.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How do you know if a CRO test result is reliable?</h4>
+          <p>A reliable test result has: reached its pre-calculated sample size, run for at least 7 days (to account for weekday/weekend variation), showed consistency across daily results (not a spike on one day that drove the average), and passed a simple sanity check (the variant's performance by day doesn't show a trend that suggests an implementation bug or data collection issue). Results that 'just barely' hit significance on the last day of a test should be treated with extra skepticism.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Should CRO teams use Bayesian or frequentist statistics?</h4>
+          <p>Both are valid, but they answer different questions. Frequentist testing (the standard approach) answers: 'Is this effect real or is it noise?' Bayesian testing answers: 'What is the probability that variant A is better than variant B?' For CRO teams that need to make clear ship/don't-ship decisions, frequentist testing with pre-registered sample sizes is simpler and harder to misinterpret. For teams with lower traffic who benefit from early stopping and continuous analysis, Bayesian methods are more appropriate.</p>
+        </div>
+      </div>
+
+    <div style="margin-top:64px; padding-top:48px; border-top:1px solid var(--color-border);">
+      <h2 style="margin-bottom:24px;">Related guides</h2>
+      <div class="card-grid card-grid-2">
+        
+          <a href="/guides/what-is-growth-analytics/" style="text-decoration:none; color:inherit;">
+            <div class="card">
+              <span class="tag">Growth Analytics</span>
+              <h3 style="font-size:1rem; margin-top:8px;">What Is Growth Analytics? A Complete Guide for 2026</h3>
+              <p style="font-size:0.85rem;">Growth analytics is the discipline of using data to understand, measure, and improve how a product grows. It sits at the...</p>
+              <span style="font-size:0.85rem; color:var(--color-accent); font-weight:600;">Read guide →</span>
+            </div>
+          </a>
+          <a href="/guides/growth-analytics-metrics/" style="text-decoration:none; color:inherit;">
+            <div class="card">
+              <span class="tag">Growth Analytics</span>
+              <h3 style="font-size:1rem; margin-top:8px;">The 12 Growth Analytics Metrics Every Team Should Track</h3>
+              <p style="font-size:0.85rem;">Most growth teams track too many metrics and understand too few. The result is a dashboard full of numbers that don't co...</p>
+              <span style="font-size:0.85rem; color:var(--color-accent); font-weight:600;">Read guide →</span>
+            </div>
+          </a>
+      </div>
+    </div>
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Growth Analytics <span>Engine</span></div>
+        <div class="footer-note" style="margin-top:4px;">A free resource by <a href="https://adasight.com" target="_blank">Adasight</a></div>
+      </div>
+      <div style="display:flex; gap:24px; flex-wrap:wrap;">
+        <a href="/tools/" style="font-size:0.85rem; color:var(--color-muted);">Tools</a>
+        <a href="/guides/" style="font-size:0.85rem; color:var(--color-muted);">All Guides</a>
+        <a href="https://adasight.com" style="font-size:0.85rem; color:var(--color-muted);" target="_blank">Adasight.com ↗</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

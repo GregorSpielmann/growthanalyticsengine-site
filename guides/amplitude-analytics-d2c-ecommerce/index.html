@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amplitude Analytics for D2C Ecommerce — Setup Guide (2026) — Growth Analytics Engine</title>
+  <meta name="description" content="How to set up Amplitude for D2C ecommerce — events taxonomy, conversion funnels, retention cohorts, and A/B testing. Practical guide from an Amplitude implementation partner.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should D2C ecommerce teams use Amplitude or Google Analytics 4?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GA4 is better for marketing attribution and ad platform integration. Amplitude is better for product analytics, funnel analysis, cohort retention, and A/B testing. Most mature D2C teams use both: GA4 for paid media attribution and Amplitude for product and retention analytics. The choice depends on your primary analytical questions \u2014 if they're about user behavior in the product, Amplitude wins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best event taxonomy for Amplitude ecommerce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use snake_case event names with a verb_noun convention: product_viewed, cart_updated, checkout_started, order_completed. Keep event names stable \u2014 changing them breaks historical comparisons. Use event properties for variations (e.g. category='footwear' rather than separate footwear_product_viewed events)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Amplitude handle anonymous user tracking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Amplitude assigns an anonymous device ID to each new user. When a user creates an account or logs in, you call identify() to link the anonymous ID to your user ID. Amplitude then merges the pre-identification events with the identified user profile, allowing you to analyze full pre/post signup journeys."
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Amplitude Analytics for D2C Ecommerce: Setup Guide & Event Taxonomy",
+  "description": "How to set up Amplitude for D2C ecommerce \u2014 events taxonomy, conversion funnels, retention cohorts, and A/B testing. Practical guide from an Amplitude implementation partner.",
+  "author": {
+    "@type": "Person",
+    "name": "Gregor Spielmann",
+    "url": "https://adasight.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Adasight",
+    "url": "https://adasight.com"
+  },
+  "datePublished": "March 2026",
+  "url": "https://growthanalyticsengine.com/guides/amplitude-analytics-d2c-ecommerce/"
+}
+  </script>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Growth Analytics <span>Engine</span></a>
+      <ul class="nav-links">
+        <li><a href="/tools/">Free Tools</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="https://adasight.com" target="_blank" rel="noopener">Adasight ↗</a></li>
+      </ul>
+      <a href="/tools/analytics-maturity/" class="btn nav-cta">Free Assessment →</a>
+    </div>
+  </nav>
+
+  <main class="guide-page">
+    <div class="guide-meta">
+      <span class="tag">Amplitude</span>
+      <span class="author">By Gregor Spielmann, Adasight</span>
+      <time>March 2026</time>
+    </div>
+
+    <h1>Amplitude Analytics for D2C Ecommerce: Setup Guide & Event Taxonomy</h1>
+
+    <p style="font-size:1.05rem; color:var(--color-muted); margin:20px 0 36px; line-height:1.7;">Amplitude is the right tool for many D2C ecommerce teams — but only if it's set up correctly. Most implementations we see at Adasight have one of three problems: inconsistent event naming, missing key funnel events, or no cohort strategy. This guide walks through a practical Amplitude setup for D2C ecommerce, with a recommended event taxonomy, the most important analyses to build first, and how to connect it to your A/B testing workflow.</p>
+
+    <div class="guide-content">
+
+      <div class="guide-tool-cta">
+        <p>🧮 <strong>Use the free tool:</strong> Analytics Maturity Assessment — no signup required</p>
+        <a href="/tools/analytics-maturity/" class="btn btn-accent" style="white-space:nowrap;">Open tool →</a>
+      </div>
+
+      <h2>Why most Amplitude implementations underdeliver</h2>
+      <p>The problem isn't usually Amplitude — it's the event taxonomy. When events are tracked inconsistently (sometimes 'add_to_cart', sometimes 'AddToCart', sometimes 'cart_add'), cohort analysis becomes unreliable and funnel reports show gaps that don't match reality. Before anything else, a D2C ecommerce team needs a clean, agreed-upon event naming convention and a tracking plan that maps each business question to the event that answers it.</p>
+      <h2>Recommended D2C event taxonomy</h2>
+      <p>Core ecommerce events to track: Page Viewed (with page_type property: home, pdp, plp, checkout, account), Product Viewed, Product Added to Cart, Checkout Started, Checkout Step Completed (with step_name property), Order Completed (with revenue, product_count, first_order properties), Order Returned, Account Created, and Email Subscribed. Properties that should be consistent across events: user_id, anonymous_id, session_id, device_type, utm_source/medium/campaign.</p>
+      <h2>The five analyses every D2C team should build first</h2>
+      <p>1. Purchase funnel: from landing page to order completed, broken down by traffic source. 2. First-order conversion by acquisition channel: paid vs. organic vs. email. 3. 30/60/90-day retention by cohort: what % of first-time buyers make a second purchase within 30, 60, and 90 days. 4. Product page conversion rate by product category: which categories have the biggest gap between views and add-to-cart. 5. Cart abandonment by checkout step: where in the checkout flow do users drop off.</p>
+      <h2>Connecting Amplitude to your A/B testing workflow</h2>
+      <p>Amplitude's built-in experiment feature (Amplitude Experiment) is a solid choice for product-side tests. For marketing-side tests, you'll need to pass variant data as user properties so you can segment analysis in Amplitude. The critical thing is to log an Experiment Viewed event with properties experiment_id and variant_id at the moment of exposure — not at the moment of assignment. This ensures your analysis only includes users who actually saw the experience.</p>
+
+      <h2>Amplitude D2C setup checklist</h2>
+      <ul class="checklist" style="margin:0 0 1rem 0.5rem;">
+          <li>Event naming convention is documented and enforced (e.g. snake_case, verb_noun)</li>
+          <li>All core funnel events are tracked: view → add to cart → checkout → purchase</li>
+          <li>Order Completed event includes revenue, order_id, and is_first_order</li>
+          <li>User identity is resolved: anonymous users are identified on account creation</li>
+          <li>UTM parameters are captured and available as event properties</li>
+          <li>Purchase funnel chart is built and reviewed weekly</li>
+          <li>30-day repeat purchase cohort is set up</li>
+          <li>Data quality: no duplicate Order Completed events</li>
+      </ul>
+    </div>
+
+    <div class="cta-block">
+      <h3>Need expert help applying this?</h3>
+      <p>Adasight works with scaling D2C and SaaS companies to build the analytics foundations and experimentation programs that make this work in practice.</p>
+      <a href="https://adasight.com" target="_blank" rel="noopener">Talk to Adasight →</a>
+    </div>
+
+      <div class="faq-block" style="margin-top:48px; padding-top:48px; border-top:1px solid var(--color-border);">
+        <h2>Frequently asked questions</h2>
+        
+        <div class="faq-item">
+          <h4>Should D2C ecommerce teams use Amplitude or Google Analytics 4?</h4>
+          <p>GA4 is better for marketing attribution and ad platform integration. Amplitude is better for product analytics, funnel analysis, cohort retention, and A/B testing. Most mature D2C teams use both: GA4 for paid media attribution and Amplitude for product and retention analytics. The choice depends on your primary analytical questions — if they're about user behavior in the product, Amplitude wins.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What is the best event taxonomy for Amplitude ecommerce?</h4>
+          <p>Use snake_case event names with a verb_noun convention: product_viewed, cart_updated, checkout_started, order_completed. Keep event names stable — changing them breaks historical comparisons. Use event properties for variations (e.g. category='footwear' rather than separate footwear_product_viewed events).</p>
+        </div>
+        <div class="faq-item">
+          <h4>How does Amplitude handle anonymous user tracking?</h4>
+          <p>Amplitude assigns an anonymous device ID to each new user. When a user creates an account or logs in, you call identify() to link the anonymous ID to your user ID. Amplitude then merges the pre-identification events with the identified user profile, allowing you to analyze full pre/post signup journeys.</p>
+        </div>
+      </div>
+
+    <div style="margin-top:64px; padding-top:48px; border-top:1px solid var(--color-border);">
+      <h2 style="margin-bottom:24px;">Related guides</h2>
+      <div class="card-grid card-grid-2">
+        
+          <a href="/guides/ab-testing-maturity-framework/" style="text-decoration:none; color:inherit;">
+            <div class="card">
+              <span class="tag">Experimentation</span>
+              <h3 style="font-size:1rem; margin-top:8px;">A/B Testing Maturity Framework: 5 Stages to Systematic Experimentation</h3>
+              <p style="font-size:0.85rem;">Most companies think they have an experimentation program. What they have is a collection of A/B tests with inconsistent...</p>
+              <span style="font-size:0.85rem; color:var(--color-accent); font-weight:600;">Read guide →</span>
+            </div>
+          </a>
+          <a href="/guides/analytics-maturity-model/" style="text-decoration:none; color:inherit;">
+            <div class="card">
+              <span class="tag">Analytics</span>
+              <h3 style="font-size:1rem; margin-top:8px;">The Analytics Maturity Model: A Plain-English Guide to the 5 Stages</h3>
+              <p style="font-size:0.85rem;">Analytics maturity is the degree to which an organization systematically collects, governs, and acts on data. It's not a...</p>
+              <span style="font-size:0.85rem; color:var(--color-accent); font-weight:600;">Read guide →</span>
+            </div>
+          </a>
+      </div>
+    </div>
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Growth Analytics <span>Engine</span></div>
+        <div class="footer-note" style="margin-top:4px;">A free resource by <a href="https://adasight.com" target="_blank">Adasight</a></div>
+      </div>
+      <div style="display:flex; gap:24px; flex-wrap:wrap;">
+        <a href="/tools/" style="font-size:0.85rem; color:var(--color-muted);">Tools</a>
+        <a href="/guides/" style="font-size:0.85rem; color:var(--color-muted);">All Guides</a>
+        <a href="https://adasight.com" style="font-size:0.85rem; color:var(--color-muted);" target="_blank">Adasight.com ↗</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

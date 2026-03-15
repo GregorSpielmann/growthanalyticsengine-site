@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A/B Test Sample Size Calculator — Growth Analytics Engine</title>
+  <meta name="description" content="Free A/B test sample size calculator. Enter your baseline conversion rate and minimum detectable effect to get required sample size and estimated test duration instantly.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I calculate A/B test sample size?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A/B test sample size depends on four inputs: your baseline conversion rate, minimum detectable effect (MDE), desired statistical power (typically 80%), and significance level (typically 5%). The formula uses the normal approximation to the binomial distribution. Most practitioners use an online calculator like this one rather than calculating by hand."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is minimum detectable effect (MDE) in A/B testing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The minimum detectable effect (MDE) is the smallest change in conversion rate you want to be able to reliably detect. A smaller MDE requires a larger sample size. For example, if your baseline is 3% and you want to detect a 10% relative lift (to 3.3%), your MDE is 0.3 percentage points. Choosing your MDE based on what change would be commercially meaningful — not what's statistically convenient — leads to better-designed experiments."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What statistical power should I use for A/B tests?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "80% statistical power is the industry standard for A/B tests. This means your test has an 80% chance of detecting a true effect of your specified MDE. Using 90% power increases the required sample size significantly but reduces false negatives. For high-stakes decisions, 90% power is worth the larger sample."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What significance level should I use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "95% confidence (alpha = 5%) is the standard for most A/B tests. This means there's a 5% chance of a false positive — seeing a result that isn't real. Some organizations use 90% confidence for low-stakes tests and 99% for critical decisions like pricing changes."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Growth Analytics <span>Engine</span></a>
+      <ul class="nav-links">
+        <li><a href="/tools/">Free Tools</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="https://adasight.com" target="_blank" rel="noopener">Adasight ↗</a></li>
+      </ul>
+      <a href="/tools/analytics-maturity/" class="btn nav-cta">Maturity Assessment →</a>
+    </div>
+  </nav>
+
+  <main class="tool-page">
+    <div class="tool-header">
+      <span class="section-label">Free Calculator · Instant Results</span>
+      <h1>A/B Test Sample Size Calculator</h1>
+      <p>How many users do you need before your experiment is statistically valid? Enter your parameters and get a result instantly — no signup, no email.</p>
+    </div>
+
+    <!-- Calculator -->
+    <div style="background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-lg); padding:32px; margin-bottom:24px;">
+
+      <div class="form-group">
+        <label for="baseline">Baseline conversion rate (%)</label>
+        <input type="number" id="baseline" value="3" min="0.1" max="99" step="0.1" oninput="calculate()">
+        <div class="hint">Your current conversion rate for the metric you're testing (e.g. 3% signup rate)</div>
+      </div>
+
+      <div class="form-group">
+        <label>Minimum Detectable Effect (MDE)</label>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div>
+            <select id="mde-type" onchange="calculate()" style="margin-bottom:8px;">
+              <option value="relative">Relative lift (%)</option>
+              <option value="absolute">Absolute change (pp)</option>
+            </select>
+          </div>
+          <div>
+            <input type="number" id="mde" value="10" min="0.1" step="0.1" oninput="calculate()">
+          </div>
+        </div>
+        <div class="hint" id="mde-hint">10% relative lift = detecting a change from 3.0% to 3.3%</div>
+      </div>
+
+      <div class="form-group">
+        <label>Statistical power: <strong id="power-label">80%</strong></label>
+        <input type="range" id="power" min="70" max="95" step="5" value="80" oninput="calculate(); document.getElementById('power-label').textContent=this.value+'%'">
+        <div class="hint">Probability of detecting a real effect. 80% is the industry standard.</div>
+      </div>
+
+      <div class="form-group">
+        <label>Significance level (α): <strong id="alpha-label">5%</strong></label>
+        <input type="range" id="alpha" min="1" max="10" step="1" value="5" oninput="calculate(); document.getElementById('alpha-label').textContent=this.value+'%'">
+        <div class="hint">Acceptable false positive rate. 5% (95% confidence) is the industry standard.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="daily-users">Daily users exposed to the test (optional)</label>
+        <input type="number" id="daily-users" value="1000" min="1" oninput="calculate()">
+        <div class="hint">Used to estimate test duration. Leave at 1,000 if you're not sure.</div>
+      </div>
+
+      <div class="form-group">
+        <label>Test type</label>
+        <select id="test-type" onchange="calculate()">
+          <option value="two-tailed">Two-tailed (detect increase or decrease)</option>
+          <option value="one-tailed">One-tailed (detect increase only)</option>
+        </select>
+        <div class="hint">Use two-tailed for most tests. One-tailed gives smaller sample sizes but is only appropriate when you're confident the effect can only go in one direction.</div>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div id="results-container">
+      <div class="result-box">
+        <div class="result-grid">
+          <div class="result-item">
+            <h3>Per variant</h3>
+            <div class="val" id="res-per-variant">—</div>
+            <div class="sub">users needed</div>
+          </div>
+          <div class="result-item">
+            <h3>Total users</h3>
+            <div class="val" id="res-total">—</div>
+            <div class="sub">across both variants</div>
+          </div>
+          <div class="result-item">
+            <h3>Test duration</h3>
+            <div class="val" id="res-duration">—</div>
+            <div class="sub" id="res-duration-sub">estimated days</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interpretation -->
+    <div id="interpretation" class="card" style="margin-top:16px;">
+      <h3 style="margin-bottom:12px;">How to read this</h3>
+      <div id="interp-text" style="color:var(--color-muted); font-size:0.9rem;"></div>
+    </div>
+
+    <!-- Common scenarios -->
+    <div class="card" style="margin-top:16px; background:var(--color-bg);">
+      <h3 style="margin-bottom:16px;">Common scenarios</h3>
+      <div style="display:grid; gap:10px;">
+        <button class="option-btn" onclick="loadScenario(3, 10, 80, 5)">
+          <strong>Standard ecommerce test</strong> — 3% baseline, 10% relative MDE
+        </button>
+        <button class="option-btn" onclick="loadScenario(2, 15, 80, 5)">
+          <strong>Low-traffic SaaS signup</strong> — 2% baseline, 15% relative MDE
+        </button>
+        <button class="option-btn" onclick="loadScenario(15, 5, 90, 5)">
+          <strong>High-traffic conversion test</strong> — 15% baseline, 5% relative MDE, 90% power
+        </button>
+        <button class="option-btn" onclick="loadScenario(50, 5, 80, 5)">
+          <strong>Email open rate</strong> — 50% baseline, 5% relative MDE
+        </button>
+      </div>
+    </div>
+
+    <!-- Common mistakes -->
+    <div class="card" style="margin-top:16px;">
+      <h3 style="margin-bottom:12px;">The 3 most common A/B testing mistakes</h3>
+      <ol style="margin:0 0 0 1.2rem; color:var(--color-muted); font-size:0.9rem;">
+        <li style="margin-bottom:12px;"><strong>Peeking:</strong> Stopping the test early when results look good. This inflates your false positive rate dramatically. Always run to your pre-calculated sample size.</li>
+        <li style="margin-bottom:12px;"><strong>Setting MDE based on what's detectable, not what's meaningful:</strong> A 1% relative lift might be detectable with a huge sample — but is it worth shipping? Set your MDE based on commercial significance first.</li>
+        <li style="margin-bottom:0;"><strong>Ignoring seasonality:</strong> Always run tests for a full week (minimum) to account for day-of-week effects, even if you reach sample size sooner.</li>
+      </ol>
+    </div>
+
+    <div class="cta-block">
+      <h3>Running experiments at scale?</h3>
+      <p>Adasight helps scaling D2C and SaaS teams build systematic experimentation programs — from hypothesis to velocity to statistical governance.</p>
+      <a href="https://adasight.com" target="_blank" rel="noopener">Talk to Adasight →</a>
+    </div>
+
+    <!-- FAQ for SEO -->
+    <div class="faq-block" style="margin-top:64px; padding-top:48px; border-top:1px solid var(--color-border);">
+      <h2>A/B Testing FAQ</h2>
+
+      <div class="faq-item">
+        <h4>How do I calculate A/B test sample size?</h4>
+        <p>Sample size depends on: baseline conversion rate, minimum detectable effect (MDE), statistical power (typically 80%), and significance level (typically 5%). The formula uses the normal approximation to the binomial distribution. This calculator handles the math automatically.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>What is minimum detectable effect (MDE) in A/B testing?</h4>
+        <p>The MDE is the smallest change in conversion rate you want to be able to detect reliably. Choose your MDE based on what change would be commercially meaningful — not what's convenient. A 10% relative lift on a 3% baseline means you're looking for a change from 3.0% to 3.3%.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>What statistical power should I use?</h4>
+        <p>80% is the industry standard. This means an 80% chance of detecting a true effect of your MDE size. For high-stakes decisions, use 90% — it requires a larger sample but reduces missed effects.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>How long should an A/B test run?</h4>
+        <p>Always run for at least 7 days regardless of when you hit sample size, to control for day-of-week effects. For most consumer products, 2–4 weeks is a healthy experiment window. Longer is fine; stopping early is not.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Can I run more than two variants at once?</h4>
+        <p>Yes — multivariate and A/B/n tests are valid, but they multiply your sample size requirement. For an A/B/C test, you need the per-variant sample size multiplied by 3. Keep variant count low unless you have high traffic.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Growth Analytics <span>Engine</span></div>
+        <div class="footer-note" style="margin-top:4px;">A free resource by <a href="https://adasight.com" target="_blank">Adasight</a></div>
+      </div>
+      <div style="display:flex; gap:24px; flex-wrap:wrap;">
+        <a href="/tools/" style="font-size:0.85rem; color:var(--color-muted);">All Tools</a>
+        <a href="/guides/" style="font-size:0.85rem; color:var(--color-muted);">Guides</a>
+        <a href="https://adasight.com" style="font-size:0.85rem; color:var(--color-muted);" target="_blank">Adasight.com ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  // Normal distribution inverse CDF (probit) approximation
+  function probitApprox(p) {
+    // Rational approximation (Abramowitz and Stegun)
+    if (p <= 0 || p >= 1) return 0;
+    const q = p < 0.5 ? p : 1 - p;
+    const t = Math.sqrt(-2 * Math.log(q));
+    const c = [2.515517, 0.802853, 0.010328];
+    const d = [1.432788, 0.189269, 0.001308];
+    let num = c[0] + t * (c[1] + t * c[2]);
+    let den = 1 + t * (d[0] + t * (d[1] + t * d[2]));
+    let z = t - num / den;
+    return p < 0.5 ? -z : z;
+  }
+
+  function calculateSampleSize(baseline, mde, power, alpha, twoTailed) {
+    const p1 = baseline / 100;
+    const p2 = p1 + (mde / 100);
+    if (p2 >= 1 || p2 <= 0 || p1 <= 0 || p1 >= 1) return null;
+
+    const zAlpha = probitApprox(twoTailed ? 1 - alpha / 2 : 1 - alpha);
+    const zBeta = probitApprox(power);
+
+    const pooled = (p1 + p2) / 2;
+    const n = Math.pow(zAlpha * Math.sqrt(2 * pooled * (1 - pooled)) + zBeta * Math.sqrt(p1 * (1 - p1) + p2 * (1 - p2)), 2) / Math.pow(p2 - p1, 2);
+
+    return Math.ceil(n);
+  }
+
+  function calculate() {
+    const baseline = parseFloat(document.getElementById('baseline').value) || 0;
+    const mdeInput = parseFloat(document.getElementById('mde').value) || 0;
+    const mdeType = document.getElementById('mde-type').value;
+    const power = parseFloat(document.getElementById('power').value) / 100;
+    const alpha = parseFloat(document.getElementById('alpha').value) / 100;
+    const dailyUsers = parseFloat(document.getElementById('daily-users').value) || 1000;
+    const twoTailed = document.getElementById('test-type').value === 'two-tailed';
+
+    // Convert MDE to absolute pp
+    let mdePP;
+    if (mdeType === 'relative') {
+      mdePP = baseline * (mdeInput / 100);
+      document.getElementById('mde-hint').textContent =
+        `${mdeInput}% relative lift = detecting a change from ${baseline.toFixed(1)}% to ${(baseline + mdePP).toFixed(2)}%`;
+    } else {
+      mdePP = mdeInput;
+      document.getElementById('mde-hint').textContent =
+        `Detecting a change from ${baseline.toFixed(1)}% to ${(baseline + mdePP).toFixed(2)}%`;
+    }
+
+    const n = calculateSampleSize(baseline, mdePP, power, alpha, twoTailed);
+
+    if (!n || !isFinite(n) || n <= 0) {
+      document.getElementById('res-per-variant').textContent = '—';
+      document.getElementById('res-total').textContent = '—';
+      document.getElementById('res-duration').textContent = '—';
+      document.getElementById('interp-text').textContent = 'Please check your inputs.';
+      return;
+    }
+
+    const total = n * 2;
+    const days = Math.ceil(total / dailyUsers);
+
+    document.getElementById('res-per-variant').textContent = n.toLocaleString();
+    document.getElementById('res-total').textContent = total.toLocaleString();
+
+    if (days < 365) {
+      document.getElementById('res-duration').textContent = days;
+      document.getElementById('res-duration-sub').textContent = days === 1 ? 'day' : 'days';
+    } else {
+      document.getElementById('res-duration').textContent = '>1yr';
+      document.getElementById('res-duration-sub').textContent = 'consider raising MDE';
+    }
+
+    const absMDE = mdePP.toFixed(2);
+    const relativeMDE = ((mdePP / baseline) * 100).toFixed(1);
+    const confidenceLevel = ((1 - alpha) * 100).toFixed(0);
+    const powerPct = (power * 100).toFixed(0);
+
+    document.getElementById('interp-text').innerHTML = `
+      To detect a <strong>${absMDE}pp absolute change</strong> (${relativeMDE}% relative lift) from a ${baseline}% baseline,
+      with ${powerPct}% power and ${confidenceLevel}% confidence, you need
+      <strong>${n.toLocaleString()} users per variant</strong>.
+      At ${dailyUsers.toLocaleString()} daily users split 50/50 across variants, your test will be ready in approximately
+      <strong>${days} ${days === 1 ? 'day' : 'days'}</strong>.
+      ${days < 7 ? '<br><br>⚠️ Even though sample size is reached quickly, always run for at least 7 days to account for day-of-week effects.' : ''}
+      ${days > 90 ? '<br><br>💡 This test will take a while. Consider increasing your MDE threshold or increasing the share of traffic exposed to the test.' : ''}
+    `;
+  }
+
+  function loadScenario(baseline, mde, power, alpha) {
+    document.getElementById('baseline').value = baseline;
+    document.getElementById('mde').value = mde;
+    document.getElementById('mde-type').value = 'relative';
+    document.getElementById('power').value = power;
+    document.getElementById('alpha').value = alpha;
+    document.getElementById('power-label').textContent = power + '%';
+    document.getElementById('alpha-label').textContent = alpha + '%';
+    calculate();
+  }
+
+  // Initial calculation
+  calculate();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experimentation ROI Calculator — Growth Analytics Engine</title>
+  <meta name="description" content="Estimate the annual revenue impact of your A/B testing and experimentation program. Free calculator — enter your experiment velocity, win rate, and average uplift.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the ROI of running A/B tests?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The ROI of A/B testing depends on experiment velocity, win rate, average uplift per winning test, and revenue per user. A mature experimentation program running 5-10 tests per month with a 25% win rate and 5% average uplift on a $2M/month revenue base typically generates $1–3M in annual incremental revenue attributable to experimentation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a good win rate for A/B tests?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Industry benchmarks suggest 20–35% of well-designed A/B tests produce statistically significant positive results. A win rate below 20% often indicates hypothesis quality issues; above 40% may indicate peeking or underpowered tests that inflate false positives."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many A/B tests should a company run per month?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Velocity benchmarks by stage: early-stage (1–2 tests/month), growth-stage (5–10/month), mature experimentation programs (20+/month). The limiting factor is usually traffic, followed by analyst capacity and hypothesis quality."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Growth Analytics <span>Engine</span></a>
+      <ul class="nav-links">
+        <li><a href="/tools/">Free Tools</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="https://adasight.com" target="_blank" rel="noopener">Adasight ↗</a></li>
+      </ul>
+      <a href="/tools/analytics-maturity/" class="btn nav-cta">Maturity Assessment →</a>
+    </div>
+  </nav>
+
+  <main class="tool-page">
+    <div class="tool-header">
+      <span class="section-label">Free Calculator · Instant Results</span>
+      <h1>Experimentation ROI Calculator</h1>
+      <p>How much revenue is your experimentation program generating — or leaving on the table? Enter your experiment velocity, win rate, and average uplift to find out.</p>
+    </div>
+
+    <div style="background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-lg); padding:32px; margin-bottom:24px;">
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px;">
+        <div class="form-group" style="margin-bottom:0;">
+          <label for="monthly-revenue">Monthly revenue ($)</label>
+          <input type="number" id="monthly-revenue" value="500000" min="1000" step="10000" oninput="calculate()">
+          <div class="hint">Total revenue in the area being optimized (e.g. checkout, onboarding)</div>
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label for="tests-per-month">Tests run per month</label>
+          <input type="number" id="tests-per-month" value="4" min="1" max="200" step="1" oninput="calculate()">
+          <div class="hint">Number of A/B tests completed (reached significance) per month</div>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px;">
+        <div class="form-group" style="margin-bottom:0;">
+          <label>Win rate: <strong id="win-rate-label">25%</strong></label>
+          <input type="range" id="win-rate" min="5" max="60" step="5" value="25" oninput="calculate(); document.getElementById('win-rate-label').textContent=this.value+'%'">
+          <div class="hint">% of tests that produce a positive, statistically significant result</div>
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label>Avg uplift per winning test: <strong id="uplift-label">5%</strong></label>
+          <input type="range" id="avg-uplift" min="1" max="30" step="1" value="5" oninput="calculate(); document.getElementById('uplift-label').textContent=this.value+'%'">
+          <div class="hint">Average relative improvement in the metric for tests that win</div>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+        <div class="form-group" style="margin-bottom:0;">
+          <label>Compounding effect: <strong id="compound-label">80%</strong></label>
+          <input type="range" id="compound-factor" min="50" max="100" step="5" value="80" oninput="calculate(); document.getElementById('compound-label').textContent=this.value+'%'">
+          <div class="hint">Not all wins compound — some are on the same metrics. This discounts double-counting.</div>
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label>Attribution confidence: <strong id="attrib-label">70%</strong></label>
+          <input type="range" id="attribution" min="30" max="100" step="5" value="70" oninput="calculate(); document.getElementById('attrib-label').textContent=this.value+'%'">
+          <div class="hint">How much of the uplift is actually delivered in production (vs. test conditions)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Results -->
+    <div class="result-box">
+      <div style="margin-bottom:8px; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; opacity:0.7;">Estimated annual revenue from experimentation</div>
+      <div style="font-size:clamp(2.5rem,7vw,4rem); font-weight:800; letter-spacing:-0.04em;" id="res-annual">—</div>
+      <div style="opacity:0.7; font-size:0.9rem;" id="res-annual-sub"></div>
+
+      <div class="result-grid" style="margin-top:28px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.2);">
+        <div class="result-item">
+          <h3>Winning tests / yr</h3>
+          <div class="val" id="res-winners">—</div>
+          <div class="sub">shipped improvements</div>
+        </div>
+        <div class="result-item">
+          <h3>Revenue / winning test</h3>
+          <div class="val" id="res-per-win">—</div>
+          <div class="sub">avg incremental value</div>
+        </div>
+        <div class="result-item">
+          <h3>Monthly impact</h3>
+          <div class="val" id="res-monthly">—</div>
+          <div class="sub">incremental revenue</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benchmarks -->
+    <div class="card" style="margin-top:16px;">
+      <h3 style="margin-bottom:16px;">Industry benchmarks</h3>
+      <div style="display:grid; gap:12px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:12px; background:var(--color-bg); border-radius:var(--radius);">
+          <div>
+            <div style="font-size:0.875rem; font-weight:600;">Early-stage program</div>
+            <div style="font-size:0.8rem; color:var(--color-muted);">1–3 tests/month · 20% win rate</div>
+          </div>
+          <button class="btn btn-secondary" style="padding:6px 14px; font-size:0.8rem;" onclick="loadBenchmark(0)">Load</button>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:12px; background:var(--color-bg); border-radius:var(--radius);">
+          <div>
+            <div style="font-size:0.875rem; font-weight:600;">Growth-stage program</div>
+            <div style="font-size:0.8rem; color:var(--color-muted);">4–8 tests/month · 25% win rate</div>
+          </div>
+          <button class="btn btn-secondary" style="padding:6px 14px; font-size:0.8rem;" onclick="loadBenchmark(1)">Load</button>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:12px; background:var(--color-bg); border-radius:var(--radius);">
+          <div>
+            <div style="font-size:0.875rem; font-weight:600;">Mature experimentation program</div>
+            <div style="font-size:0.8rem; color:var(--color-muted);">15+ tests/month · 30% win rate</div>
+          </div>
+          <button class="btn btn-secondary" style="padding:6px 14px; font-size:0.8rem;" onclick="loadBenchmark(2)">Load</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- How this is calculated -->
+    <div class="card" style="margin-top:16px; background:var(--color-bg);">
+      <h3 style="margin-bottom:12px;">How this is calculated</h3>
+      <p style="font-size:0.875rem; color:var(--color-muted); margin-bottom:8px;">
+        <strong>Winning tests per year</strong> = Monthly tests × Win rate × 12
+      </p>
+      <p style="font-size:0.875rem; color:var(--color-muted); margin-bottom:8px;">
+        <strong>Raw annual uplift</strong> = Monthly revenue × Avg uplift × Winning tests × 12
+      </p>
+      <p style="font-size:0.875rem; color:var(--color-muted); margin-bottom:0;">
+        <strong>Adjusted estimate</strong> = Raw uplift × Compounding factor × Attribution confidence
+      </p>
+      <p style="font-size:0.8rem; color:var(--color-muted); margin-top:12px; padding-top:12px; border-top:1px solid var(--color-border); margin-bottom:0;">
+        This is a directional estimate, not an accounting figure. Real experimentation ROI compounds over time — each winning test raises the baseline, making future tests run on a higher starting point. The model intentionally applies two discount factors (compounding and attribution) to avoid overstatement.
+      </p>
+    </div>
+
+    <div class="cta-block">
+      <h3>Want to increase your experimentation velocity?</h3>
+      <p>Adasight builds systematic experimentation programs for scaling D2C and SaaS companies — from hypothesis quality to statistical governance.</p>
+      <a href="https://adasight.com" target="_blank" rel="noopener">Talk to Adasight →</a>
+    </div>
+
+    <div class="faq-block" style="margin-top:64px; padding-top:48px; border-top:1px solid var(--color-border);">
+      <h2>Experimentation ROI FAQ</h2>
+      <div class="faq-item">
+        <h4>What is a good win rate for A/B tests?</h4>
+        <p>Industry benchmarks suggest 20–35% of well-designed A/B tests produce statistically significant positive results. Win rates below 20% often indicate hypothesis quality issues. Above 40% may signal peeking or underpowered tests — not necessarily a good thing.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How many A/B tests should we run per month?</h4>
+        <p>Velocity benchmarks by stage: early-stage (1–3/month), growth-stage (4–8/month), mature programs (15+/month). The limiting factor is usually traffic volume, followed by analyst capacity and hypothesis pipeline quality.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What's a realistic average uplift per winning test?</h4>
+        <p>Most winning tests produce 3–8% relative improvement. Larger uplifts (10%+) are possible early in a program when there's a lot of low-hanging fruit. As a program matures, winning tests tend to be smaller but more numerous and reliable.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Growth Analytics <span>Engine</span></div>
+        <div class="footer-note" style="margin-top:4px;">A free resource by <a href="https://adasight.com" target="_blank">Adasight</a></div>
+      </div>
+      <div style="display:flex; gap:24px; flex-wrap:wrap;">
+        <a href="/tools/" style="font-size:0.85rem; color:var(--color-muted);">All Tools</a>
+        <a href="/guides/" style="font-size:0.85rem; color:var(--color-muted);">Guides</a>
+        <a href="https://adasight.com" style="font-size:0.85rem; color:var(--color-muted);" target="_blank">Adasight.com ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  function formatCurrency(n) {
+    if (n >= 1000000) return '$' + (n / 1000000).toFixed(2) + 'M';
+    if (n >= 1000) return '$' + (n / 1000).toFixed(1) + 'K';
+    return '$' + Math.round(n).toLocaleString();
+  }
+
+  function calculate() {
+    const monthlyRevenue = parseFloat(document.getElementById('monthly-revenue').value) || 0;
+    const testsPerMonth = parseFloat(document.getElementById('tests-per-month').value) || 0;
+    const winRate = parseFloat(document.getElementById('win-rate').value) / 100;
+    const avgUplift = parseFloat(document.getElementById('avg-uplift').value) / 100;
+    const compoundFactor = parseFloat(document.getElementById('compound-factor').value) / 100;
+    const attribution = parseFloat(document.getElementById('attribution').value) / 100;
+
+    const winnersPerMonth = testsPerMonth * winRate;
+    const winnersPerYear = winnersPerMonth * 12;
+    const rawUpliftPerWin = monthlyRevenue * avgUplift * 12;
+    const rawAnnual = rawUpliftPerWin * winnersPerYear;
+    const adjustedAnnual = rawAnnual * compoundFactor * attribution;
+    const monthlyImpact = adjustedAnnual / 12;
+    const perWinValue = winnersPerYear > 0 ? adjustedAnnual / winnersPerYear : 0;
+
+    document.getElementById('res-annual').textContent = formatCurrency(adjustedAnnual);
+    document.getElementById('res-annual-sub').textContent = `${Math.round(winnersPerYear)} winning tests per year, ${formatCurrency(monthlyRevenue * 12)} annual revenue base`;
+    document.getElementById('res-winners').textContent = Math.round(winnersPerYear);
+    document.getElementById('res-per-win').textContent = formatCurrency(perWinValue);
+    document.getElementById('res-monthly').textContent = formatCurrency(monthlyImpact);
+  }
+
+  const BENCHMARKS = [
+    { revenue: 200000, tests: 2, winRate: 20, uplift: 6, compound: 75, attrib: 65 },
+    { revenue: 500000, tests: 5, winRate: 25, uplift: 5, compound: 80, attrib: 70 },
+    { revenue: 2000000, tests: 15, winRate: 30, uplift: 4, compound: 85, attrib: 75 },
+  ];
+
+  function loadBenchmark(i) {
+    const b = BENCHMARKS[i];
+    document.getElementById('monthly-revenue').value = b.revenue;
+    document.getElementById('tests-per-month').value = b.tests;
+    document.getElementById('win-rate').value = b.winRate;
+    document.getElementById('avg-uplift').value = b.uplift;
+    document.getElementById('compound-factor').value = b.compound;
+    document.getElementById('attribution').value = b.attrib;
+    document.getElementById('win-rate-label').textContent = b.winRate + '%';
+    document.getElementById('uplift-label').textContent = b.uplift + '%';
+    document.getElementById('compound-label').textContent = b.compound + '%';
+    document.getElementById('attrib-label').textContent = b.attrib + '%';
+    calculate();
+  }
+
+  calculate();
+  </script>
+
+</body>
+</html>

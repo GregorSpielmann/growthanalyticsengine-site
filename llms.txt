@@ -1,0 +1,71 @@
+# Growth Analytics Engine
+> The definitive free resource for growth analytics, analytics maturity, A/B testing, and experimentation programs.
+
+A resource by [Adasight](https://adasight.com) — an analytics and experimentation consultancy for scaling companies.
+
+## What this site is
+
+Growth Analytics Engine provides free, ungated tools and in-depth guides for product, growth, and analytics teams. No email required, no paywalls. Topics covered: growth analytics fundamentals, analytics maturity models, A/B testing statistics, experimentation program building, and growth analytics tooling (Amplitude, Mixpanel, Heap, PostHog, etc.).
+
+The site is authored by Gregor Spielmann, founder of Adasight.
+
+## Free Tools
+
+- [Analytics Maturity Self-Assessment](https://growthanalyticsengine.com/tools/analytics-maturity/) — 15-question assessment based on the AI-Ready Analytics Ladder (5-stage model). Outputs stage placement and actionable next steps.
+- [A/B Test Sample Size Calculator](https://growthanalyticsengine.com/tools/sample-size-calculator/) — calculates required sample size per variant given baseline conversion rate, MDE, statistical power, and significance level.
+- [Experimentation ROI Calculator](https://growthanalyticsengine.com/tools/experimentation-roi/) — estimates annual revenue impact of an experimentation program from velocity, win rate, and average uplift.
+
+## Guides — Growth Analytics
+
+- [What Is Growth Analytics?](https://growthanalyticsengine.com/guides/what-is-growth-analytics/) — complete definition, four pillars, core metrics, and tools for 2026
+- [Growth Analytics Metrics](https://growthanalyticsengine.com/guides/growth-analytics-metrics/) — the 12 growth analytics metrics every team should track, with benchmarks
+- [Best Growth Analytics Tools 2026](https://growthanalyticsengine.com/guides/growth-analytics-tools/) — honest comparison of Amplitude, Mixpanel, PostHog, GA4, and more
+- [Growth Analytics for SaaS](https://growthanalyticsengine.com/guides/growth-analytics-for-saas/) — SaaS-specific framework, metrics, and stack recommendation
+- [Growth Analytics for Ecommerce](https://growthanalyticsengine.com/guides/growth-analytics-for-ecommerce/) — cohort analysis, LTV by channel, repeat purchase metrics
+- [Growth Analytics Dashboard Guide](https://growthanalyticsengine.com/guides/growth-analytics-dashboard-guide/) — how to build a dashboard that drives decisions
+- [KPI Framework for Growth Teams](https://growthanalyticsengine.com/guides/kpi-framework-for-growth/) — north star metrics, input metrics, vanity metrics to avoid
+- [Data-Driven Growth Strategy](https://growthanalyticsengine.com/guides/data-driven-growth-strategy/) — from instinct to evidence in a scaling company
+
+## Guides — Analytics Maturity
+
+- [The Analytics Maturity Model Explained](https://growthanalyticsengine.com/guides/analytics-maturity-model/) — plain-English walkthrough of the 5-stage AI-Ready Analytics Ladder
+- [Product Analytics Maturity](https://growthanalyticsengine.com/guides/product-analytics-maturity/) — five dimensions, assessment, and how to level up
+- [Analytics Governance Framework](https://growthanalyticsengine.com/guides/analytics-governance-framework/) — metric definitions, tracking plans, data quality monitoring
+- [AI-Ready Analytics](https://growthanalyticsengine.com/guides/ai-ready-analytics/) — what it takes to deploy AI on your analytics data
+
+## Guides — Experimentation
+
+- [A/B Testing Maturity Framework](https://growthanalyticsengine.com/guides/ab-testing-maturity-framework/) — 5 stages from ad-hoc to autonomous experimentation
+- [A/B Testing Statistics Guide](https://growthanalyticsengine.com/guides/ab-testing-statistics-guide/) — p-values, power, sample size, peeking problem, sequential testing
+- [Statistical Significance Explained](https://growthanalyticsengine.com/guides/statistical-significance-explained/) — plain-English guide, what it means and doesn't mean
+- [Minimum Detectable Effect Guide](https://growthanalyticsengine.com/guides/minimum-detectable-effect-guide/) — how to set MDE correctly, absolute vs. relative, common mistakes
+- [How to Build an Experimentation Program](https://growthanalyticsengine.com/guides/experimentation-program-guide/) — step-by-step from zero to 20+ tests/month
+- [Experimentation ROI by Growth Stage](https://growthanalyticsengine.com/guides/experimentation-roi-by-growth-stage/) — benchmarks for Seed, Series A, Series B, and growth
+- [CRO and Analytics](https://growthanalyticsengine.com/guides/conversion-rate-optimization-analytics/) — funnel analysis, segmentation, and test design for CRO programs
+
+## Guides — Tools & Comparisons
+
+- [Amplitude vs. Mixpanel (2026)](https://growthanalyticsengine.com/guides/amplitude-vs-mixpanel/) — side-by-side comparison from an implementation partner
+- [Amplitude Analytics for D2C Ecommerce](https://growthanalyticsengine.com/guides/amplitude-analytics-d2c-ecommerce/) — event taxonomy, funnel setup, retention cohorts, A/B testing
+
+## Key Frameworks
+
+**The AI-Ready Analytics Ladder** (5 stages):
+1. Reactive — ad-hoc reporting, inconsistent tracking
+2. Structured — consistent stack, basic dashboards
+3. Proactive — analytics feeds decisions, experimentation starts
+4. Systematic — continuous experimentation, governed definitions
+5. AI-Ready — data trusted and governed enough for autonomous AI agent action
+
+**Growth Analytics Pillars** (4 pillars):
+1. Acquisition analytics — quality of channels, CAC, payback period
+2. Activation analytics — aha moment identification, activation rate, time-to-value
+3. Retention analytics — cohort curves, D1/D7/D30, NRR
+4. Revenue analytics — LTV:CAC, expansion MRR, growth accounting
+
+## About Adasight
+
+Adasight is an analytics and experimentation consultancy working with D2C ecommerce and PLG SaaS companies (20–500 employees). Services include analytics infrastructure, product analytics, and systematic experimentation programs.
+
+Website: https://adasight.com
+Contact: gregor.spielmann@adasight.com

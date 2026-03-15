@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics Maturity Self-Assessment — Growth Analytics Engine</title>
+  <meta name="description" content="Discover your organization's analytics maturity stage in 5 minutes. Based on the AI-Ready Analytics Ladder — a five-stage model for scaling companies.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is analytics maturity?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Analytics maturity describes how systematically an organization collects, governs, and acts on data. Organizations at low maturity stages use data reactively; those at high maturity stages run continuous experiments and can leverage AI agents on trusted data."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the 5 stages of the AI-Ready Analytics Ladder?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Stage 1: Reactive (ad-hoc reporting), Stage 2: Structured (consistent tracking), Stage 3: Proactive (experimentation begins), Stage 4: Systematic (continuous experimentation), Stage 5: AI-Ready (AI agents operating on trusted data)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does the analytics maturity assessment take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The assessment takes 5–10 minutes and covers 15 questions across five dimensions: data infrastructure, tracking quality, governance, experimentation, and AI readiness."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Growth Analytics <span>Engine</span></a>
+      <ul class="nav-links">
+        <li><a href="/tools/">Free Tools</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="https://adasight.com" target="_blank" rel="noopener">Adasight ↗</a></li>
+      </ul>
+      <a href="/tools/sample-size-calculator/" class="btn nav-cta">Sample Size Calculator →</a>
+    </div>
+  </nav>
+
+  <main class="tool-page">
+    <div class="tool-header">
+      <span class="section-label">Free Assessment · 5–10 minutes</span>
+      <h1>Analytics Maturity Self-Assessment</h1>
+      <p>15 questions across five dimensions. No email required. Based on the <strong>AI-Ready Analytics Ladder</strong> framework used by Adasight with scaling companies.</p>
+    </div>
+
+    <!-- Assessment UI -->
+    <div id="assessment-container">
+
+      <!-- Intro screen -->
+      <div id="screen-intro">
+        <div class="card" style="text-align:center; padding: 48px 32px;">
+          <div style="font-size:3rem; margin-bottom:20px;">📊</div>
+          <h2 style="margin-bottom:12px;">Where is your organization on the analytics maturity ladder?</h2>
+          <p style="color:var(--color-muted); margin-bottom:32px;">Answer 15 questions about how your organization currently handles data, tracking, governance, and experimentation. You'll get a stage result and a concrete set of next steps.</p>
+          <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; margin-bottom:36px;">
+            <div style="background:var(--color-bg); padding:16px; border-radius:8px;">
+              <div style="font-size:1.4rem; margin-bottom:4px;">⏱</div>
+              <div style="font-size:0.8rem; font-weight:600;">5–10 min</div>
+              <div style="font-size:0.75rem; color:var(--color-muted);">15 questions</div>
+            </div>
+            <div style="background:var(--color-bg); padding:16px; border-radius:8px;">
+              <div style="font-size:1.4rem; margin-bottom:4px;">🔒</div>
+              <div style="font-size:0.8rem; font-weight:600;">No signup</div>
+              <div style="font-size:0.75rem; color:var(--color-muted);">Totally free</div>
+            </div>
+            <div style="background:var(--color-bg); padding:16px; border-radius:8px;">
+              <div style="font-size:1.4rem; margin-bottom:4px;">📋</div>
+              <div style="font-size:0.8rem; font-weight:600;">Actionable</div>
+              <div style="font-size:0.75rem; color:var(--color-muted);">Specific next steps</div>
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="startAssessment()" style="font-size:1rem; padding:14px 32px;">Start the Assessment →</button>
+        </div>
+      </div>
+
+      <!-- Question screen -->
+      <div id="screen-questions" class="hidden">
+        <div class="step-indicator" id="step-indicator"></div>
+        <div id="progress-label" style="font-size:0.8rem; color:var(--color-muted); margin-bottom:20px;"></div>
+        <div id="question-area"></div>
+        <div style="display:flex; justify-content:space-between; margin-top:24px;">
+          <button class="btn btn-secondary" id="btn-back" onclick="goBack()">← Back</button>
+          <button class="btn btn-primary hidden" id="btn-next" onclick="goNext()">Next →</button>
+        </div>
+      </div>
+
+      <!-- Results screen -->
+      <div id="screen-results" class="hidden"></div>
+
+    </div>
+
+    <!-- Static FAQ for SEO -->
+    <div class="faq-block" style="margin-top:64px; padding-top:48px; border-top:1px solid var(--color-border);">
+      <h2>About the Analytics Maturity Framework</h2>
+
+      <div class="faq-item">
+        <h4>What is analytics maturity?</h4>
+        <p>Analytics maturity describes how systematically an organization collects, governs, and acts on data. Organizations at low maturity stages use data reactively; those at high maturity stages run continuous experiments and can leverage AI agents operating on trusted, governed data.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>What are the 5 stages of the AI-Ready Analytics Ladder?</h4>
+        <p><strong>Stage 1 — Reactive:</strong> Ad-hoc reporting, no shared definitions, data used to explain the past. <strong>Stage 2 — Structured:</strong> Consistent tracking, basic dashboards, reliable but reactive. <strong>Stage 3 — Proactive:</strong> Experimentation begins, but A/B tests are ad-hoc. <strong>Stage 4 — Systematic:</strong> Continuous experimentation, shared hypotheses, feedback loops. <strong>Stage 5 — AI-Ready:</strong> AI agents can act on trusted, real-time, governed data.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>What dimensions does this assessment cover?</h4>
+        <p>The assessment covers five dimensions: (1) Data infrastructure and tracking quality, (2) Data governance and definitions, (3) Reporting and dashboard maturity, (4) Experimentation capability, and (5) AI readiness. Each dimension contributes to your overall stage placement.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>What should I do after getting my score?</h4>
+        <p>The assessment provides stage-specific recommendations. Most organizations find the highest-leverage action is closing the gap between their current and next stage — not jumping to Stage 5 all at once. The recommendations focus on the single most important lever for your current stage.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Growth Analytics <span>Engine</span></div>
+        <div class="footer-note" style="margin-top:4px;">A free resource by <a href="https://adasight.com" target="_blank">Adasight</a></div>
+      </div>
+      <div style="display:flex; gap:24px; flex-wrap:wrap;">
+        <a href="/tools/" style="font-size:0.85rem; color:var(--color-muted);">All Tools</a>
+        <a href="/guides/" style="font-size:0.85rem; color:var(--color-muted);">Guides</a>
+        <a href="https://adasight.com" style="font-size:0.85rem; color:var(--color-muted);" target="_blank">Adasight.com ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  // ============================
+  // Analytics Maturity Assessment
+  // Based on the AI-Ready Analytics Ladder (Adasight, 2026)
+  // ============================
+
+  const QUESTIONS = [
+    // Dimension 1: Infrastructure & Tracking (Q1–Q3)
+    {
+      id: 1,
+      dimension: "Data Infrastructure",
+      text: "How would you describe your organization's primary analytics setup?",
+      options: [
+        { text: "We use spreadsheets and basic exports — no dedicated analytics tool", score: 1 },
+        { text: "We have an analytics tool (GA, Amplitude, Mixpanel, etc.) but tracking is inconsistent", score: 2 },
+        { text: "We have a defined analytics stack and most key events are tracked", score: 3 },
+        { text: "We have a data warehouse with clean, documented event data flowing in automatically", score: 4 },
+        { text: "We have real-time, governed data with automated quality checks and a semantic layer", score: 5 },
+      ]
+    },
+    {
+      id: 2,
+      dimension: "Data Infrastructure",
+      text: "When a product team wants to understand user behaviour on a new feature, how long does it typically take to get reliable data?",
+      options: [
+        { text: "Weeks or months — tracking needs to be set up from scratch", score: 1 },
+        { text: "Several days — we need to request tracking and wait for data to accumulate", score: 2 },
+        { text: "1–2 days — tracking is often already there, but quality varies", score: 3 },
+        { text: "Same day — we have standard event taxonomy and self-serve tooling", score: 4 },
+        { text: "Instantly — tracking is automated and data is available in real time", score: 5 },
+      ]
+    },
+    {
+      id: 3,
+      dimension: "Data Infrastructure",
+      text: "How is your customer data connected across systems (product analytics, CRM, marketing, support)?",
+      options: [
+        { text: "It isn't — each tool is a separate silo", score: 1 },
+        { text: "Partially — we manually export/import between some tools", score: 2 },
+        { text: "We use a CDP or basic integrations for some connections", score: 3 },
+        { text: "Most systems share a common user identifier and data flows consistently", score: 4 },
+        { text: "We have a unified customer data model across all touchpoints with automated governance", score: 5 },
+      ]
+    },
+
+    // Dimension 2: Governance & Definitions (Q4–Q6)
+    {
+      id: 4,
+      dimension: "Governance & Definitions",
+      text: "If three different people across product, marketing, and finance each ran a query for 'number of active users last month', how many different answers would they get?",
+      options: [
+        { text: "Three completely different answers — no shared definition exists", score: 1 },
+        { text: "Two or three — there's some debate but no single source of truth", score: 2 },
+        { text: "Probably two — there's a de-facto definition but it's not documented", score: 3 },
+        { text: "One — we have a documented definition that most teams use", score: 4 },
+        { text: "One — enforced via a governed semantic layer; it's impossible to get different answers", score: 5 },
+      ]
+    },
+    {
+      id: 5,
+      dimension: "Governance & Definitions",
+      text: "Do you have a data dictionary or tracking plan that is actively maintained?",
+      options: [
+        { text: "No — there's no documentation of what events mean or how metrics are calculated", score: 1 },
+        { text: "Partially — some things are documented but it's out of date", score: 2 },
+        { text: "Yes, but it's maintained inconsistently and not everyone uses it", score: 3 },
+        { text: "Yes — we have a living tracking plan that teams reference and update", score: 4 },
+        { text: "Yes — fully governed, versioned, and automatically validated against production data", score: 5 },
+      ]
+    },
+    {
+      id: 6,
+      dimension: "Governance & Definitions",
+      text: "How does your organization handle data quality issues (missing events, broken tracking, schema changes)?",
+      options: [
+        { text: "We find out when a report looks wrong — reactively and late", score: 1 },
+        { text: "We run occasional audits but issues are often undetected for weeks", score: 2 },
+        { text: "We have some monitoring but coverage is limited", score: 3 },
+        { text: "We have automated alerting for key metrics and tracking health", score: 4 },
+        { text: "We have end-to-end data quality monitoring with SLAs and automated remediation", score: 5 },
+      ]
+    },
+
+    // Dimension 3: Reporting & Insight (Q7–Q9)
+    {
+      id: 7,
+      dimension: "Reporting & Insight",
+      text: "How do most teams at your company access analytics data?",
+      options: [
+        { text: "Through the data team — all reports are built on request", score: 1 },
+        { text: "Via a few centrally-built dashboards — no self-service", score: 2 },
+        { text: "Self-service for some teams, but access to raw data requires the data team", score: 3 },
+        { text: "Most teams can build their own reports; the data team focuses on complex analysis", score: 4 },
+        { text: "Full self-service with a semantic layer — teams can query in plain language", score: 5 },
+      ]
+    },
+    {
+      id: 8,
+      dimension: "Reporting & Insight",
+      text: "How would you describe the primary use of analytics at your company today?",
+      options: [
+        { text: "Explaining what happened after the fact", score: 1 },
+        { text: "Tracking performance against OKRs and KPIs", score: 2 },
+        { text: "Identifying opportunities and feeding product/growth decisions", score: 3 },
+        { text: "Driving prioritization via continuous experimentation", score: 4 },
+        { text: "Powering autonomous optimization — AI agents acting on data in real time", score: 5 },
+      ]
+    },
+    {
+      id: 9,
+      dimension: "Reporting & Insight",
+      text: "When a key metric drops unexpectedly, how does your team typically diagnose the cause?",
+      options: [
+        { text: "Manual investigation — someone digs into spreadsheets or asks around", score: 1 },
+        { text: "We look at dashboards but diagnosis takes days", score: 2 },
+        { text: "We have some diagnostic dashboards but root cause often requires analyst time", score: 3 },
+        { text: "We have standardized diagnostic workflows — most issues resolved within a day", score: 4 },
+        { text: "Automated anomaly detection flags issues with probable root cause before anyone notices", score: 5 },
+      ]
+    },
+
+    // Dimension 4: Experimentation (Q10–Q12)
+    {
+      id: 10,
+      dimension: "Experimentation",
+      text: "How often does your organization run A/B tests or controlled experiments?",
+      options: [
+        { text: "Rarely or never — decisions are made without A/B tests", score: 1 },
+        { text: "Occasionally — a few tests per quarter, usually ad-hoc", score: 2 },
+        { text: "Monthly — we have some process, but experimentation is not systematic", score: 3 },
+        { text: "Weekly — we have a pipeline of experiments running at all times", score: 4 },
+        { text: "Continuous — dozens of simultaneous experiments with automated analysis", score: 5 },
+      ]
+    },
+    {
+      id: 11,
+      dimension: "Experimentation",
+      text: "When you run an A/B test, how do you decide what to test?",
+      options: [
+        { text: "Based on opinions and gut feel", score: 1 },
+        { text: "Based on qualitative feedback or obvious UX issues", score: 2 },
+        { text: "Based on analytics data and informal hypotheses", score: 3 },
+        { text: "Based on a structured hypothesis process with prioritization criteria", score: 4 },
+        { text: "Based on a continuously-updated hypothesis backlog fed by automated insight generation", score: 5 },
+      ]
+    },
+    {
+      id: 12,
+      dimension: "Experimentation",
+      text: "How does your organization handle statistical validity in A/B tests?",
+      options: [
+        { text: "We don't run A/B tests, or we stop when it 'looks good'", score: 1 },
+        { text: "We run until we see a significant result — we know this is a problem", score: 2 },
+        { text: "We calculate sample sizes upfront, but power and significance choices vary", score: 3 },
+        { text: "We have a standardized statistical framework that all tests follow", score: 4 },
+        { text: "We use sequential testing, CUPED, or Bayesian methods with automated guardrails", score: 5 },
+      ]
+    },
+
+    // Dimension 5: AI Readiness (Q13–Q15)
+    {
+      id: 13,
+      dimension: "AI Readiness",
+      text: "If you wanted to train an ML model or deploy an AI agent on your customer data today, what would be the biggest blocker?",
+      options: [
+        { text: "We don't have enough structured, clean data to start", score: 1 },
+        { text: "Data quality is too inconsistent — the model would learn bad patterns", score: 2 },
+        { text: "We have data but governance and labelling are not ready", score: 3 },
+        { text: "We could do it — the main challenge is tooling and expertise, not data quality", score: 4 },
+        { text: "We already have AI/ML in production — no significant blockers", score: 5 },
+      ]
+    },
+    {
+      id: 14,
+      dimension: "AI Readiness",
+      text: "How would you describe your organization's use of AI in analytics workflows today?",
+      options: [
+        { text: "We don't use AI in analytics at all", score: 1 },
+        { text: "We use AI tools ad-hoc (ChatGPT for analysis, Copilot for SQL) but not systematically", score: 2 },
+        { text: "We have some AI-assisted tooling in place (e.g. Amplitude's Assist, Looker's AI features)", score: 3 },
+        { text: "We use AI agents for specific workflows — e.g. automated insight generation, anomaly detection", score: 4 },
+        { text: "AI agents are core to our analytics operation — they act on data without human prompting", score: 5 },
+      ]
+    },
+    {
+      id: 15,
+      dimension: "AI Readiness",
+      text: "How confident are you that your organization's data definitions are reliable enough to be acted on autonomously by an AI system?",
+      options: [
+        { text: "Not at all confident — an AI would act on bad data", score: 1 },
+        { text: "Low confidence — there are too many inconsistencies and exceptions", score: 2 },
+        { text: "Moderate — key metrics are reliable but edge cases are messy", score: 3 },
+        { text: "High confidence for core metrics — we have governance in place", score: 4 },
+        { text: "Very high — data is governed, documented, validated, and AI-ready", score: 5 },
+      ]
+    },
+  ];
+
+  const STAGE_RESULTS = {
+    1: {
+      label: "Stage 1 — Reactive",
+      emoji: "🌱",
+      summary: "Your organization is in the earliest stage of analytics maturity. Data is used to explain the past, tracking is inconsistent, and decisions are largely made on gut feel. This is where most companies start.",
+      strengths: "You have the opportunity to build the right foundation from the start — without having to undo technical debt.",
+      gap: "The biggest risk at this stage is making decisions on unreliable data without knowing it. Before anything else, the priority is getting consistent, trusted tracking in place.",
+      nextSteps: [
+        "Audit what is currently being tracked — identify the 10–15 most critical user events",
+        "Choose a single analytics tool and commit to it (Amplitude or Mixpanel for product teams; GA4 for marketing)",
+        "Define 3–5 core metrics that everyone in the company agrees on",
+        "Create a basic tracking plan document (even a Google Sheet is fine at this stage)"
+      ],
+      color: "#e74c3c"
+    },
+    2: {
+      label: "Stage 2 — Structured",
+      emoji: "📐",
+      summary: "You have analytics infrastructure in place and your tracking is improving, but inconsistencies remain. Dashboards exist, but teams sometimes get different answers to the same question.",
+      strengths: "You've built the habit of using data. The foundation exists — now it needs to be standardized.",
+      gap: "The biggest risk at Stage 2 is false confidence: having dashboards that look authoritative but contain inconsistent definitions underneath. The next priority is governance.",
+      nextSteps: [
+        "Document your most important metric definitions in a shared tracking plan",
+        "Identify the top 3 areas where different teams get different answers — resolve those first",
+        "Implement a data quality check routine (even a weekly manual audit is a starting point)",
+        "Set up a data warehouse or destination (Snowflake, BigQuery, or Redshift) if you haven't yet"
+      ],
+      color: "#e67e22"
+    },
+    3: {
+      label: "Stage 3 — Proactive",
+      emoji: "🔍",
+      summary: "Your analytics foundation is solid. Teams can get data when they need it, core metrics are well-defined, and experimentation has started. This is where most companies plateaue — the jump to Stage 4 requires organizational commitment, not just tooling.",
+      strengths: "You're using data to drive decisions, not just explain them. This puts you ahead of most companies your size.",
+      gap: "The gap at Stage 3 is experimentation maturity. A/B tests happen, but they're ad-hoc, underpowered, or not systematically learned from. The next priority is building a repeatable experimentation process.",
+      nextSteps: [
+        "Establish a shared hypothesis backlog and prioritization process (a simple scoring matrix works)",
+        "Standardize how tests are designed: define MDE, sample size, and statistical parameters upfront",
+        "Create a test results repository so learnings accumulate over time",
+        "Identify one or two high-leverage areas for continuous experimentation (checkout flow, onboarding, pricing page)"
+      ],
+      color: "#f0a830"
+    },
+    4: {
+      label: "Stage 4 — Systematic",
+      emoji: "⚙️",
+      summary: "You have a mature experimentation program running continuously. Data quality is high, governance is in place, and teams are driving decisions through structured testing. You're in the top 10% of analytics maturity for companies your size.",
+      strengths: "You have the data foundation and experimentation culture that most companies spend years trying to build.",
+      gap: "The gap at Stage 4 is AI leverage. Your data is trustworthy enough to power AI agents — but the tooling, integrations, and use cases haven't been fully developed yet.",
+      nextSteps: [
+        "Explore a semantic layer (Cube, dbt Semantic Layer, or Looker) to enable AI-assisted querying",
+        "Identify 2–3 high-value workflows where an AI agent could act on data without human prompting",
+        "Invest in automated anomaly detection and insight generation",
+        "Run an internal AI readiness audit to identify remaining data quality and governance gaps"
+      ],
+      color: "#27ae60"
+    },
+    5: {
+      label: "Stage 5 — AI-Ready",
+      emoji: "🚀",
+      summary: "Your organization is operating at full analytics maturity. Data is governed, trusted, and real-time. AI agents can act on it autonomously. You're in a tiny minority of organizations that have built this foundation.",
+      strengths: "You have a genuine competitive advantage. The infrastructure that most organizations are still trying to build is already in place — AI investments will compound on this foundation.",
+      gap: "The challenge at Stage 5 is not building — it's scaling and maintaining the standard as the organization grows, acquires new products, or enters new markets.",
+      nextSteps: [
+        "Document your architecture and governance model so it can scale with the team",
+        "Invest in AI agent use cases that leverage your data advantage: personalization, dynamic pricing, autonomous experimentation",
+        "Consider how to maintain data quality standards through M&A, new market entry, or product expansion",
+        "Benchmark against industry peers and share learnings — this is a competitive differentiator worth publicizing"
+      ],
+      color: "#1a4a3a"
+    }
+  };
+
+  // State
+  let currentQuestion = 0;
+  let answers = new Array(QUESTIONS.length).fill(null);
+
+  function startAssessment() {
+    document.getElementById('screen-intro').classList.add('hidden');
+    document.getElementById('screen-questions').classList.remove('hidden');
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    const q = QUESTIONS[currentQuestion];
+    const total = QUESTIONS.length;
+
+    // Step indicator
+    const indicator = document.getElementById('step-indicator');
+    indicator.innerHTML = QUESTIONS.map((_, i) => {
+      let cls = 'step-dot';
+      if (i < currentQuestion) cls += ' done';
+      if (i === currentQuestion) cls += ' active';
+      return `<div class="${cls}"></div>`;
+    }).join('');
+
+    // Progress label
+    document.getElementById('progress-label').textContent =
+      `Question ${currentQuestion + 1} of ${total} · ${q.dimension}`;
+
+    // Back button
+    document.getElementById('btn-back').style.display = currentQuestion === 0 ? 'none' : '';
+
+    // Question area
+    const selected = answers[currentQuestion];
+    document.getElementById('question-area').innerHTML = `
+      <div class="question-block">
+        <h3>${q.text}</h3>
+        <div class="options-grid">
+          ${q.options.map((opt, i) => `
+            <button class="option-btn ${selected === i ? 'selected' : ''}"
+              onclick="selectOption(${i})">${opt.text}</button>
+          `).join('')}
+        </div>
+      </div>
+    `;
+
+    // Show/hide Next button
+    const nextBtn = document.getElementById('btn-next');
+    if (selected !== null) {
+      nextBtn.classList.remove('hidden');
+      nextBtn.textContent = currentQuestion === QUESTIONS.length - 1 ? 'See Results →' : 'Next →';
+    } else {
+      nextBtn.classList.add('hidden');
+    }
+  }
+
+  function selectOption(index) {
+    answers[currentQuestion] = index;
+    renderQuestion();
+  }
+
+  function goNext() {
+    if (currentQuestion < QUESTIONS.length - 1) {
+      currentQuestion++;
+      renderQuestion();
+    } else {
+      showResults();
+    }
+  }
+
+  function goBack() {
+    if (currentQuestion > 0) {
+      currentQuestion--;
+      renderQuestion();
+    }
+  }
+
+  function showResults() {
+    // Calculate score
+    const totalScore = answers.reduce((sum, answerIndex, qIndex) => {
+      if (answerIndex === null) return sum;
+      return sum + QUESTIONS[qIndex].options[answerIndex].score;
+    }, 0);
+
+    const avgScore = totalScore / QUESTIONS.length;
+    const stage = Math.max(1, Math.min(5, Math.round(avgScore)));
+
+    // Dimension scores
+    const dimensions = {};
+    QUESTIONS.forEach((q, i) => {
+      if (!dimensions[q.dimension]) dimensions[q.dimension] = { total: 0, count: 0 };
+      if (answers[i] !== null) {
+        dimensions[q.dimension].total += q.options[answers[i]].score;
+        dimensions[q.dimension].count++;
+      }
+    });
+
+    const result = STAGE_RESULTS[stage];
+
+    document.getElementById('screen-questions').classList.add('hidden');
+    const resultsEl = document.getElementById('screen-results');
+    resultsEl.classList.remove('hidden');
+
+    resultsEl.innerHTML = `
+      <div class="result-box" style="background:${result.color};">
+        <div style="display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;">
+          <div style="font-size:3rem;">${result.emoji}</div>
+          <div>
+            <h3>Your result</h3>
+            <div class="result-value">${result.label}</div>
+            <div class="result-sub">Average score: ${avgScore.toFixed(1)} / 5.0</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:24px;">
+        <h3 style="margin-bottom:12px;">Summary</h3>
+        <p style="color:var(--color-muted);">${result.summary}</p>
+        <p style="margin-bottom:0;"><strong>Your strength:</strong> <span style="color:var(--color-muted);">${result.strengths}</span></p>
+      </div>
+
+      <div class="card" style="margin-top:16px; border-left:4px solid var(--color-highlight);">
+        <h3 style="margin-bottom:12px;">The key gap to close</h3>
+        <p style="color:var(--color-muted); margin:0;">${result.gap}</p>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <h3 style="margin-bottom:16px;">Your next steps</h3>
+        <ul style="margin:0 0 0 1.2rem;">
+          ${result.nextSteps.map(s => `<li style="margin-bottom:10px; color:var(--color-muted); font-size:0.9rem;">${s}</li>`).join('')}
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:16px; background:var(--color-bg);">
+        <h3 style="margin-bottom:16px;">Scores by dimension</h3>
+        <div style="display:grid; gap:12px;">
+          ${Object.entries(dimensions).map(([dim, data]) => {
+            const avg = data.total / data.count;
+            const pct = ((avg - 1) / 4) * 100;
+            return `
+              <div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+                  <span style="font-size:0.85rem; font-weight:600;">${dim}</span>
+                  <span style="font-size:0.8rem; color:var(--color-muted);">${avg.toFixed(1)} / 5</span>
+                </div>
+                <div style="height:6px; background:var(--color-border); border-radius:3px;">
+                  <div style="height:6px; width:${pct}%; background:var(--color-accent); border-radius:3px; transition:width 0.6s;"></div>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+
+      <div class="cta-block">
+        <h3>Want help moving to the next stage?</h3>
+        <p>Adasight works with scaling D2C and SaaS companies to build AI-ready analytics foundations and systematic experimentation programs.</p>
+        <a href="https://adasight.com" target="_blank" rel="noopener">Talk to Adasight →</a>
+      </div>
+
+      <div style="text-align:center; margin-top:24px;">
+        <button class="btn btn-secondary" onclick="restartAssessment()">← Retake Assessment</button>
+      </div>
+    `;
+
+    // Animate progress bars
+    setTimeout(() => {}, 100);
+  }
+
+  function restartAssessment() {
+    currentQuestion = 0;
+    answers = new Array(QUESTIONS.length).fill(null);
+    document.getElementById('screen-results').classList.add('hidden');
+    document.getElementById('screen-results').innerHTML = '';
+    document.getElementById('screen-intro').classList.remove('hidden');
+  }
+  </script>
+
+</body>
+</html>

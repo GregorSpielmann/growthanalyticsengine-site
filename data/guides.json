@@ -1,0 +1,1153 @@
+{
+  "guides": [
+    {
+      "slug": "what-is-growth-analytics",
+      "title": "What Is Growth Analytics? A Complete Guide for 2026",
+      "seo_title": "What Is Growth Analytics? Definition, Metrics & Tools (2026)",
+      "meta_description": "Growth analytics is the discipline of measuring and improving how a product grows — from acquisition through retention and revenue. A complete plain-English guide.",
+      "tag": "Growth Analytics",
+      "tag_color": "accent",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"},
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Growth analytics is the discipline of using data to understand, measure, and improve how a product grows. It sits at the intersection of product analytics, marketing analytics, and business intelligence — but its focus is narrower and more action-oriented: which levers, when pulled, produce sustainable growth? This guide covers what growth analytics is, why it matters, the core metrics it uses, and the tools growth teams rely on in 2026.",
+      "sections": [
+        {
+          "h2": "Growth analytics vs. product analytics vs. marketing analytics",
+          "body": "These three disciplines overlap but have different orientations. Product analytics focuses on how users interact with the product itself — feature adoption, session depth, retention curves. Marketing analytics focuses on acquisition channels — where users come from, what it costs to acquire them, which channels have the best ROAS. Growth analytics is the synthesis layer: it traces the full user journey from first touch to long-term retention and asks which interventions at each stage compound into sustainable growth. In practice, growth analytics requires data from both your product analytics tool and your marketing attribution stack."
+        },
+        {
+          "h2": "The four pillars of growth analytics",
+          "body": "1. Acquisition analytics — understanding which channels bring users who convert and retain, not just users who sign up. The key insight is that acquisition quality matters as much as acquisition volume. 2. Activation analytics — measuring what the 'aha moment' is for your product and how quickly users reach it. Activation rate is one of the highest-leverage metrics in most growth models. 3. Retention analytics — understanding who comes back and who churns. Cohort retention curves are the single most important signal for whether a product has genuine product-market fit. 4. Revenue analytics — measuring the monetization efficiency of different user segments, acquisition channels, and product experiences. LTV:CAC ratio is the north star here."
+        },
+        {
+          "h2": "Core growth analytics metrics",
+          "body": "The metrics that matter most in growth analytics depend on your business model, but there is a set of near-universal measures: DAU/MAU ratio (engagement depth), D1/D7/D30 retention rates (stickiness), activation rate (% of new users reaching the key aha moment within 7 days), payback period (months to recover CAC from a given cohort), expansion MRR rate (revenue growth from existing customers), and the growth accounting framework (new MRR + expansion MRR - churned MRR = net new MRR). Each of these metrics is a diagnostic, not a goal — the goal is to understand what drives them so you can improve them."
+        },
+        {
+          "h2": "Growth analytics tools in 2026",
+          "body": "The modern growth analytics stack typically combines: (1) a product analytics tool like Amplitude, Mixpanel, or Heap for behavioral data; (2) a data warehouse like BigQuery or Snowflake for aggregation and transformation; (3) a marketing attribution platform like Rockerbox or Triple Whale for acquisition analytics; and (4) a BI tool like Looker or Metabase for dashboards. The trend in 2026 is toward AI-augmented analytics — tools that generate hypotheses from behavioral patterns rather than waiting for analysts to ask the right question. Amplitude Compass and Mixpanel's AI summaries are early versions of this direction."
+        }
+      ],
+      "checklist_title": "Growth analytics foundation checklist",
+      "checklist": [
+        "Acquisition, activation, retention, and revenue metrics are all tracked",
+        "Cohort retention curves are built and reviewed monthly",
+        "Activation rate is defined and measured (% reaching aha moment in 7 days)",
+        "LTV:CAC ratio is calculated by acquisition channel",
+        "A growth accounting model exists (new + expansion - churn = net new)",
+        "Analytics data is accessible to the growth team without engineering support",
+        "Weekly growth review meeting references data, not intuition"
+      ],
+      "faqs": [
+        {
+          "q": "What is the difference between growth analytics and business intelligence?",
+          "a": "Business intelligence focuses on reporting what happened across all business functions (revenue, ops, finance, support). Growth analytics is a narrower discipline focused specifically on the user journey from acquisition to retention to revenue expansion — with the goal of identifying and testing interventions that improve growth metrics. BI tends to be descriptive; growth analytics tends to be hypothesis-driven."
+        },
+        {
+          "q": "Do you need a data scientist to do growth analytics?",
+          "a": "Not necessarily. Most growth analytics work at early-to-mid stage companies can be done with a product analytics tool (Amplitude, Mixpanel) and a person who understands the business model deeply. A data scientist becomes necessary when you're running complex attribution models, building ML-powered features, or working with data volumes that require warehouse-level analysis."
+        },
+        {
+          "q": "What is the best growth analytics tool?",
+          "a": "It depends on your stage and use case. Amplitude is the leading choice for product-led growth companies that need deep funnel analysis, cohort retention, and A/B testing integration. Mixpanel is strong for event-based analysis and has a gentler learning curve. For early-stage companies, starting with Amplitude or Mixpanel's free tier and a spreadsheet-based growth model is often the right approach before investing in a full stack."
+        }
+      ]
+    },
+    {
+      "slug": "growth-analytics-metrics",
+      "title": "The 12 Growth Analytics Metrics Every Team Should Track",
+      "seo_title": "Growth Analytics Metrics: The 12 Most Important KPIs (2026)",
+      "meta_description": "The essential growth analytics metrics for product and growth teams — activation rate, retention cohorts, LTV:CAC, payback period, and more. With benchmarks.",
+      "tag": "Growth Analytics",
+      "tag_color": "accent",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"},
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Most growth teams track too many metrics and understand too few. The result is a dashboard full of numbers that don't connect to decisions. This guide covers the 12 growth analytics metrics that actually drive decisions — what they measure, why they matter, and the benchmarks that separate good from great. For each metric, we include the formula, the questions it answers, and the most common mistakes in how teams interpret it.",
+      "sections": [
+        {
+          "h2": "Acquisition metrics: measuring quality, not just volume",
+          "body": "The three acquisition metrics that matter are: CAC (Customer Acquisition Cost) — total acquisition spend divided by new customers acquired in the same period, broken down by channel. Payback period — months to recover CAC from a given cohort, calculated as CAC divided by average monthly gross margin per customer. And acquisition channel mix — the % of new customers from each source (paid, organic, referral, direct). The common mistake is optimizing for signup volume rather than downstream retention and revenue. A channel with a 3% activation rate costs 3× more than one with a 9% rate, even if the raw CAC looks the same."
+        },
+        {
+          "h2": "Activation metrics: finding and measuring the aha moment",
+          "body": "Activation rate is the % of new users who reach the product's key value moment within a defined window (usually 7 days). Defining what that value moment is requires analysis — typically, you identify the behavior that most strongly predicts long-term retention. For a SaaS tool, it might be 'created first report' or 'invited a teammate'. For a marketplace, it might be 'completed first transaction'. Time to activate — the median hours between signup and first key action — is a leading indicator of activation rate and responds quickly to onboarding changes."
+        },
+        {
+          "h2": "Retention metrics: the most honest signal of product-market fit",
+          "body": "D1/D7/D30 retention: the % of users who return on day 1, day 7, and day 30 after their first session. These are the benchmark metrics for consumer apps. For B2B SaaS, use week-1/week-4/month-3 retention. The shape of the retention curve matters as much as the absolute number: a retention curve that flattens (rather than declining to zero) signals product-market fit. L28 (the % of users active on at least one of the past 28 days) is a more robust measure of engagement than DAU/MAU for many product types. Net revenue retention (NRR) — what % of revenue from last year's cohort is retained this year, including expansion — is the most important retention metric for subscription businesses."
+        },
+        {
+          "h2": "Revenue metrics: connecting behavior to monetization",
+          "body": "LTV:CAC ratio — lifetime value divided by CAC — is the master metric of growth economics. A ratio above 3:1 is generally considered healthy for SaaS; above 5:1 is excellent. Expansion MRR rate — the monthly growth in revenue from existing customers through upgrades and cross-sell — is a leading indicator of product stickiness and pricing model effectiveness. Growth accounting (new MRR + expansion MRR - churned MRR = net new MRR) is the clearest way to diagnose whether growth is coming from acquisition efficiency or retention leakage."
+        }
+      ],
+      "checklist_title": "Growth metrics audit checklist",
+      "checklist": [
+        "CAC is calculated separately by acquisition channel, not as a blended average",
+        "Activation rate is defined and the aha moment is validated with retention data",
+        "Retention curves are built as cohort curves, not as aggregate averages",
+        "D7 or week-1 retention is the primary product health metric",
+        "LTV:CAC ratio is calculated and reviewed quarterly",
+        "Net revenue retention (NRR) is tracked for subscription businesses",
+        "Growth accounting model updated monthly",
+        "All metrics have a clear owner responsible for improving them"
+      ],
+      "faqs": [
+        {
+          "q": "What is a good D30 retention rate?",
+          "a": "D30 retention benchmarks vary significantly by product category. For consumer social apps, 20–25% is strong. For daily-use utility apps, 40%+ is achievable. For B2B SaaS, monthly retention is more relevant: 90–95% monthly user retention is good; 95%+ is excellent. The most important thing is tracking your own curve and whether it's improving, not benchmarking against different product types."
+        },
+        {
+          "q": "What is a good LTV:CAC ratio for a SaaS company?",
+          "a": "The standard benchmark is 3:1 (LTV is 3× the cost to acquire the customer). At Series B+, leading SaaS companies typically target 5:1 or better. Below 1:1 means you're losing money on every customer before they churn. The calculation requires defining LTV correctly — typically as (average monthly gross margin per customer) × (average months retained) × (discount factor for time value)."
+        },
+        {
+          "q": "How often should growth metrics be reviewed?",
+          "a": "Weekly review of leading indicators (activation rate, early retention, week-over-week active user growth). Monthly review of lagging indicators (LTV:CAC, payback period, NRR, cohort retention at 3+ months). Quarterly review of the full growth model to re-examine strategic priorities. The goal is a rhythm where weekly data drives tactical decisions and monthly/quarterly data drives strategic ones."
+        }
+      ]
+    },
+    {
+      "slug": "growth-analytics-tools",
+      "title": "The Best Growth Analytics Tools in 2026: An Honest Comparison",
+      "seo_title": "Best Growth Analytics Tools 2026 — Compared & Ranked",
+      "meta_description": "The best growth analytics tools in 2026 compared: Amplitude, Mixpanel, Heap, PostHog, GA4, and more. Honest assessment of which tool fits which use case.",
+      "tag": "Tools",
+      "tag_color": "accent",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"},
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "There are more growth analytics tools available today than at any point in history — and more ways to make the wrong choice. Most tool comparisons are funded by the tools themselves. This guide is not. We evaluate the leading growth analytics tools on the dimensions that actually matter for scaling companies: analytics depth, experimentation capabilities, ease of implementation, pricing transparency, and AI features. We work with all of these tools at Adasight, and our recommendations are based on real implementation experience.",
+      "sections": [
+        {
+          "h2": "Amplitude: best for product-led growth and deep funnel analysis",
+          "body": "Amplitude is the market leader for product analytics and the best choice for companies that need deep funnel analysis, cohort retention, and integrated A/B testing. Its Experiment product (Amplitude Experiment) is tightly integrated with its analytics, making it easy to set up tests and measure impact on any metric. The AI features (Amplitude Compass for anomaly detection, Amplitude Ask for natural language queries) are the most mature in the category. Pricing is usage-based and can scale steeply — plan for this if you have high event volume. Best for: B2B SaaS, PLG companies, D2C ecommerce, mobile apps."
+        },
+        {
+          "h2": "Mixpanel: best for event analysis and user-level exploration",
+          "body": "Mixpanel excels at exploratory event analysis and user-level tracking. Its reports (Flows, Funnels, Retention, Insights) are fast and intuitive, and the time-to-first-insight for new analysts is shorter than Amplitude. It lacks Amplitude's experiment integration but integrates well with third-party testing tools. The free tier is generous. Its Spark AI assistant generates natural language summaries of reports. Best for: consumer apps, teams that need fast exploratory analysis, early-stage companies that don't need experimentation integration."
+        },
+        {
+          "h2": "PostHog: best for engineering-led teams and open source control",
+          "body": "PostHog is the only major open-source product analytics platform. It combines product analytics, session recording, feature flags, and A/B testing in a single platform — and can be self-hosted for full data control. The feature set is impressive for the price (free for up to 1M events/month). The tradeoff is UI polish and enterprise support compared to Amplitude/Mixpanel. Best for: engineering-led teams, companies with strict data residency requirements, early-stage startups on tight budgets who want a full experimentation stack."
+        },
+        {
+          "h2": "GA4, Heap, and the specialist tools",
+          "body": "Google Analytics 4 is the right tool for marketing attribution, SEO performance, and ad platform integration — not for deep product analytics. Its funnel and cohort analysis is significantly less powerful than Amplitude or Mixpanel. Heap auto-captures all user interactions without requiring event instrumentation — useful for retroactive analysis but produces noisy data that requires cleanup. For specialized use cases: Triple Whale and Rockerbox for DTC marketing attribution; Mixpanel or Amplitude for product; Statsig or GrowthBook for experimentation-first workflows."
+        }
+      ],
+      "checklist_title": "Growth analytics tool selection checklist",
+      "checklist": [
+        "Define your primary analytical questions before evaluating tools (not vice versa)",
+        "Evaluate on: funnel analysis depth, cohort retention, experimentation integration, AI features",
+        "Check pricing at your current and projected event volume (3× current is safe)",
+        "Test data sampling — some tools sample at high volumes, distorting analysis",
+        "Confirm SDK support for your platforms (web, iOS, Android, server-side)",
+        "Evaluate the time-to-first-insight for your team's analytics skill level",
+        "Check for data warehouse export (Snowflake, BigQuery) if you have one"
+      ],
+      "faqs": [
+        {
+          "q": "Should I use Amplitude or Mixpanel?",
+          "a": "Amplitude is better if: you need integrated A/B testing, deep funnel analysis, and mature AI features. Mixpanel is better if: your team needs faster time-to-insight, you're early-stage and want a generous free tier, or your primary use case is exploratory event analysis. Both are excellent tools; the decision is usually made by your team's analytics maturity and which specific analyses you do most frequently."
+        },
+        {
+          "q": "Is Google Analytics enough for growth analytics?",
+          "a": "GA4 is necessary but not sufficient for growth analytics. It handles acquisition and attribution well but is a poor tool for product retention analysis, cohort building, and experimentation. Most growth teams use GA4 alongside a dedicated product analytics tool, not instead of one."
+        },
+        {
+          "q": "What growth analytics tools are best for early-stage startups?",
+          "a": "PostHog (free, open-source, includes session recording and feature flags) or Amplitude/Mixpanel free tier + Google Analytics 4. The priority at early stage is implementing clean event tracking before you need the analytics — getting the tracking right while the product is simple is far easier than retroactive cleanup."
+        }
+      ]
+    },
+    {
+      "slug": "growth-analytics-for-saas",
+      "title": "Growth Analytics for SaaS: The Complete Framework",
+      "seo_title": "Growth Analytics for SaaS — Framework, Metrics & Tools (2026)",
+      "meta_description": "How to build a growth analytics function for a SaaS company. Metrics, funnel structure, experimentation approach, and the analytics stack for B2B and PLG SaaS.",
+      "tag": "SaaS",
+      "tag_color": "accent",
+      "related_tool": {"name": "Experimentation ROI Calculator", "url": "/tools/experimentation-roi/"},
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "SaaS growth analytics is structurally different from consumer app analytics. The unit economics (LTV, payback period, expansion revenue) are more complex. The funnel is longer — from first touch to trial to activation to conversion to expansion. And the failure modes are different: in SaaS, the biggest growth killers are invisible churn in the trial phase, low activation rates in the first week, and expansion revenue that doesn't materialize from the accounts that should expand. This guide covers how to build growth analytics for a SaaS product — the metrics that matter, the analyses to prioritize, and the tools to use.",
+      "sections": [
+        {
+          "h2": "The SaaS growth funnel and where analytics should focus",
+          "body": "The SaaS funnel has four stages where analytics can drive decisions: Acquisition (traffic → trial signups), Activation (trial signup → first value moment), Conversion (trial → paid), and Expansion (paid → expansion MRR + retention). Most SaaS companies over-invest in acquisition analytics (because it's easy to measure with GA4 and UTMs) and under-invest in activation and conversion analytics (which require product analytics and a longer feedback loop). The highest ROI analytics investment for most SaaS companies at Series A–B is in activation analysis: understanding what drives trial → paid conversion."
+        },
+        {
+          "h2": "The five metrics that define SaaS growth health",
+          "body": "Trial activation rate (% of trial users who reach the key product value moment within 7 days) is the most actionable metric in the SaaS growth funnel. Trial-to-paid conversion rate varies by product category but 15–25% is typical for self-serve SaaS with a 14-day trial. Net revenue retention (NRR) — total revenue from last year's customers this year, including expansion — is the north star for SaaS health. Above 100% NRR means you're growing even without acquiring new customers. Expansion MRR rate (the monthly growth from upgrades and seat expansion) and time-to-value (median hours from signup to first key action) round out the five."
+        },
+        {
+          "h2": "Where product-led growth changes the analytics model",
+          "body": "PLG SaaS companies have a fundamentally different growth model than sales-led SaaS. The trial or freemium experience is the primary growth lever, not the sales team. This makes product analytics the most important investment — specifically, instrumentation of the in-product experience at a level of depth that reveals what predicts conversion and expansion. The key PLG analytics framework is Product Qualified Leads (PQLs): users who have reached a behavioral threshold in the product that predicts conversion. Building the behavioral model for PQL scoring requires clean event data, cohort analysis, and usually some statistical modeling."
+        },
+        {
+          "h2": "The SaaS analytics stack recommendation",
+          "body": "For a Series A–B SaaS company, the recommended stack is: Amplitude or Mixpanel for product analytics (behavioral data, funnel analysis, cohort retention), HubSpot or Salesforce for CRM and sales analytics, a marketing attribution tool (Rockerbox or self-built UTM tracking) for acquisition analytics, and a simple data warehouse (BigQuery or Redshift) once you have more than two data sources to join. The critical integration is between your product analytics tool and your CRM — passing product usage data into the CRM allows sales to prioritize outreach on PQL signals. Amplitude's HubSpot and Salesforce integrations handle this out of the box."
+        }
+      ],
+      "checklist_title": "SaaS growth analytics checklist",
+      "checklist": [
+        "Trial activation rate is defined, measured, and has a defined owner",
+        "The aha moment is validated empirically (correlates with trial-to-paid conversion)",
+        "Trial-to-paid conversion rate is tracked by acquisition channel and cohort",
+        "Net revenue retention (NRR) is calculated monthly",
+        "Product usage data flows into the CRM for sales prioritization",
+        "A/B tests are run on onboarding and activation flows, not just marketing",
+        "Expansion MRR by account segment is tracked",
+        "Churn is analyzed by reason code and usage pattern, not just as a headline number"
+      ],
+      "faqs": [
+        {
+          "q": "What is a good trial activation rate for SaaS?",
+          "a": "Benchmarks vary by product complexity and trial length. For simple self-serve SaaS (under 10 setup steps), 50–60% activation within 7 days is achievable. For complex enterprise tools, 30–40% is strong. The most important thing is defining activation correctly — it should be the action that most strongly predicts paid conversion in your data, not an arbitrary milestone."
+        },
+        {
+          "q": "What is good NRR for a SaaS company?",
+          "a": "Above 100% NRR means you'd grow even with zero new customer acquisition. 110–120% NRR is strong. 130%+ is outstanding (common in usage-based pricing models where expansion is proportional to usage). Below 100% means churn and downgrades exceed expansion — a warning sign even if top-line growth looks healthy from new customer acquisition."
+        },
+        {
+          "q": "When should a SaaS startup hire a growth analyst?",
+          "a": "When the CEO or product lead is spending more than 5 hours per week on analytics and the insights aren't keeping up with the decisions. In practice, this happens around Series A for most SaaS companies. Before that, a well-configured Amplitude or Mixpanel setup with good self-service dashboards is usually sufficient."
+        }
+      ]
+    },
+    {
+      "slug": "amplitude-vs-mixpanel",
+      "title": "Amplitude vs. Mixpanel: An Honest 2026 Comparison",
+      "seo_title": "Amplitude vs. Mixpanel (2026) — Side-by-Side Comparison",
+      "meta_description": "Amplitude vs. Mixpanel compared: features, pricing, use cases, AI capabilities, and which tool wins for product analytics, experimentation, and SaaS. From an implementation partner.",
+      "tag": "Tools",
+      "tag_color": "accent",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"},
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Amplitude and Mixpanel are the two dominant product analytics tools in 2026. They share a lot of surface-level similarities — both are event-based, both have funnels and retention reports, both have free tiers. But they diverge significantly in experimentation integration, AI features, data model philosophy, and who they're built for. This comparison is written from an implementation partner perspective — we've deployed both tools across dozens of companies and have strong opinions about when each wins.",
+      "sections": [
+        {
+          "h2": "Where Amplitude wins",
+          "body": "Amplitude wins on three dimensions: experimentation, AI maturity, and enterprise readiness. Amplitude Experiment is a native, deeply integrated A/B testing product — you can set up a test, define your metrics, and analyze results all inside Amplitude without a separate tool. The AI layer (Amplitude Ask for natural language queries, Compass for anomaly detection, Forecast for predictive modeling) is further developed than Mixpanel's equivalents. And Amplitude's enterprise features (data governance, RBAC, SSO, data lineage) are more mature for organizations at 100+ person analytics teams. If experimentation is a core part of your analytics workflow, Amplitude is the clear choice."
+        },
+        {
+          "h2": "Where Mixpanel wins",
+          "body": "Mixpanel wins on time-to-insight, pricing, and exploratory analysis. For a new analyst who needs to answer a question quickly, Mixpanel's Flows (sankey-style user path analysis) and Insights (drag-and-drop metric builder) are faster and more intuitive than Amplitude's equivalents. The Mixpanel free tier is more generous: 20M events/month vs. Amplitude's 10M. For companies doing heavy exploratory analysis — 'what did users actually do before churning?' — Mixpanel's query speed and flexible report types are an edge. The pricing model is also more predictable for high-event-volume products."
+        },
+        {
+          "h2": "Data model differences that matter",
+          "body": "Both tools are event-based, but they handle identity resolution and user profiles differently. Amplitude uses a merge-on-identify model: anonymous events are retroactively merged with identified user profiles. Mixpanel uses a forward-only model: you can't retroactively attribute pre-signup events to an identified user in the standard setup. For SaaS products where the pre-signup → signup journey matters for activation analysis, Amplitude's model is significantly more powerful. For consumer apps where users are rarely identified before taking core actions, the difference is minor."
+        },
+        {
+          "h2": "Pricing comparison (2026)",
+          "body": "Both tools have free tiers sufficient for early-stage companies. Amplitude's paid plans start at roughly $49/month (Starter) and scale steeply with event volume — at 100M events/month, expect $2,500–5,000/month for a Growth plan. Mixpanel's paid plans start at $28/month and also scale with event volume, but the pricing is slightly more predictable at high volumes. For most Series A companies, both tools are under $500/month. The ROI difference between the two at that spend level is negligible — the decision should be made on features, not price."
+        }
+      ],
+      "checklist_title": "Amplitude vs. Mixpanel decision checklist",
+      "checklist": [
+        "Choose Amplitude if: experimentation (A/B testing) is a core workflow",
+        "Choose Amplitude if: your team needs AI-powered anomaly detection or forecasting",
+        "Choose Amplitude if: you have enterprise data governance requirements",
+        "Choose Mixpanel if: your primary need is fast exploratory event analysis",
+        "Choose Mixpanel if: your team is new to product analytics and values simplicity",
+        "Choose Mixpanel if: you have very high event volume and cost is a concern",
+        "Consider PostHog if: you want an open-source option with self-hosting capability"
+      ],
+      "faqs": [
+        {
+          "q": "Can you use both Amplitude and Mixpanel?",
+          "a": "You can, but it's usually not worth it unless you have very specific needs that each tool handles differently. The implementation overhead of maintaining two event taxonomies, two SDKs, and two tools is significant. The more common pattern is using one product analytics tool alongside GA4 for marketing analytics — not two product analytics tools."
+        },
+        {
+          "q": "Which tool is better for mobile apps?",
+          "a": "Both have strong mobile SDKs. Amplitude's mobile SDK is more feature-rich for experimentation (Amplitude Experiment's client-side SDK handles feature flag assignment natively). Mixpanel's mobile SDK is simpler to implement. For a mobile-first product running A/B tests, Amplitude is the better choice. For a mobile product focused on exploratory analysis, Mixpanel is equally strong."
+        },
+        {
+          "q": "How long does it take to migrate from Mixpanel to Amplitude (or vice versa)?",
+          "a": "A full migration with historical data typically takes 4–8 weeks. The main effort is (1) auditing and documenting your existing event taxonomy, (2) re-implementing the SDK and ensuring event parity, and (3) rebuilding key dashboards and reports in the new tool. Historical data can be migrated via each tool's export APIs, but the effort is usually not worth it unless you have specific compliance requirements."
+        }
+      ]
+    },
+    {
+      "slug": "ab-testing-statistics-guide",
+      "title": "A/B Testing Statistics: The Complete Guide for Growth Teams",
+      "seo_title": "A/B Testing Statistics — Complete Guide for Growth Teams (2026)",
+      "meta_description": "Everything you need to know about A/B testing statistics: p-values, statistical power, sample size, confidence intervals, sequential testing, and avoiding the peeking problem.",
+      "tag": "Experimentation",
+      "tag_color": "accent",
+      "related_tool": {"name": "A/B Test Sample Size Calculator", "url": "/tools/sample-size-calculator/"},
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Most growth teams have a statistics problem they don't know they have. They run A/B tests, see a p-value below 0.05, and ship the variant — not knowing that the way they ran the test almost guarantees a high false positive rate. This guide covers everything you need to know about A/B testing statistics to run tests that produce reliable results: statistical significance, power, sample size, effect size, and the critical mistake of peeking at results before your test is complete.",
+      "sections": [
+        {
+          "h2": "Statistical significance, p-values, and what they actually mean",
+          "body": "A p-value is the probability of observing your result (or something more extreme) if there were actually no effect. A p-value of 0.05 means there is a 5% chance of seeing this result by random chance alone if the null hypothesis is true. 'Statistical significance at 95% confidence' does not mean there is a 95% chance your variant is better — it means you'd see a false positive 5% of the time if you ran this test on no-effect data. The practical implication: if you run 20 tests with no real effect, you expect 1 false positive. In a high-velocity testing program, false positives compound quickly unless you control for them."
+        },
+        {
+          "h2": "Statistical power and the danger of underpowered tests",
+          "body": "Statistical power is the probability of detecting a real effect if one exists. The standard target is 80% power — meaning you accept a 20% chance of a false negative (missing a real effect). An underpowered test doesn't just risk missing effects — it also produces inflated effect size estimates when it does reach significance (the 'winner's curse'). The most common cause of underpowered tests is stopping early: seeing a positive trend on day 3 and ending the test before reaching your pre-calculated sample size. This inflates your measured effect by 2–5× and produces a false positive at roughly the same rate as running a test on completely random data."
+        },
+        {
+          "h2": "How to calculate the right sample size",
+          "body": "Sample size depends on four inputs: your baseline conversion rate, your minimum detectable effect (MDE), your desired statistical power (default 80%), and your significance threshold (default 5%). For a signup flow with a 3% baseline conversion rate and a target of detecting a 20% relative improvement (0.6 percentage points absolute), you need roughly 11,000 users per variant at 80% power. Smaller MDEs require exponentially larger samples. The most common mistake is setting MDE too small (trying to detect a 5% relative change with insufficient traffic) and either running underpowered tests or running tests for months. Our sample size calculator handles this math automatically."
+        },
+        {
+          "h2": "The peeking problem and how to solve it",
+          "body": "Peeking — looking at test results before reaching your pre-calculated sample size and potentially stopping early — inflates your false positive rate dramatically. A test run with an 'optional stopping' rule (stop when p < 0.05) has an actual false positive rate of 22–26%, not 5%. The solutions: (1) pre-commit to your sample size and don't look at results until you've reached it (hard to maintain in practice), (2) use sequential testing methods (SPRT or mSPRT) that account for multiple looks, or (3) use Bayesian methods that naturally accommodate early stopping without inflating error rates. Tools like Statsig, Eppo, and Amplitude Experiment have sequential testing built in."
+        }
+      ],
+      "checklist_title": "A/B test statistical standards checklist",
+      "checklist": [
+        "Sample size is calculated before the test launches (not after)",
+        "Minimum detectable effect is defined and realistic for your traffic volume",
+        "Statistical power is set to 80% or higher",
+        "Significance threshold is defined (95% standard; 99% for high-stakes decisions)",
+        "Test runs for the full pre-calculated duration regardless of early trends",
+        "No peeking: results not reviewed until sample size is reached",
+        "Null results are documented the same way as positive results",
+        "A minimum test duration of 7 days accounts for weekday/weekend variation"
+      ],
+      "faqs": [
+        {
+          "q": "What p-value should I use for A/B tests?",
+          "a": "The standard is p < 0.05 (95% confidence). Use p < 0.01 (99% confidence) for high-stakes decisions like pricing changes or permanent feature removals. Using p < 0.10 (90% confidence) is acceptable for low-traffic, low-stakes tests where the cost of a false negative is higher than the cost of a false positive."
+        },
+        {
+          "q": "How do I know if my A/B test has enough traffic?",
+          "a": "Before launching, calculate your required sample size based on your baseline conversion rate and minimum detectable effect. If reaching that sample size would take more than 4 weeks at your current traffic volume, either increase your MDE (accept detecting larger effects only) or wait until you have more traffic. Running underpowered tests that never reach significance is one of the most common wastes of experimentation resources."
+        },
+        {
+          "q": "What is the minimum test duration for an A/B test?",
+          "a": "Regardless of when you reach your sample size, run every test for at least 7 full days (including at least one full weekend cycle). This ensures you capture weekly behavioral patterns — many products have 30–50% higher conversion on weekdays vs. weekends, and stopping a test on a Tuesday when it reached significance Sunday dramatically overstates the effect."
+        }
+      ]
+    },
+    {
+      "slug": "statistical-significance-explained",
+      "title": "Statistical Significance Explained: A Plain-English Guide",
+      "seo_title": "Statistical Significance Explained — Plain-English Guide (2026)",
+      "meta_description": "What is statistical significance? A plain-English explanation of p-values, confidence levels, and what statistical significance actually means for A/B tests and experiments.",
+      "tag": "Experimentation",
+      "tag_color": "accent",
+      "related_tool": {"name": "A/B Test Sample Size Calculator", "url": "/tools/sample-size-calculator/"},
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Statistical significance is one of the most misunderstood concepts in growth analytics. Most people who run A/B tests use statistical significance without being able to explain what it actually means — and that misunderstanding leads to real mistakes: shipping losing variants, missing real improvements, and building false confidence in unreliable results. This guide explains statistical significance in plain English, without equations.",
+      "sections": [
+        {
+          "h2": "The coin flip analogy: what statistical significance is actually measuring",
+          "body": "Imagine you flip a coin 10 times and get 7 heads. Is the coin biased? Maybe. But 7 heads out of 10 isn't that unusual — it happens by chance about 17% of the time with a fair coin. Now imagine you flip it 1,000 times and get 700 heads. That is almost impossible by chance (probability < 0.0001). Statistical significance is that calculation: given the data I observed, how likely is it that the result is just random noise? When we say 'statistically significant at 95% confidence', we mean: if there were no real effect, we would observe a result this extreme or more extreme only 5% of the time by random chance."
+        },
+        {
+          "h2": "What statistical significance does NOT mean",
+          "body": "It does not mean there is a 95% chance that your variant is better. This is the most common misconception. The 95% confidence level is a property of the testing procedure, not a probability about the specific result. It does not mean the effect is large or practically important. A 0.01% improvement can be statistically significant if your sample size is large enough. It does not mean you should ship the variant. Statistical significance tells you that an effect probably exists; it says nothing about whether that effect is worth the implementation cost, user experience trade-offs, or technical debt."
+        },
+        {
+          "h2": "The relationship between sample size and significance",
+          "body": "Statistical significance depends directly on sample size. With a large enough sample, even tiny differences become statistically significant. This is why you should always pre-calculate your required sample size based on the minimum effect you care about (the minimum detectable effect), not just run a test until it 'gets significant'. Running a test until significance is reached — without a pre-determined sample size — is called 'peeking' and it guarantees a false positive rate much higher than 5%, even if you're using a 95% confidence threshold."
+        },
+        {
+          "h2": "Practical statistical significance vs. statistical significance",
+          "body": "Statistical significance answers: is this effect real (not random noise)? Practical significance answers: is this effect large enough to matter for the business? These are different questions. A test that shows a statistically significant 0.1% improvement in signup conversion is almost certainly not worth shipping unless your signup volume is enormous. A test that shows a 15% improvement but only barely reaches statistical significance (p = 0.049) might be worth shipping because the effect size is large. Good experimentation culture evaluates both — effect size (confidence interval) alongside p-value — not just whether p < 0.05."
+        }
+      ],
+      "checklist_title": "Statistical significance checklist for A/B tests",
+      "checklist": [
+        "Significance threshold defined before the test (not after seeing results)",
+        "Sample size calculated upfront based on minimum detectable effect",
+        "Effect size (confidence interval) evaluated alongside p-value",
+        "Test run for minimum 7 days regardless of when significance is reached",
+        "Not stopped early because it 'looks good' (peeking avoided)",
+        "Practical significance considered: is the effect large enough to act on?",
+        "Multiple comparison correction applied if testing multiple metrics simultaneously"
+      ],
+      "faqs": [
+        {
+          "q": "What does 95% confidence mean in an A/B test?",
+          "a": "95% confidence means that if the null hypothesis (no real effect) were true, you would see a result as extreme as yours or more extreme only 5% of the time. It does not mean there is a 95% probability that your variant is better — that interpretation (the posterior probability) requires Bayesian methods, not frequentist significance testing."
+        },
+        {
+          "q": "What is the difference between statistical significance and confidence interval?",
+          "a": "Statistical significance is a binary outcome (significant or not), based on a threshold. A confidence interval gives you a range of plausible values for the true effect. A 95% confidence interval on a conversion rate improvement of '4% ± 2%' tells you both that the effect is significant and that the true effect is likely between 2% and 6%. Confidence intervals are more informative than p-values alone and should always be reported alongside significance."
+        },
+        {
+          "q": "Can an A/B test be statistically significant but wrong?",
+          "a": "Yes. Statistical significance at 95% confidence means you'll have a false positive 5% of the time — 1 in 20 tests with no real effect will appear significant. In a high-velocity program running 50 tests per year on features with no real effect, you'd expect 2–3 false positives per year by chance alone. This is why replication and null result documentation matter: a result that can't be replicated in a follow-up test was probably a false positive."
+        }
+      ]
+    },
+    {
+      "slug": "experimentation-program-guide",
+      "title": "How to Build an Experimentation Program from Scratch",
+      "seo_title": "How to Build an Experimentation Program from Scratch (2026 Guide)",
+      "meta_description": "A step-by-step guide to building a structured A/B testing and experimentation program: tooling, process, governance, and how to scale from 0 to 20+ tests per month.",
+      "tag": "Experimentation",
+      "tag_color": "accent",
+      "related_tool": {"name": "Experimentation ROI Calculator", "url": "/tools/experimentation-roi/"},
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Most companies don't have an experimentation program — they have a collection of A/B tests. The difference is infrastructure, process, and culture. A real experimentation program runs tests continuously, captures learnings systematically, generates better hypotheses over time, and compounds into a durable competitive advantage. This guide covers how to build one from scratch — or how to upgrade what you have.",
+      "sections": [
+        {
+          "h2": "Step 1: Get the data foundation right before running tests",
+          "body": "Experimentation requires trustworthy data. Before launching your first A/B test, you need: clean event tracking on the metrics you plan to test (with no duplicate events, no data gaps, no inconsistent naming), a validated baseline conversion rate that you can reproduce from your analytics tool, and a sample size estimate that confirms your traffic volume is sufficient to detect effects of the size you care about. Starting experimentation on a weak data foundation is one of the most common and costly mistakes — you'll run 6 months of tests and not know whether to trust any of the results."
+        },
+        {
+          "h2": "Step 2: Choose your tooling stack",
+          "body": "The minimum experimentation stack: a feature flagging and A/B testing tool + an analytics tool for measuring results. Options: Amplitude Experiment (if you use Amplitude for analytics — tight integration is a major advantage), Statsig (feature flags, A/B testing, and analytics in one, strong sequential testing), GrowthBook (open-source, free, integrates with any analytics warehouse), or VWO/Optimizely (legacy web testing tools, less suited for product-side experiments). The common mistake is using your analytics tool's built-in 'experiment' feature without understanding its statistical methodology — some tools default to non-rigorous methods."
+        },
+        {
+          "h2": "Step 3: Build the process (hypothesis → test → learn → repeat)",
+          "body": "A structured experimentation process has five steps: (1) Hypothesis generation — a written hypothesis in the format 'We believe that [change] for [user segment] will [metric impact] because [mechanism]'. (2) Prioritization — ranking hypotheses by potential impact and confidence (ICE or PIE scoring). (3) Test design — defining primary metric, guardrail metrics, sample size, duration. (4) Analysis — reading results after reaching the pre-determined sample size, not before. (5) Documentation — recording the hypothesis, result, effect size, and learning, regardless of outcome. The last step is where most programs fail. Learnings that aren't documented don't compound."
+        },
+        {
+          "h2": "Step 4: Scale the program",
+          "body": "A mature experimentation program (20+ tests per month) requires more than a single analyst. The operational requirements: a hypothesis backlog that's always populated with 20+ ranked hypotheses (so teams never wait for ideas), a learning repository that's searchable and referenced when generating new hypotheses, a weekly experimentation review where results are shared cross-functionally, and statistical governance that prevents the most common errors (underpowered tests, peeking, incorrect metric selection). The velocity ceiling for most programs isn't traffic — it's hypothesis quality and engineering capacity to implement tests."
+        }
+      ],
+      "checklist_title": "Experimentation program launch checklist",
+      "checklist": [
+        "Data foundation: clean event tracking, reproducible baseline metrics",
+        "Experimentation tool selected and integrated with analytics",
+        "Hypothesis template defined and team trained on it",
+        "Sample size calculator available and used for every test",
+        "Statistical standards documented: power, significance, minimum duration",
+        "Learning repository created (even a simple Notion database works)",
+        "At least one person owns the experimentation program",
+        "First 3 hypotheses written and prioritized before launch"
+      ],
+      "faqs": [
+        {
+          "q": "How many tests should an experimentation program run per month?",
+          "a": "The right number depends on your traffic, engineering capacity, and hypothesis pipeline. Early programs typically run 2–5 tests per month. Mature programs at well-funded growth companies run 20–50. The constraint usually shifts from traffic (early) to hypothesis quality and engineering velocity (as the program matures). Velocity without quality produces false learnings."
+        },
+        {
+          "q": "What is a good win rate for an experimentation program?",
+          "a": "20–35% is healthy for a well-run program. Below 20% suggests hypothesis quality is low or the program is testing too conservatively (only obvious improvements). Above 40% often indicates peeking or underpowered tests producing false positives. A 'winner' in a low-quality program is often a false positive, not a real improvement."
+        },
+        {
+          "q": "How do you get leadership buy-in for experimentation?",
+          "a": "The most effective approach is calculating the ROI of one well-run A/B test — take an existing conversion rate, model a 10% improvement, and multiply by annual revenue to show the dollar impact. Then show the Experimentation ROI Calculator to project the cumulative impact of running 5–10 tests per month. Leadership resistance usually comes from not understanding the compounding nature of experimentation: each winning test permanently improves the baseline for all future tests."
+        }
+      ]
+    },
+    {
+      "slug": "analytics-governance-framework",
+      "title": "Analytics Governance: The Framework That Makes Data Trustworthy",
+      "seo_title": "Analytics Governance Framework — How to Make Data Trustworthy (2026)",
+      "meta_description": "What is analytics governance and why does it matter? A practical framework for analytics data governance: definitions, tracking plans, data quality, and access controls.",
+      "tag": "Analytics",
+      "tag_color": "accent",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"},
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Analytics governance is the set of processes, standards, and ownership structures that ensure your data is accurate, consistent, and trusted across the organization. Without it, the symptom is familiar: every meeting where someone presents data is followed by someone else questioning the numbers. Analytics governance eliminates that pattern — not by making data perfect, but by making it consistently defined and reliably maintained.",
+      "sections": [
+        {
+          "h2": "Why governance is the bottleneck for AI adoption",
+          "body": "Here is the uncomfortable truth about AI in analytics: AI agents acting on ungoverned data don't amplify your team's intelligence — they amplify your data quality problems at machine speed. The core prerequisite for any AI-powered analytics workflow is trusted data. You cannot trust data that is inconsistently defined, inconsistently tracked, and inconsistently interpreted across teams. This is why analytics governance is the critical path for organizations trying to move from Stage 3 to Stage 4 on the AI-Ready Analytics Ladder — not better tooling, not more AI features, but governance work."
+        },
+        {
+          "h2": "The four components of analytics governance",
+          "body": "1. Metric definitions — every key metric has a single, written definition that specifies what it includes, what it excludes, the time window, and who owns it. 2. Tracking plan — a living document that maps every tracked event to its business purpose, expected properties, and the team responsible for maintaining it. 3. Data quality monitoring — automated checks that alert when event volumes drop, when unexpected values appear, or when key metrics deviate from their expected range. 4. Access controls — who can read data, who can modify it, who can create new metrics in the BI layer, and how new tracking requests are approved."
+        },
+        {
+          "h2": "The metric definition template",
+          "body": "Every metric definition should include: Name (what it's called in every tool and document), Business question it answers, Calculation (exact formula), Numerator (what counts), Denominator (what it's divided by), Filters/exclusions (bots, internal users, test accounts), Time window (rolling 7-day, calendar month, etc.), Owner (who is responsible for its accuracy), Last reviewed date. A simple table in Notion or Confluence works well for teams under 50 people. At larger scale, data catalog tools like Atlan or Alation manage this more robustly."
+        },
+        {
+          "h2": "The tracking plan as a governance foundation",
+          "body": "The tracking plan is the contract between your product team and your analytics team. It documents every event that should be tracked, the properties that should be included, the naming convention, and which analyses each event enables. A tracking plan prevents the most common source of governance failures: ad-hoc event implementation where different developers implement the same concept differently. Format: a spreadsheet with columns for event name, event description, trigger (what user action fires it), required properties, optional properties, and the team/analyst who requested it. The tracking plan should be reviewed and updated whenever a new product feature ships."
+        }
+      ],
+      "checklist_title": "Analytics governance checklist",
+      "checklist": [
+        "All key metrics have written definitions accessible to everyone",
+        "Metric definitions include: calculation, filters, time window, and owner",
+        "A tracking plan exists and is updated when new features ship",
+        "Event naming convention is documented and enforced",
+        "Data quality monitoring alerts when key events drop or spike unexpectedly",
+        "Internal users, bots, and test accounts are excluded from all production metrics",
+        "Access to modify production metrics is restricted to defined owners",
+        "Annual governance audit reviews all metric definitions for accuracy"
+      ],
+      "faqs": [
+        {
+          "q": "What is the difference between data governance and analytics governance?",
+          "a": "Data governance is the broader discipline covering data ownership, security, privacy, compliance, and data architecture. Analytics governance is a subset focused specifically on ensuring that analytics data — events, metrics, reports — is accurate, consistently defined, and trusted. In practice, analytics governance is the more immediately impactful investment for most growth teams."
+        },
+        {
+          "q": "How long does it take to implement analytics governance?",
+          "a": "A minimum viable governance framework — metric definitions, tracking plan, and basic data quality alerts — takes 4–8 weeks for a focused team. The ongoing maintenance is the harder part: governance erodes over time as new features ship and definitions drift. The key to sustainable governance is embedding it in the development process (require tracking plan updates as part of feature tickets) rather than treating it as a one-time project."
+        },
+        {
+          "q": "What tools are best for analytics governance?",
+          "a": "For most companies under 200 people: Notion or Confluence for metric definitions and tracking plans, dbt for transformation-layer governance (if you have a data warehouse), and Monte Carlo or Great Expectations for automated data quality monitoring. At larger scale, purpose-built data catalog tools (Atlan, Alation, Collibra) provide better search, lineage tracking, and collaboration features."
+        }
+      ]
+    },
+    {
+      "slug": "product-analytics-maturity",
+      "title": "Product Analytics Maturity: Where Is Your Team on the Ladder?",
+      "seo_title": "Product Analytics Maturity — Levels, Assessment & Improvement (2026)",
+      "meta_description": "How mature is your product analytics function? A framework for assessing product analytics maturity across five dimensions and a roadmap for leveling up.",
+      "tag": "Analytics",
+      "tag_color": "accent",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"},
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Product analytics maturity is not the same as analytics maturity. A company can have excellent business intelligence — clean revenue dashboards, reliable financial reporting — and still have immature product analytics. Product analytics maturity specifically measures how well the organization instruments, interprets, and acts on behavioral data from within the product. This guide covers the five stages of product analytics maturity and how to move between them.",
+      "sections": [
+        {
+          "h2": "The five stages of product analytics maturity",
+          "body": "Stage 1 — No instrumentation: Core user journeys are not tracked. You don't know what users do after signup. Stage 2 — Basic funnel tracking: Key events are tracked (signup, purchase, core actions) but the taxonomy is inconsistent and there's no framework for analysis. Stage 3 — Structured product analytics: A clean tracking plan exists. Funnel analysis, retention cohorts, and user segmentation are possible. Self-service access exists for at least the product team. Stage 4 — Continuous experimentation: Product decisions are routinely informed by A/B tests. Learning velocity is high. Product analytics is a competitive advantage. Stage 5 — Predictive & AI-augmented: Behavioral data feeds ML models (churn prediction, personalization). Anomalies are detected automatically. Analytics informs real-time product decisions."
+        },
+        {
+          "h2": "The five dimensions of product analytics maturity",
+          "body": "Instrumentation depth — how completely user behavior is tracked across all product surfaces and platforms. Data quality — whether events fire correctly, consistently, and without duplication. Self-service access — whether the product team can answer behavioral questions without engineering support. Analysis velocity — how quickly the team can move from question to insight to decision. Experimentation integration — whether A/B tests are a routine part of product development, not an occasional activity."
+        },
+        {
+          "h2": "The most common reason teams get stuck at Stage 2–3",
+          "body": "The jump from Stage 2 to Stage 3 is primarily a governance and ownership problem. At Stage 2, events are tracked ad-hoc as features are built, with no consistent naming convention, no shared definition of what events mean, and no clear owner. Moving to Stage 3 requires a tracking plan (the contract for what gets tracked and how), metric definitions (the contract for what those events mean at the business level), and an analytics owner who enforces both. This work is unsexy, slow, and has no immediate visible output. It's the most commonly skipped step in analytics maturity — and the most commonly cited regret when teams try to deploy AI on top of poor foundations."
+        },
+        {
+          "h2": "From Stage 3 to Stage 4: the experimentation lever",
+          "body": "The defining characteristic of Stage 4 product analytics maturity is that experimentation is a default part of the product development process, not an optional add-on. At Stage 3, experiments are run occasionally — usually when someone advocates strongly for them. At Stage 4, the default is: any significant product change is tested before it's fully shipped. The infrastructure requirements are modest (a feature flagging tool, sample size standards, and a learning repository), but the cultural change is significant. Product managers need to reframe 'shipping fast' to mean 'learning fast', which requires leadership support."
+        }
+      ],
+      "checklist_title": "Product analytics maturity self-assessment",
+      "checklist": [
+        "All core product journeys are instrumented with clean, consistently named events",
+        "A tracking plan exists and is updated when new features ship",
+        "The product team can answer basic behavioral questions without engineering support",
+        "Funnel analysis, retention cohorts, and user segmentation are regularly used",
+        "A/B tests are run for at least 50% of significant product changes",
+        "Learning repository captures test results and behavioral insights",
+        "Data quality monitoring alerts on unexpected event behavior",
+        "At least one person is accountable for the quality of product analytics data"
+      ],
+      "faqs": [
+        {
+          "q": "How is product analytics different from product management?",
+          "a": "Product management is the function that decides what to build, in what order, and for whom. Product analytics is the capability that generates the behavioral evidence product managers use to make those decisions. The best product managers are product analytics-fluent — they can build their own analyses, interpret cohort curves, and design experiments — but product analytics as a discipline has its own technical depth that typically requires a dedicated analyst or data role in teams above 20–30 people."
+        },
+        {
+          "q": "What is the best product analytics tool for early-stage startups?",
+          "a": "Amplitude's free tier (10M events/month) or PostHog's open-source plan. At early stage, the most important investment is in tracking implementation quality — a well-instrumented product with a basic tool is vastly more valuable than a poorly instrumented product with an enterprise tool. Focus on: defining your core funnel, tracking the 10–15 most important events with clean, consistent naming, and building the 3–5 reports you'll look at every week."
+        },
+        {
+          "q": "How do you measure the ROI of product analytics?",
+          "a": "The most direct ROI calculation: identify a product decision made using behavioral data (e.g., an onboarding redesign informed by funnel analysis that improved activation rate by 15%), then calculate the annual revenue impact. In most companies, a single well-analyzed product decision produces 10–100× more value than the annual cost of the analytics tool and analyst time. The harder-to-measure value is faster decision velocity: teams with strong product analytics make decisions in days that teams without it make in months (or never)."
+        }
+      ]
+    },
+    {
+      "slug": "kpi-framework-for-growth",
+      "title": "The Growth Team KPI Framework: Metrics That Actually Drive Decisions",
+      "seo_title": "Growth Team KPI Framework — Metrics That Drive Decisions (2026)",
+      "meta_description": "A practical KPI framework for growth teams: how to choose the right metrics, build a north star metric, avoid vanity metrics, and create a metrics hierarchy that drives decisions.",
+      "tag": "Growth Analytics",
+      "tag_color": "accent",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"},
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Most growth teams have too many metrics and not enough clarity. The result is a dashboard full of numbers that everyone looks at but nobody is accountable for. A good KPI framework for growth solves this by creating a hierarchy of metrics — a small number of outcomes that the team is accountable for, a larger set of leading indicators that signal whether you're on track, and a clear link between both and the decisions they should drive.",
+      "sections": [
+        {
+          "h2": "The north star metric: one number that captures value delivered",
+          "body": "The north star metric (NSM) is the single number that best captures whether your product is delivering value to users at scale. It's not a financial metric (revenue is an outcome, not a driver) — it's a behavioral metric that correlates with long-term revenue and reflects the core value proposition. Examples: for Airbnb, Nights Booked. For Spotify, Time Listening. For Slack, Messages Sent per DAU. For a SaaS analytics tool, it might be Reports Created per Active User. A good NSM has three properties: it increases when users are getting value, it predicts long-term retention and revenue, and it can be influenced by the product team's decisions."
+        },
+        {
+          "h2": "The metrics hierarchy: NSM, input metrics, and health metrics",
+          "body": "The NSM sits at the top of the hierarchy. Directly below it are input metrics — the leading indicators that drive the NSM. For an NSM of 'weekly active users who complete a core action', the input metrics might be: new user activation rate (% of signups who complete first core action in 7 days), re-engagement rate (% of lapsed users returning after a notification or email), and feature adoption rate (% of active users using the features most correlated with retention). Below input metrics are health metrics — the guardrails that ensure you're not improving the NSM at the expense of other important outcomes (support ticket volume, page load time, NPS, revenue)."
+        },
+        {
+          "h2": "Vanity metrics vs. actionable metrics",
+          "body": "Vanity metrics look good but don't drive decisions. Total registered users (includes churned users, bots, and users who never returned). Total pageviews (doesn't reflect engagement quality). Social media followers (not correlated with business outcomes). Actionable metrics change based on decisions and drive clear responses. Active users (DAU/WAU/MAU) — if this drops, there's a clear investigation and response. Activation rate — if this drops, the onboarding or new user experience needs attention. Week-1 retention — if this drops, the core product experience is degrading. The test for whether a metric is actionable: if it went up 20% this week, would you know why? If it went down 20%, would you know what to investigate?"
+        },
+        {
+          "h2": "How to build a KPI dashboard that gets used",
+          "body": "Most KPI dashboards don't get used because they're built for comprehensiveness rather than decision-support. A dashboard that drives decisions has: a maximum of 5–7 metrics visible without scrolling, trend lines that show direction (not just current state), clear signal vs. noise separation (automated alerts for significant movements, not daily manual review), and a weekly review cadence where someone presents the data and the team responds. The format matters less than the cadence: a simple Google Sheet reviewed every Monday is more valuable than a sophisticated Looker dashboard nobody opens."
+        }
+      ],
+      "checklist_title": "Growth KPI framework checklist",
+      "checklist": [
+        "North star metric is defined, agreed upon, and visible to the whole team",
+        "NSM reflects value delivered to users, not just revenue or usage volume",
+        "3–5 input metrics are identified that directly drive the NSM",
+        "Health/guardrail metrics are defined to prevent gaming the NSM",
+        "All metrics are owned by a specific team or person",
+        "Vanity metrics (total signups, total users) are separated from actionable metrics",
+        "Weekly KPI review cadence is established and maintained",
+        "Dashboard is limited to 5–7 primary metrics to avoid attention fragmentation"
+      ],
+      "faqs": [
+        {
+          "q": "What is a good north star metric for a SaaS company?",
+          "a": "Good NSM candidates for SaaS: 'Users who completed X core action at least once this week' (where X is the action most correlated with long-term retention), 'seats actively used in the last 7 days' (for collaborative tools), or 'value units processed through the product this month' (for workflow automation tools). A poor NSM for SaaS: total MRR (it lags behavioral reality by weeks), total users (includes inactive), or NPS (a lagging indicator that's hard to act on)."
+        },
+        {
+          "q": "How many KPIs should a growth team track?",
+          "a": "One north star metric, 3–5 input metrics that drive it, and 2–3 health metrics. That's 6–9 total metrics that get serious weekly attention. Below that is a longer list of diagnostic metrics that are investigated when the primary metrics move unexpectedly. Most teams that track 20+ metrics are either tracking for reporting purposes (to executives) rather than decision-making, or are spreading accountability too thin."
+        },
+        {
+          "q": "What is the difference between a KPI and a metric?",
+          "a": "A metric is any measurable quantity. A KPI (Key Performance Indicator) is a metric that has been designated as important for measuring progress toward a specific goal. All KPIs are metrics, but not all metrics are KPIs. The KPI designation implies: this number is important enough to review regularly, someone is accountable for its performance, and a significant movement in it triggers a response."
+        }
+      ]
+    },
+    {
+      "slug": "data-driven-growth-strategy",
+      "title": "Building a Data-Driven Growth Strategy: From Instinct to Evidence",
+      "seo_title": "Data-Driven Growth Strategy — How to Build One That Works (2026)",
+      "meta_description": "How to build a data-driven growth strategy: from establishing the right metrics to building experimentation culture. A practical guide for growth-stage companies.",
+      "tag": "Growth Analytics",
+      "tag_color": "accent",
+      "related_tool": {"name": "Experimentation ROI Calculator", "url": "/tools/experimentation-roi/"},
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Data-driven growth doesn't mean replacing human judgment with data — it means systematically testing the hypotheses your judgment generates and learning from the results. Companies that get this right build a compounding knowledge asset: each experiment adds to the team's understanding of what works for their specific users, making future decisions faster and better. This guide covers how to build a genuinely data-driven growth strategy, not just the appearance of one.",
+      "sections": [
+        {
+          "h2": "The difference between data-informed and data-driven",
+          "body": "Data-informed means using data as one input among many to a decision. Data-driven means committing to decisions that are primarily determined by evidence, with intuition playing a secondary role. Neither is universally correct — early-stage products often benefit more from qualitative user insight than quantitative analysis. But growth-stage companies that can't move from data-informed to data-driven for their core conversion and retention metrics are leaving compounding improvement on the table."
+        },
+        {
+          "h2": "The growth strategy stack: vision, metrics, experiments",
+          "body": "A data-driven growth strategy has three layers. At the top: a clear articulation of the growth model (how does this product grow?) and the north star metric that captures it. In the middle: the input metrics and behavioral levers that drive the NSM, each owned by a specific team. At the bottom: a continuous experiment pipeline that tests hypotheses about how to improve those input metrics. Strategy without metrics is directionless. Metrics without experiments are descriptive, not prescriptive. The three layers compound: better strategy generates better hypotheses, better experiments produce more reliable metrics, and clearer metrics sharpen the strategy."
+        },
+        {
+          "h2": "How to identify your highest-leverage growth lever",
+          "body": "The highest-leverage lever is the stage of the funnel where: (1) the current conversion or retention rate is significantly below benchmark, and (2) improving it would have a multiplicative impact on downstream metrics. The standard approach is growth accounting decomposition: model how a 10% improvement at each funnel stage would impact your north star metric. In most products, activation is the highest-leverage lever in the first 12 months — because improving activation compresses the feedback loop (activated users provide more product signal), improves word-of-mouth (activated users talk about the product), and directly improves trial-to-paid conversion."
+        },
+        {
+          "h2": "Building experimentation culture in a growth team",
+          "body": "Experimentation culture doesn't come from process — it comes from leadership treating null results as valuable. The fastest way to kill experimentation culture is to respond to a null result as a failure. When the VP of Product says 'we wasted three weeks on that test', every PM in the room learns that the safe choice is to ship without testing. Building a culture where a well-designed null result is celebrated as 'we just learned something important and didn't ship a change that wouldn't have worked' takes consistent messaging from leadership, usually over 6–12 months."
+        }
+      ],
+      "checklist_title": "Data-driven growth strategy checklist",
+      "checklist": [
+        "Growth model is documented: how does your product actually grow?",
+        "North star metric is defined and connected to the growth model",
+        "Highest-leverage funnel stage is identified and owned by a team",
+        "Weekly data review with clear owner presenting and team responding",
+        "Experiment pipeline has 10+ prioritized hypotheses at all times",
+        "Null results are treated as learning, not failure",
+        "Data quality is sufficient to trust experimental results",
+        "Growth learnings are documented and accessible to future team members"
+      ],
+      "faqs": [
+        {
+          "q": "How do you build a growth team from scratch?",
+          "a": "Start with one person who can do three things: define and measure the core growth metrics, design and analyze experiments, and translate findings into product/marketing decisions. This is often a senior growth analyst or head of growth. The team expands based on where the leverage is highest: if acquisition is the bottleneck, add a performance marketer. If activation is the bottleneck, add a product designer focused on onboarding. Scale analytics and engineering support proportionally."
+        },
+        {
+          "q": "What is the growth loop and how do you identify it?",
+          "a": "A growth loop is a self-reinforcing cycle where users performing actions within the product drives acquisition of new users. Examples: Dropbox's referral loop (users invite collaborators, collaborators become users), Notion's template gallery (users create templates, templates attract new signups), LinkedIn's network effect (more connections → more value → more invitations). Identifying your growth loop requires understanding which user actions most strongly predict new user acquisition — usually found in referral, sharing, and invite analytics."
+        },
+        {
+          "q": "How long does it take to build a data-driven growth culture?",
+          "a": "12–24 months for meaningful cultural change. The infrastructure (tools, tracking, dashboards) takes 3–6 months. The process (regular data reviews, experimentation cadence, learning repositories) takes another 3–6 months to embed. The culture — where data is genuinely used to resolve disagreements and guide decisions rather than to justify pre-made choices — takes the longest and requires consistent leadership modeling."
+        }
+      ]
+    },
+    {
+      "slug": "conversion-rate-optimization-analytics",
+      "title": "CRO and Analytics: How to Measure What's Worth Optimizing",
+      "seo_title": "CRO Analytics — How to Measure What's Worth Optimizing (2026)",
+      "meta_description": "How to use analytics to drive conversion rate optimization. Funnel analysis, segmentation, session data, and experiment design for CRO programs that actually improve revenue.",
+      "tag": "Experimentation",
+      "tag_color": "accent",
+      "related_tool": {"name": "A/B Test Sample Size Calculator", "url": "/tools/sample-size-calculator/"},
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Conversion rate optimization (CRO) is only as good as the analytics feeding it. Without the right analytical foundation, CRO programs optimize for the wrong thing (improving page metrics without improving business outcomes), run tests that are too underpowered to be reliable, or mistake correlation for causation in funnel analysis. This guide covers how to build the analytics foundation that makes CRO programs actually work.",
+      "sections": [
+        {
+          "h2": "Funnel analysis: finding the highest-leverage drop-off points",
+          "body": "The first step in any CRO program is a clean funnel analysis: a sequential view of conversion from top of funnel to the desired outcome, broken down by the key dimensions that matter (traffic source, device type, user segment, time period). The goal is to find the funnel step with the highest absolute drop-off volume — not the highest drop-off rate. Fixing a step where 40% of users drop but only 100 users pass through is far less valuable than fixing a step where 10% drop but 10,000 users pass through. The product of users × drop-off rate is the optimization priority score."
+        },
+        {
+          "h2": "Session replay and qualitative data: why does the drop-off happen?",
+          "body": "Funnel analysis tells you where the problem is; session replay and user research tell you why. Tools like Hotjar, FullStory, and Heap's session replay feature let you watch actual user sessions at the drop-off point. The patterns you're looking for: rage clicks (users clicking repeatedly on a non-interactive element), form abandonment patterns, scroll depth vs. conversion correlation, and confusion indicators (users hovering over elements for a long time before leaving). This qualitative data generates the hypotheses that drive A/B tests — it's the bridge between analytics and experimentation."
+        },
+        {
+          "h2": "Segmentation: why your overall conversion rate is misleading",
+          "body": "An overall conversion rate of 3% can hide enormous variance by segment. The same checkout might convert at 6% for desktop users and 1.5% for mobile, at 8% for returning visitors and 1% for first-time visitors, at 10% for email traffic and 2% for paid search traffic. Before running any CRO test, segment your funnel by device type, traffic source, user type (new vs. returning), and geography. The segment with the lowest conversion rate relative to its expected behavior is almost always the highest-leverage optimization opportunity — and the segment where tests will show the largest absolute improvement."
+        },
+        {
+          "h2": "The CRO test hierarchy: what to test first",
+          "body": "Not all tests are equal. The hierarchy for most e-commerce and SaaS products: (1) Clear value proposition and headline on the primary landing or product page — the biggest impact on conversion comes from clarity, not design details. (2) Friction reduction in the checkout or signup flow — removing unnecessary fields, reducing steps, adding social proof near the conversion action. (3) Trust and credibility signals — reviews, security badges, social proof numbers. (4) Pricing presentation — plan comparison, anchoring, trial framing. (5) Design and layout details. Most CRO programs start at (4) and (5) and miss the larger opportunity at (1) and (2)."
+        }
+      ],
+      "checklist_title": "CRO analytics foundation checklist",
+      "checklist": [
+        "Full funnel is instrumented from traffic source to conversion outcome",
+        "Funnel analysis is segmented by device type, traffic source, and user type",
+        "Session replay is configured for high-value funnel steps",
+        "Sample size is calculated before any A/B test launches",
+        "A/B tests have a primary metric, 1–2 guardrail metrics, and a minimum duration",
+        "Test results are analyzed after reaching pre-determined sample size (no peeking)",
+        "Revenue impact is calculated for each winning test (not just conversion rate change)",
+        "CRO test backlog is prioritized by estimated revenue impact, not ease of implementation"
+      ],
+      "faqs": [
+        {
+          "q": "What is a good conversion rate for a landing page?",
+          "a": "This depends entirely on traffic source and offer. Median landing page conversion rates by source: paid search 4–6%, organic search 2–4%, email 8–12%, direct 6–10%. These are medians — excellent landing pages in optimal niches convert at 20%+. The more relevant question is how your conversion rate compares to your historical baseline and to your internal segments, not to industry averages."
+        },
+        {
+          "q": "How do you know if a CRO test result is reliable?",
+          "a": "A reliable test result has: reached its pre-calculated sample size, run for at least 7 days (to account for weekday/weekend variation), showed consistency across daily results (not a spike on one day that drove the average), and passed a simple sanity check (the variant's performance by day doesn't show a trend that suggests an implementation bug or data collection issue). Results that 'just barely' hit significance on the last day of a test should be treated with extra skepticism."
+        },
+        {
+          "q": "Should CRO teams use Bayesian or frequentist statistics?",
+          "a": "Both are valid, but they answer different questions. Frequentist testing (the standard approach) answers: 'Is this effect real or is it noise?' Bayesian testing answers: 'What is the probability that variant A is better than variant B?' For CRO teams that need to make clear ship/don't-ship decisions, frequentist testing with pre-registered sample sizes is simpler and harder to misinterpret. For teams with lower traffic who benefit from early stopping and continuous analysis, Bayesian methods are more appropriate."
+        }
+      ]
+    },
+    {
+      "slug": "ab-testing-maturity-framework",
+      "title": "A/B Testing Maturity Framework: 5 Stages to Systematic Experimentation",
+      "seo_title": "A/B Testing Maturity Framework — 5 Stages Explained",
+      "meta_description": "How to assess and evolve your A/B testing program across five maturity stages. Practical framework used by D2C ecommerce and SaaS growth teams.",
+      "tag": "Experimentation",
+      "tag_color": "accent",
+      "related_tool": {"name": "Experimentation ROI Calculator", "url": "/tools/experimentation-roi/"},
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Most companies think they have an experimentation program. What they have is a collection of A/B tests with inconsistent statistical practices, no shared hypothesis process, and learnings that disappear into a Confluence page nobody reads. This guide maps the five stages of A/B testing maturity — and what it actually takes to move between them.",
+      "sections": [
+        {
+          "h2": "Why most A/B testing programs plateau at Stage 2",
+          "body": "The jump from 'running some tests' to 'systematic experimentation' is not a tooling problem. It's an organizational one. Most teams buy an A/B testing tool, run tests reactively (based on whoever has a strong opinion that week), and then stop when sample sizes run out or pressure mounts to ship. The result is a low-velocity, low-quality program that doesn't compound."
+        },
+        {
+          "h2": "The five stages of experimentation maturity",
+          "body": "Stage 1 — Ad-hoc: Tests run occasionally, based on opinions. No shared process, no hypothesis documentation. Results are celebrated when positive and ignored when negative. Stage 2 — Reactive: Tests are run in response to problems. Statistical validity is acknowledged but inconsistently applied. Learnings aren't systematically captured. Stage 3 — Structured: A testing backlog exists. Sample sizes are calculated upfront. Someone owns the process. But velocity is low and hypothesis quality varies. Stage 4 — Systematic: Continuous experimentation with a prioritized hypothesis pipeline. Statistical governance is enforced. Learnings are shared across teams. Stage 5 — Autonomous: Hypothesis generation is partly automated. Experiments run continuously across dozens of surfaces. AI-assisted analysis identifies patterns across test results."
+        },
+        {
+          "h2": "The five dimensions of experimentation quality",
+          "body": "Velocity (tests per month), Hypothesis quality (the ratio of interesting to obvious hypotheses), Statistical rigor (sample size, power, significance, and no peeking), Learning capture (what happens to results), and Cultural buy-in (does leadership value null results as much as wins)."
+        },
+        {
+          "h2": "What separates a Stage 3 from a Stage 4 program",
+          "body": "The single biggest difference between Stage 3 and Stage 4 is what happens to a null result. In Stage 3, a test that shows no effect is quietly shelved. In Stage 4, it's added to a shared learning repository, its hypothesis is marked as invalidated, and the team's model of the user is updated. That accumulated knowledge is what allows a mature program to run better, higher-quality hypotheses over time."
+        }
+      ],
+      "checklist_title": "Experimentation maturity checklist",
+      "checklist": [
+        "A/B test backlog exists and is actively maintained",
+        "Sample sizes are calculated before tests launch",
+        "Statistical power and significance thresholds are defined and consistent",
+        "Tests run for a minimum of 7 days regardless of early results",
+        "Null results are documented and shared",
+        "Learning repository is searchable and referenced when generating new hypotheses",
+        "At least one person owns the experimentation process",
+        "Leadership understands what a null result means (it's not a failure)"
+      ],
+      "faqs": [
+        {
+          "q": "How many A/B tests should we run per month?",
+          "a": "Benchmarks by stage: early-stage programs typically run 1–3 tests per month; growth-stage programs 5–10; mature programs 20+. The constraint is usually traffic volume at first, then hypothesis pipeline quality as programs scale."
+        },
+        {
+          "q": "What is a good win rate for A/B tests?",
+          "a": "20–35% is a healthy win rate for a well-run program. Rates below 20% indicate hypothesis quality issues. Rates above 40% may indicate peeking (stopping tests early when they look good) rather than genuinely better hypotheses."
+        },
+        {
+          "q": "What statistical significance level should I use?",
+          "a": "95% confidence (alpha = 5%) is the standard for most product and growth tests. Use 99% for high-stakes decisions like pricing changes. Using 90% is acceptable for low-traffic, lower-stakes tests."
+        }
+      ]
+    },
+    {
+      "slug": "analytics-maturity-model",
+      "title": "The Analytics Maturity Model: A Plain-English Guide to the 5 Stages",
+      "seo_title": "Analytics Maturity Model — 5 Stages Explained (2026)",
+      "meta_description": "What is analytics maturity and where is your organization on the scale? A plain-English breakdown of the five-stage analytics maturity model for scaling companies.",
+      "tag": "Analytics",
+      "tag_color": "accent",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"},
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Analytics maturity is the degree to which an organization systematically collects, governs, and acts on data. It's not about how sophisticated your tooling is — it's about how reliably data flows from event to insight to decision. This guide explains the five-stage model used by Adasight with scaling companies — and what it actually takes to move between stages.",
+      "sections": [
+        {
+          "h2": "Why analytics maturity matters for AI investments",
+          "body": "98% of organizations report urgency to deploy AI. Only 13% say they're fully ready (Cisco AI Readiness Index, 2024). The gap is almost never the AI model itself — it's the data foundation underneath it. An AI agent acting on inconsistent, ungoverned data doesn't augment your team. It amplifies your data quality problems at speed. Analytics maturity is the prerequisite for AI leverage."
+        },
+        {
+          "h2": "The five stages of the AI-Ready Analytics Ladder",
+          "body": "Stage 1 — Reactive: Data is used to explain what happened. Tracking is inconsistent, there's no shared definition of key metrics, and reports are built on request. Stage 2 — Structured: A consistent analytics stack is in place. Key events are tracked and dashboards exist. Metrics are mostly reliable but definitions vary across teams. Stage 3 — Proactive: Analytics feeds decisions, not just reports. Self-service access exists for most teams. Experimentation has started. Stage 4 — Systematic: Continuous experimentation, governed definitions, high data quality. Analytics is a competitive advantage. Stage 5 — AI-Ready: Data is governed, real-time, and trusted enough for AI agents to act on autonomously."
+        },
+        {
+          "h2": "The 'messy middle': why most companies get stuck at Stage 2–3",
+          "body": "The messy middle is the zone between having analytics in place and actually trusting it. It's characterized by dashboards that exist but aren't used, metrics that are defined in five different ways depending on who you ask, and a data team that's always busy but never getting ahead. Moving through the messy middle requires governance work — the unglamorous work of agreeing on definitions, documenting them, and enforcing them. Most companies skip this step because it's slow and invisible. The companies that do it are the ones that can eventually deploy AI."
+        },
+        {
+          "h2": "How to move from Stage 3 to Stage 4",
+          "body": "The jump from Stage 3 to Stage 4 is mostly about experimentation. At Stage 3, analytics is used to understand what happened and generate hypotheses. At Stage 4, those hypotheses are tested continuously, results are captured systematically, and the feedback loop runs fast enough to compound. The key investment at Stage 3 is in experimentation infrastructure: a hypothesis backlog, statistical governance, and a learning repository."
+        }
+      ],
+      "checklist_title": "Analytics maturity quick audit",
+      "checklist": [
+        "Three different people querying 'active users last month' would get the same answer",
+        "A tracking plan exists and is actively maintained",
+        "Key events and metrics are documented with clear business definitions",
+        "Most team members can access analytics data without asking the data team",
+        "Data quality issues are detected automatically, not discovered in meetings",
+        "Experimentation is part of the standard product development process",
+        "AI or ML is being used in at least one production workflow"
+      ],
+      "faqs": [
+        {
+          "q": "What is the difference between data maturity and analytics maturity?",
+          "a": "Data maturity refers to the quality and governance of data itself (collection, storage, accuracy). Analytics maturity refers to how well an organization derives decisions from that data (tooling, process, culture, AI use). Both are required — high data maturity without analytics maturity produces expensive dashboards nobody uses."
+        },
+        {
+          "q": "How long does it take to move between analytics maturity stages?",
+          "a": "Moving from Stage 1 to Stage 2 typically takes 3–6 months with focused effort. Stage 2 to Stage 3 takes 6–12 months. Stage 3 to Stage 4 often takes 12–24 months because it requires cultural change, not just tooling. Stage 4 to Stage 5 depends heavily on organizational readiness for AI."
+        },
+        {
+          "q": "Does company size affect analytics maturity?",
+          "a": "Yes, but not in a simple way. Small companies often have more consistent data (fewer systems, fewer people) but lower maturity because analytics isn't prioritized. Large companies often have more advanced tooling but lower effective maturity due to data siloes and inconsistent governance across teams."
+        }
+      ]
+    },
+    {
+      "slug": "amplitude-analytics-d2c-ecommerce",
+      "title": "Amplitude Analytics for D2C Ecommerce: Setup Guide & Event Taxonomy",
+      "seo_title": "Amplitude Analytics for D2C Ecommerce — Setup Guide (2026)",
+      "meta_description": "How to set up Amplitude for D2C ecommerce — events taxonomy, conversion funnels, retention cohorts, and A/B testing. Practical guide from an Amplitude implementation partner.",
+      "tag": "Amplitude",
+      "tag_color": "accent",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"},
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Amplitude is the right tool for many D2C ecommerce teams — but only if it's set up correctly. Most implementations we see at Adasight have one of three problems: inconsistent event naming, missing key funnel events, or no cohort strategy. This guide walks through a practical Amplitude setup for D2C ecommerce, with a recommended event taxonomy, the most important analyses to build first, and how to connect it to your A/B testing workflow.",
+      "sections": [
+        {
+          "h2": "Why most Amplitude implementations underdeliver",
+          "body": "The problem isn't usually Amplitude — it's the event taxonomy. When events are tracked inconsistently (sometimes 'add_to_cart', sometimes 'AddToCart', sometimes 'cart_add'), cohort analysis becomes unreliable and funnel reports show gaps that don't match reality. Before anything else, a D2C ecommerce team needs a clean, agreed-upon event naming convention and a tracking plan that maps each business question to the event that answers it."
+        },
+        {
+          "h2": "Recommended D2C event taxonomy",
+          "body": "Core ecommerce events to track: Page Viewed (with page_type property: home, pdp, plp, checkout, account), Product Viewed, Product Added to Cart, Checkout Started, Checkout Step Completed (with step_name property), Order Completed (with revenue, product_count, first_order properties), Order Returned, Account Created, and Email Subscribed. Properties that should be consistent across events: user_id, anonymous_id, session_id, device_type, utm_source/medium/campaign."
+        },
+        {
+          "h2": "The five analyses every D2C team should build first",
+          "body": "1. Purchase funnel: from landing page to order completed, broken down by traffic source. 2. First-order conversion by acquisition channel: paid vs. organic vs. email. 3. 30/60/90-day retention by cohort: what % of first-time buyers make a second purchase within 30, 60, and 90 days. 4. Product page conversion rate by product category: which categories have the biggest gap between views and add-to-cart. 5. Cart abandonment by checkout step: where in the checkout flow do users drop off."
+        },
+        {
+          "h2": "Connecting Amplitude to your A/B testing workflow",
+          "body": "Amplitude's built-in experiment feature (Amplitude Experiment) is a solid choice for product-side tests. For marketing-side tests, you'll need to pass variant data as user properties so you can segment analysis in Amplitude. The critical thing is to log an Experiment Viewed event with properties experiment_id and variant_id at the moment of exposure — not at the moment of assignment. This ensures your analysis only includes users who actually saw the experience."
+        }
+      ],
+      "checklist_title": "Amplitude D2C setup checklist",
+      "checklist": [
+        "Event naming convention is documented and enforced (e.g. snake_case, verb_noun)",
+        "All core funnel events are tracked: view → add to cart → checkout → purchase",
+        "Order Completed event includes revenue, order_id, and is_first_order",
+        "User identity is resolved: anonymous users are identified on account creation",
+        "UTM parameters are captured and available as event properties",
+        "Purchase funnel chart is built and reviewed weekly",
+        "30-day repeat purchase cohort is set up",
+        "Data quality: no duplicate Order Completed events"
+      ],
+      "faqs": [
+        {
+          "q": "Should D2C ecommerce teams use Amplitude or Google Analytics 4?",
+          "a": "GA4 is better for marketing attribution and ad platform integration. Amplitude is better for product analytics, funnel analysis, cohort retention, and A/B testing. Most mature D2C teams use both: GA4 for paid media attribution and Amplitude for product and retention analytics. The choice depends on your primary analytical questions — if they're about user behavior in the product, Amplitude wins."
+        },
+        {
+          "q": "What is the best event taxonomy for Amplitude ecommerce?",
+          "a": "Use snake_case event names with a verb_noun convention: product_viewed, cart_updated, checkout_started, order_completed. Keep event names stable — changing them breaks historical comparisons. Use event properties for variations (e.g. category='footwear' rather than separate footwear_product_viewed events)."
+        },
+        {
+          "q": "How does Amplitude handle anonymous user tracking?",
+          "a": "Amplitude assigns an anonymous device ID to each new user. When a user creates an account or logs in, you call identify() to link the anonymous ID to your user ID. Amplitude then merges the pre-identification events with the identified user profile, allowing you to analyze full pre/post signup journeys."
+        }
+      ]
+    },
+    {
+      "slug": "experimentation-roi-by-growth-stage",
+      "title": "Experimentation ROI by Growth Stage: What to Expect at Seed, Series A, B, and Beyond",
+      "seo_title": "Experimentation ROI by Growth Stage — Benchmarks & Expectations",
+      "meta_description": "What ROI should you expect from A/B testing at each growth stage? Benchmarks for experiment velocity, win rates, and revenue impact from Seed through Series B and growth.",
+      "tag": "ROI",
+      "tag_color": "accent",
+      "related_tool": {"name": "Experimentation ROI Calculator", "url": "/tools/experimentation-roi/"},
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "The ROI of experimentation is not fixed — it depends heavily on where you are in your growth journey. A Seed-stage startup with 500 daily users has a completely different calculus than a Series B company with 50,000. This guide breaks down realistic expectations for experiment velocity, win rates, and revenue impact at each growth stage — and the single most important investment to make in experimentation at each stage.",
+      "sections": [
+        {
+          "h2": "Seed stage: experimentation as learning, not optimization",
+          "body": "At Seed, traffic is too low for most A/B tests to reach statistical significance in a reasonable time. The primary value of experimentation at this stage is qualitative — building the habit of forming hypotheses, testing assumptions, and learning from results. Most Seed teams should focus on getting core analytics in place, establishing a tracking plan, and running user interviews rather than A/B tests. The ROI calculation doesn't work yet, but the culture investment pays forward."
+        },
+        {
+          "h2": "Series A: the first real experimentation infrastructure",
+          "body": "Series A is when experimentation starts to have measurable ROI — typically 1–3 tests per month, a 20% win rate, and 5–8% average uplift on winning tests. With $200–500K monthly revenue, a well-run Series A program typically generates $50–200K in attributable annual incremental revenue. The key investment at this stage is in tooling (Amplitude Experiment, Statsig, or GrowthBook) and in establishing basic statistical governance so you don't build bad habits."
+        },
+        {
+          "h2": "Series B: the velocity inflection point",
+          "body": "Series B is where experimentation programs either mature or plateau. Companies that invested in process at Series A are running 5–10 tests per month with clean statistical practices. Companies that didn't are running more tests but with worse quality — higher false positive rates, undocumented learnings, and growing skepticism about whether testing is worth it. The key investment at Series B is in a dedicated experimentation function — either a senior analyst who owns the program, or an external partner."
+        },
+        {
+          "h2": "Growth stage: compounding returns from systematic experimentation",
+          "body": "At growth stage (Series C+), mature experimentation programs typically run 15–30 tests per month across multiple surfaces (checkout, onboarding, pricing, feature adoption). Win rates stabilize at 25–35%. The cumulative impact of 3–4 years of well-run experimentation is substantial — not just in revenue, but in organizational knowledge about what drives behavior for your specific users. This accumulated knowledge is extremely difficult to replicate and constitutes a genuine competitive advantage."
+        }
+      ],
+      "checklist_title": "Experimentation investment priorities by stage",
+      "checklist": [
+        "Seed: Get clean tracking in place before running any A/B tests",
+        "Seed: Run user interviews to generate high-quality hypotheses for later",
+        "Series A: Set up a dedicated A/B testing tool separate from your analytics stack",
+        "Series A: Document your statistical standards (power, significance, minimum test duration)",
+        "Series B: Assign ownership of the experimentation program to a specific person",
+        "Series B: Build a hypothesis backlog and prioritization process",
+        "Growth: Invest in CUPED or sequential testing to reduce test duration",
+        "Growth: Set up a learning repository that future employees can access"
+      ],
+      "faqs": [
+        {
+          "q": "When should a startup start running A/B tests?",
+          "a": "When you have enough traffic to reach statistical significance in 2–4 weeks on your primary metric. For a signup flow with a 3% baseline, that typically requires 3,000+ daily visitors. Before that threshold, qualitative research and preference tests will give you more signal per hour invested."
+        },
+        {
+          "q": "How do you measure the ROI of an experimentation program?",
+          "a": "The standard approach: (annual revenue × average winning test uplift × win rate × tests per year × compounding factor × attribution confidence). This calculator uses this formula. The key debate is the compounding factor — not all winning tests improve independent metrics, so some discount for overlap is appropriate."
+        },
+        {
+          "q": "Is it worth hiring a dedicated experimentation analyst?",
+          "a": "At Series B and beyond, typically yes. The ROI calculation is straightforward: if a dedicated experimentation analyst enables 4 additional winning tests per year, and each winning test generates $50–200K in annual revenue, the analyst pays for themselves many times over. The harder question is whether the organization has the hypothesis pipeline and traffic volume to keep a dedicated analyst productive."
+        }
+      ]
+    },
+    {
+      "slug": "ai-ready-analytics",
+      "title": "AI-Ready Analytics: What It Takes to Deploy AI on Your Data",
+      "seo_title": "AI-Ready Analytics — What It Takes to Deploy AI on Your Data (2026)",
+      "meta_description": "What does it mean for your analytics to be AI-ready? The data quality, governance, and infrastructure requirements for deploying AI agents and ML models on your analytics stack.",
+      "tag": "AI",
+      "tag_color": "accent",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"},
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Every company wants to deploy AI. Most companies discover that their data isn't ready for it. 'AI-ready analytics' is not a product feature or a tool you can buy — it's a state of your data infrastructure where behavioral data is clean, governed, real-time, and trusted enough for AI models to act on autonomously without producing misleading or harmful outputs. This guide explains what AI-ready analytics looks like and how to get there.",
+      "sections": [
+        {
+          "h2": "Why most AI analytics deployments underdeliver",
+          "body": "The pattern is consistent: a company deploys an AI analytics tool (or builds their own), and within 3–6 months, trust in the AI outputs erodes because the recommendations don't match reality. The root cause is almost never the AI model — it's the data underneath it. AI amplifies data quality issues: an AI model trained on inconsistently tracked events will generate confident-sounding but unreliable recommendations. An AI agent acting on duplicate events will overstate user engagement and recommend premature scale. The prerequisite is not better AI — it's better data."
+        },
+        {
+          "h2": "The five AI-readiness requirements for analytics data",
+          "body": "1. Completeness: all relevant user behaviors are tracked, including the edge cases and error states that often predict churn. 2. Consistency: events are named, structured, and fired consistently across platforms, sessions, and time periods. 3. Accuracy: data quality monitoring confirms that events fire when expected and not when they shouldn't. 4. Freshness: data is available quickly enough for the AI use case (real-time for personalization, daily for analytics agents). 5. Governance: metric definitions are documented, ownership is clear, and changes go through a review process that prevents silent breakage."
+        },
+        {
+          "h2": "What AI can do with good analytics data",
+          "body": "With a solid analytics foundation, AI opens up capabilities that were previously unavailable: automated anomaly detection (AI identifies unusual patterns in behavioral data before analysts do), predictive churn modeling (behavioral signals from week 1 predict 30-day churn with 80%+ accuracy in many products), personalization at scale (AI segments users in real time based on behavioral patterns and adjusts product experience), natural language analytics (analysts ask questions in plain English and get data-backed answers), and automated hypothesis generation (AI surfaces correlations in behavioral data that humans wouldn't spot manually)."
+        },
+        {
+          "h2": "The path from Stage 3 to Stage 5: AI-ready",
+          "body": "Stage 3 organizations (proactive analytics) need two things to become AI-ready: governance (metric definitions, tracking plans, data quality monitoring) and infrastructure (a data warehouse where product, CRM, and marketing data are unified and queryable). The governance work is the slower, more organizational of the two. The infrastructure work is faster if you're already using a modern analytics stack. Most companies that have gone through the governance work find that the AI use cases they imagined are now straightforward to implement — and that the governance process itself revealed product instrumentation gaps they hadn't noticed."
+        }
+      ],
+      "checklist_title": "AI analytics readiness checklist",
+      "checklist": [
+        "All key user behaviors are instrumented and tracked across all platforms",
+        "Event naming is consistent and documented in a tracking plan",
+        "Automated data quality monitoring is in place",
+        "Key metrics are defined in writing with formulas and ownership",
+        "A data warehouse exists where product, CRM, and marketing data are unified",
+        "Behavioral data is fresh enough for the intended AI use case",
+        "Data pipeline monitoring alerts on failures and unexpected gaps",
+        "At least one AI use case has been scoped and validated with clean data"
+      ],
+      "faqs": [
+        {
+          "q": "What is the difference between AI-ready data and good data quality?",
+          "a": "Good data quality is a prerequisite for AI-ready data, but not sufficient. AI-ready data additionally requires: sufficient completeness across all relevant user behaviors (not just the happy path), freshness appropriate for the AI use case (real-time for personalization, near-real-time for anomaly detection), and a governance structure that ensures the data stays clean as the product and team evolve."
+        },
+        {
+          "q": "Do you need a data warehouse to be AI-ready?",
+          "a": "For most non-trivial AI analytics use cases, yes. A data warehouse (BigQuery, Snowflake, Redshift) allows you to join product behavioral data with CRM data, financial data, and marketing data — which is where the highest-value AI applications live. Basic AI features within a single analytics tool (e.g., Amplitude's AI summarization) don't require a warehouse, but anything that crosses data sources does."
+        },
+        {
+          "q": "How long does it take to become AI-ready?",
+          "a": "For a company at Stage 3 analytics maturity (proactive analytics), the typical path to AI readiness is 9–18 months. Stage 1–2 companies should expect 18–36 months. The bottleneck is almost always the governance work (metric definitions, tracking plan cleanup, data quality monitoring) rather than the technology implementation. Companies that have done the governance work are often surprised at how quickly the AI applications become straightforward once the data foundation is in place."
+        }
+      ]
+    },
+    {
+      "slug": "growth-analytics-for-ecommerce",
+      "title": "Growth Analytics for Ecommerce: The Metrics and Framework That Drive Revenue",
+      "seo_title": "Growth Analytics for Ecommerce — Metrics, Framework & Tools (2026)",
+      "meta_description": "How to build a growth analytics function for an ecommerce business. Retention cohorts, LTV by channel, conversion funnel analysis, and the analytics stack for D2C and marketplace brands.",
+      "tag": "Ecommerce",
+      "tag_color": "accent",
+      "related_tool": {"name": "Experimentation ROI Calculator", "url": "/tools/experimentation-roi/"},
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Ecommerce growth analytics is fundamentally a repeat purchase problem. Most ecommerce brands can acquire customers profitably in the short run — the growth question is whether those customers come back, how often, and whether the acquisition cost is justified by lifetime value. This guide covers the analytics framework, metrics, and tools that drive ecommerce growth beyond the first order.",
+      "sections": [
+        {
+          "h2": "Why ecommerce growth analytics is different from SaaS",
+          "body": "In SaaS, retention is contractual — customers pay monthly and churn by cancelling. In ecommerce, retention is behavioral — customers return (or don't) based on experience and habit. This makes ecommerce cohort analysis structurally different: you're measuring purchase frequency distributions rather than subscription renewal rates, and the signal is weaker (the fact that someone didn't buy in month 2 doesn't mean they've churned — they might buy in month 5). Good ecommerce analytics requires understanding cohort purchase patterns, RFM segmentation, and the channels that produce the highest-LTV customers."
+        },
+        {
+          "h2": "The three ecommerce metrics that predict long-term growth",
+          "body": "30/60/90-day repeat purchase rate: what % of first-time buyers make a second purchase within 30, 60, and 90 days. This is the leading indicator of LTV — brands with a 30-day repeat rate above 25% have fundamentally different economics than those below 15%. LTV by acquisition channel: the 12-month or 24-month revenue per customer, segmented by where they came from. This is the only correct basis for CAC decisions. Average order value (AOV) trend: whether customers are buying more per order over their lifetime. A declining AOV trend indicates category exhaustion or channel mix shift."
+        },
+        {
+          "h2": "Cohort analysis for ecommerce: what to measure and how",
+          "body": "An ecommerce cohort is a group of customers who made their first purchase in the same time period (typically a calendar month). The most important cohort analyses: revenue per cohort over 12 months (shows LTV trajectory), repeat purchase rate by cohort (shows whether the product drives repurchase or is a one-and-done purchase), and cohort performance by acquisition channel (do Facebook-acquired customers retain differently than Google-acquired?). The most common mistake is analyzing aggregate retention rates instead of cohort curves — aggregate rates mix old cohorts (who've had time to repurchase) with new cohorts (who haven't), making trends unreadable."
+        },
+        {
+          "h2": "The ecommerce analytics stack",
+          "body": "The modern ecommerce analytics stack: Shopify/WooCommerce analytics (transaction-level data), a product analytics tool like Amplitude for behavioral tracking (page views, product views, cart events), Google Analytics 4 for SEO and ad attribution, a marketing attribution tool (Triple Whale, Northbeam, or Rockerbox) for multi-touch attribution and ROAS by channel, and a data warehouse (BigQuery) once you're joining sources for LTV analysis. The most important integration is between your ecommerce platform and your marketing attribution tool — without clean order attribution, you can't calculate LTV by channel accurately."
+        }
+      ],
+      "checklist_title": "Ecommerce growth analytics checklist",
+      "checklist": [
+        "30/60/90-day repeat purchase rate tracked by monthly cohort",
+        "LTV calculated at 12 months, segmented by acquisition channel",
+        "Cohort curves built as actual cohort curves, not aggregate retention averages",
+        "CAC by channel compared to LTV at 12 months (not blended averages)",
+        "Payback period calculated by channel",
+        "RFM segmentation built (recency, frequency, monetary value)",
+        "Cart abandonment rate tracked by checkout step and device type",
+        "Email capture rate and email-driven repeat purchase rate tracked"
+      ],
+      "faqs": [
+        {
+          "q": "What is a good repeat purchase rate for ecommerce?",
+          "a": "60-day repeat purchase rates vary significantly by category. Consumables (supplements, coffee, pet food): 30–50% is achievable. Fashion/apparel: 20–30% at 60 days is strong. Furniture/home: 10–15% at 60 days is typical (high-ticket, less frequent). Benchmarking within your category is more useful than cross-category comparison."
+        },
+        {
+          "q": "How do you calculate ecommerce LTV?",
+          "a": "The simplest approach: take the average revenue per customer over 12 months for cohorts that have been active for at least 12 months, multiplied by your gross margin. More sophisticated approaches use survival analysis to project LTV beyond the observation period. For D2C brands with 3+ years of data, 36-month LTV is the more reliable planning figure."
+        },
+        {
+          "q": "What is the best analytics tool for ecommerce?",
+          "a": "For most D2C ecommerce brands: Amplitude or Mixpanel for behavioral product analytics (session, funnel, retention), Google Analytics 4 for SEO and ad attribution, and Triple Whale or Northbeam for multi-touch marketing attribution. The Shopify analytics dashboard is good for transactional metrics but insufficient for behavioral analysis. At scale, a data warehouse (BigQuery + dbt) that unifies all sources is the right long-term investment."
+        }
+      ]
+    },
+    {
+      "slug": "growth-analytics-dashboard-guide",
+      "title": "Building a Growth Analytics Dashboard That Actually Gets Used",
+      "seo_title": "Growth Analytics Dashboard — How to Build One That Gets Used (2026)",
+      "meta_description": "How to design and build a growth analytics dashboard that drives decisions, not just reports. Framework, metrics selection, and the most common dashboard mistakes to avoid.",
+      "tag": "Growth Analytics",
+      "tag_color": "accent",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"},
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Most analytics dashboards are built, shared once, and then ignored. The reason is almost never that the data isn't there — it's that the dashboard was built to demonstrate analytical capability, not to drive decisions. A growth analytics dashboard that gets used every week has a different design philosophy: every metric on it has a clear owner, a clear target, and a clear response protocol if it moves in the wrong direction.",
+      "sections": [
+        {
+          "h2": "The dashboard hierarchy: three tiers for different audiences",
+          "body": "A well-designed analytics dashboarding system has three tiers. Tier 1 — Executive: 4–6 metrics that summarize business health (revenue, active users, retention, CAC). Weekly cadence. No drilling required — these are signal, not detail. Tier 2 — Growth team: 10–15 metrics covering the full growth funnel (acquisition, activation, retention, revenue). Daily or weekly cadence. Includes trend lines and week-over-week comparisons. Tier 3 — Diagnostic: Deep-dive analyses run on demand when Tier 1 or 2 metrics move unexpectedly. These aren't always-on dashboards — they're investigation tools."
+        },
+        {
+          "h2": "The five principles of a decision-driving dashboard",
+          "body": "1. Every metric has an owner (not a team — a person). 2. Every metric has a direction of health (more is better, or less is better — never ambiguous). 3. Trend lines show 8+ weeks of history, not just current state. 4. Anomalies are highlighted automatically, not discovered manually. 5. The dashboard is the first thing opened in the Monday growth review, not a document appended to a slide deck. The last principle is a culture test — if the team looks at a slide deck summary of the data rather than the data itself, the dashboard is serving a reporting function, not a decision-support function."
+        },
+        {
+          "h2": "What metrics belong on a growth dashboard (and what doesn't)",
+          "body": "Belongs: DAU/WAU/MAU (or your product's equivalent engagement metric), activation rate (% of new users reaching the aha moment within 7 days), week-1 and month-1 retention, NRR or gross revenue retention, experiment win rate and velocity. Doesn't belong: total registered users (includes churned), total signups (a top-of-funnel metric, not a growth metric), NPS (a lagging indicator that responds slowly to product changes), pageviews (a proxy, not an outcome), and any metric where nobody on the growth team is accountable for improving it."
+        },
+        {
+          "h2": "Tool choices for growth dashboards",
+          "body": "For most companies: native dashboards in your analytics tool (Amplitude, Mixpanel) for product metrics, Looker or Metabase for cross-source metrics (combining product + revenue + marketing data), and a simple shared document (Google Docs or Notion) for the weekly growth review format. The mistake is over-investing in dashboard tooling before having a consistent weekly review practice. A well-maintained Google Sheet that gets reviewed every Monday is more valuable than a sophisticated Looker dashboard that nobody opens."
+        }
+      ],
+      "checklist_title": "Growth dashboard checklist",
+      "checklist": [
+        "Dashboard has fewer than 10 primary metrics (no scrolling to see key numbers)",
+        "Every metric has a named owner responsible for its performance",
+        "Trend lines show at least 8 weeks of history",
+        "Week-over-week and month-over-month comparisons are visible",
+        "Alerts are configured for significant movements (>10–15% week-over-week)",
+        "Dashboard is reviewed in a standing weekly growth meeting",
+        "Vanity metrics (total signups, followers, pageviews) are excluded",
+        "Dashboard is updated automatically (not manually pulled)"
+      ],
+      "faqs": [
+        {
+          "q": "What should be on a growth analytics dashboard?",
+          "a": "The core growth dashboard metrics: active users (DAU/WAU/MAU by product type), new user acquisition rate and channel mix, activation rate (% reaching aha moment in 7 days), week-1 retention, monthly revenue or transaction volume, and one or two experiment metrics (current test results or experiment velocity). Keep the primary dashboard to 6–8 metrics — link out to detail dashboards for deeper analysis."
+        },
+        {
+          "q": "How often should a growth dashboard be reviewed?",
+          "a": "Weekly at minimum, with a standing meeting where someone presents the data and the team responds to movements. Daily automated alerts for significant anomalies. Monthly deep dives on lagging indicators (LTV, NRR, cohort curves). The frequency matters less than the consistency — a weekly cadence that's maintained for 12 months produces more learning than a daily cadence that lapses after 3 months."
+        },
+        {
+          "q": "What is the best tool for building a growth analytics dashboard?",
+          "a": "For product metrics: native dashboards in Amplitude or Mixpanel. For cross-source metrics: Looker (enterprise, highly flexible) or Metabase (open-source, easier to set up). For executive summaries: a Google Slides template updated by an automated script is often cleaner and more reliable than a complex BI tool. The best tool is the one that the team actually opens and reviews every week."
+        }
+      ]
+    },
+    {
+      "slug": "minimum-detectable-effect-guide",
+      "title": "Minimum Detectable Effect: How to Set It Right for A/B Tests",
+      "seo_title": "Minimum Detectable Effect (MDE) Guide — How to Set It for A/B Tests",
+      "meta_description": "What is minimum detectable effect (MDE) in A/B testing? How to set it correctly, how it affects your sample size, and the most common mistakes teams make when choosing MDE.",
+      "tag": "Experimentation",
+      "tag_color": "accent",
+      "related_tool": {"name": "A/B Test Sample Size Calculator", "url": "/tools/sample-size-calculator/"},
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "The minimum detectable effect (MDE) is the smallest improvement you want to be able to detect with your A/B test. It's one of the four inputs to sample size calculation — and the one most teams get wrong. Setting the MDE too low (trying to detect tiny improvements) leads to enormous sample size requirements and tests that run for months. Setting it too high (only detecting large improvements) risks missing real but moderate effects. This guide explains how to set the MDE correctly.",
+      "sections": [
+        {
+          "h2": "What is MDE and why it matters for sample size",
+          "body": "MDE is the threshold below which you're willing to call an effect 'not practically significant' even if it exists. If you set MDE to 5% relative improvement, your test is powered to detect improvements of 5% or larger — but improvements of 3% would go undetected (a false negative). Sample size is inversely proportional to MDE squared: halving the MDE quadruples the required sample size. A test designed to detect a 5% improvement requires roughly 4× more users than a test designed to detect a 10% improvement. This relationship is why MDE selection is the most consequential decision in A/B test design."
+        },
+        {
+          "h2": "How to set MDE based on business impact",
+          "body": "The right way to set MDE is to work backwards from business impact. Ask: what is the minimum improvement that would justify the engineering cost of implementing this change permanently? For a checkout flow change that costs 2 weeks of engineering, you might set the floor at a 5% improvement in conversion (because anything below that is probably not worth the cost and risk). For a simple copy change that costs 2 hours, you might be willing to ship it even for a 2% improvement. The MDE should reflect the economic trade-off, not an arbitrary statistical preference."
+        },
+        {
+          "h2": "Absolute vs. relative MDE: which to use",
+          "body": "MDE can be expressed as an absolute change or a relative change. For a conversion rate of 3%: a 1 percentage point absolute MDE means you want to detect changes from 3% to 4% or larger. A 33% relative MDE means the same thing (1 pp absolute = 33% of the baseline 3%). Relative MDE is more intuitive for comparing tests across different baselines — a 20% relative MDE applies the same economic bar whether your baseline is 2% or 20%. Our sample size calculator accepts both formats."
+        },
+        {
+          "h2": "Common MDE mistakes that waste months of testing",
+          "body": "Setting MDE too low for your traffic volume is the most common mistake. Teams set a 5% relative MDE on a low-traffic page, calculate a required sample of 80,000 users per variant, and either wait 6 months for the test to complete or stop early (invalidating the results). The fix: match your MDE to your traffic reality. If your traffic will give you 1,000 users per variant per week, you need a test that can answer in 4–8 weeks — which means your MDE needs to be 15–25% relative for low baseline metrics. If that's not a realistic improvement, the honest conclusion is that you don't have enough traffic to test this feature at all."
+        }
+      ],
+      "checklist_title": "MDE decision checklist",
+      "checklist": [
+        "MDE is set before the test launches, not adjusted after seeing early results",
+        "MDE reflects the minimum economically meaningful improvement (not arbitrary)",
+        "MDE is realistic given baseline conversion rate and available traffic",
+        "Sample size calculated after MDE is set (to confirm feasibility)",
+        "If required sample size implies >4 weeks at current traffic, MDE should be revisited",
+        "Both absolute and relative MDE values are understood and documented",
+        "Test duration is calculated and committed to before launch"
+      ],
+      "faqs": [
+        {
+          "q": "What is a typical minimum detectable effect for A/B tests?",
+          "a": "There is no single 'typical' MDE — it depends on your baseline conversion rate and business economics. Common ranges: 10–20% relative for checkout and activation flows (where even moderate improvements have significant revenue impact), 5–10% relative for high-traffic, low-baseline metrics (like email click-through rates). Tests designed to detect effects below 5% relative typically require enormous sample sizes and are rarely practical for most teams."
+        },
+        {
+          "q": "Should I use absolute or relative MDE in my sample size calculation?",
+          "a": "Both are mathematically equivalent if done correctly. Relative MDE is easier to reason about when comparing tests across different metrics with different baselines. Absolute MDE is more interpretable when communicating results (a '1.5 percentage point improvement in checkout conversion' is more concrete than a '15% relative improvement'). Many sample size calculators accept either format — our calculator supports both."
+        },
+        {
+          "q": "What happens if the actual effect is smaller than my MDE?",
+          "a": "A real effect smaller than your MDE will appear as a null result — your test will not achieve statistical significance even though a real effect exists. This is a false negative, and it's the intentional consequence of your MDE choice: you pre-decided that effects smaller than your MDE aren't worth detecting. If a null result concerns you (perhaps the effect might still be worth shipping), consider whether your MDE was set at the right level — or run a follow-up test with a larger sample size."
+        }
+      ]
+    }
+  ]
+}
