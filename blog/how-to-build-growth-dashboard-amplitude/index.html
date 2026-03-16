@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Build a Growth Dashboard in Amplitude: Step-by-Step Guide (2026) — Growth Analytics Engine</title>
+  <meta name="description" content="A practical walkthrough for building an Amplitude dashboard that tracks acquisition, activation, retention, and revenue — the four pillars of growth analytics.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Inter:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script src="/assets/js/analytics.js" defer></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How to Build a Growth Dashboard in Amplitude (Step-by-Step)",
+  "description": "A practical walkthrough for building an Amplitude dashboard that tracks acquisition, activation, retention, and revenue \u2014 the four pillars of growth analytics.",
+  "author": {
+    "@type": "Person",
+    "name": "Gregor Spielmann",
+    "url": "https://adasight.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Adasight",
+    "url": "https://adasight.com"
+  },
+  "datePublished": "March 2026",
+  "url": "https://growthanalyticsengine.com/blog/how-to-build-growth-dashboard-amplitude/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many charts should a growth dashboard have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Between 6 and 12. A dashboard with fewer than 6 charts probably isn't covering all four growth pillars. A dashboard with more than 12 charts is usually a sign that the team hasn't decided what actually matters. Aim for one chart per question you need to answer each week."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the most important chart to have in an Amplitude growth dashboard?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The retention curve. It's the single most diagnostic chart in product analytics \u2014 it tells you whether your product has genuine product-market fit, where users disengage, and whether your activation improvements are actually improving long-term behavior. If you could only have one chart, this is it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should a growth dashboard be updated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Weekly for the growth team's operational review. Monthly for the executive summary version. Quarterly for major restructuring. The data refreshes automatically in Amplitude \u2014 the question is how often you sit down to interpret it, which should be weekly."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Growth Analytics <span>Engine</span></a>
+      <ul class="nav-links">
+        <li><a href="/tools/">Free Tools</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="https://adasight.com" target="_blank" rel="noopener">Adasight ↗</a></li>
+      </ul>
+      <a href="/tools/analytics-maturity/" class="btn nav-cta">Free Assessment →</a>
+    </div>
+  </nav>
+
+  <main class="guide-page">
+    <div class="guide-meta">
+      <span class="tag">How-To</span>
+      <span class="author">By Gregor Spielmann, Adasight</span>
+      <time>March 2026</time>
+    </div>
+
+    <h1>How to Build a Growth Dashboard in Amplitude (Step-by-Step)</h1>
+
+    <p class="guide-intro">A good growth dashboard doesn't show everything — it shows the right things. This walkthrough covers how to build an Amplitude dashboard that your whole growth team will actually open every week, with the charts that matter most for each stage of the funnel.</p>
+
+    <div class="guide-content">
+
+      <div class="guide-tool-cta">
+        <p>🧮 <strong>Free tool:</strong> Analytics Maturity Assessment — no signup required</p>
+        <a href="/tools/analytics-maturity/" class="btn btn-accent">Open tool →</a>
+      </div>
+
+      <h2>Step 1: Define your four core metrics before opening Amplitude</h2>
+      <p>The most common mistake when building dashboards is starting with the tool instead of the questions. Before touching Amplitude, write down one metric for each pillar: (1) Acquisition — new activated users per week, (2) Activation — percentage of new users reaching your defined aha moment within 7 days, (3) Retention — D30 retention rate for weekly cohorts, (4) Revenue — new MRR from the current cohort. These four metrics become the top row of your dashboard. Everything else is a supporting diagnostic chart.</p>
+      <h2>Step 2: Build your activation funnel</h2>
+      <p>In Amplitude, go to Funnels → create a new funnel with your core activation sequence. This is typically: sign up → complete onboarding step → reach key feature → activate (however you define it). Set the conversion window to 7 days. Add a breakdown by acquisition source (UTM medium or channel property). This chart tells you where users are dropping off and which channels bring users who actually activate — two of the most important diagnostics in growth analytics.</p>
+      <h2>Step 3: Add your retention curve</h2>
+      <p>Go to Retention → create a new retention analysis using your activation event as the start event and your 'return visit' or 'core action' event as the return event. Set time period to weekly, look-back to 8 weeks. Add a breakdown by acquisition cohort or user segment. This is the chart that tells you whether you have product-market fit — if your retention curve flattens above 0% by week 4, you have something. If it keeps declining toward zero, you have a retention problem that no amount of acquisition spend will fix.</p>
+      <h2>Step 4: Build your growth accounting chart</h2>
+      <p>Amplitude's User Sessions or custom event charts can be used to approximate the growth accounting model: new users + resurrected users - churned users = net new active users. This is more useful than raw active user counts because it tells you whether growth is coming from new acquisition, reactivation, or retention. Create a stacked bar chart showing these three components week over week. The shape of this chart reveals your growth engine — if it's mostly new user growth with high churn, you have an acquisition-dependent model that won't scale efficiently.</p>
+      <h2>Step 5: Add your top feature adoption metrics</h2>
+      <p>Create a user composition chart showing what percentage of active users triggered each of your 3-5 core features in the last 30 days. This is your feature health scorecard. Sort by adoption rate. Features with low adoption among retained users are candidates for UX improvement or deprecation. Features with high adoption among retained users are candidates for onboarding emphasis — get new users to them faster. Pin this chart to your dashboard next to the retention curve.</p>
+      <h2>Step 6: Schedule a weekly review</h2>
+      <p>A dashboard no one looks at is worse than no dashboard — it creates false confidence. Once your Amplitude dashboard is built, set it as the opening agenda item for your weekly growth meeting. The review should take 15 minutes: read each chart top to bottom, note what moved, form one hypothesis about why it moved, and assign one experiment to test that hypothesis. The habit of weekly data review is more valuable than the sophistication of the charts.</p>
+    </div>
+
+    <div class="cta-block">
+      <h3>Need expert help with growth analytics?</h3>
+      <p>Adasight works with scaling D2C and SaaS companies to build the analytics foundations and experimentation programs that drive measurable growth.</p>
+      <a href="https://adasight.com" target="_blank" rel="noopener">Talk to Adasight →</a>
+    </div>
+
+
+      <div class="faq-block">
+        <h2>Frequently asked questions</h2>
+        
+        <div class="faq-item">
+          <h4>How many charts should a growth dashboard have?</h4>
+          <p>Between 6 and 12. A dashboard with fewer than 6 charts probably isn't covering all four growth pillars. A dashboard with more than 12 charts is usually a sign that the team hasn't decided what actually matters. Aim for one chart per question you need to answer each week.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What is the most important chart to have in an Amplitude growth dashboard?</h4>
+          <p>The retention curve. It's the single most diagnostic chart in product analytics — it tells you whether your product has genuine product-market fit, where users disengage, and whether your activation improvements are actually improving long-term behavior. If you could only have one chart, this is it.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How often should a growth dashboard be updated?</h4>
+          <p>Weekly for the growth team's operational review. Monthly for the executive summary version. Quarterly for major restructuring. The data refreshes automatically in Amplitude — the question is how often you sit down to interpret it, which should be weekly.</p>
+        </div>
+      </div>
+
+    <div class="related-section">
+      <h2>More from the blog</h2>
+      <div class="card-grid card-grid-2">
+        
+          <a href="/blog/amplitude-vs-google-analytics-4/" class="card-link">
+            <div class="card">
+              <span class="tag">Tool Comparison</span>
+              <h3>Amplitude vs. Google Analytics 4: Which Is Right for Your Growth Team?</h3>
+              <p>GA4 is free and already installed on most sites. Amplitude costs money and requires setup. So why do serious growth team...</p>
+              <span class="card-cta">Read post →</span>
+            </div>
+          </a>
+          <a href="/blog/analytics-mistakes-that-kill-experiments/" class="card-link">
+            <div class="card">
+              <span class="tag">Experimentation</span>
+              <h3>5 Analytics Mistakes That Kill Growth Experiments (And How to Fix Them)</h3>
+              <p>After working with dozens of growth teams on their experimentation programs, there's a pattern: most experiment failures...</p>
+              <span class="card-cta">Read post →</span>
+            </div>
+          </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Growth Analytics <span>Engine</span></div>
+        <div class="footer-tagline">A free resource by <a href="https://adasight.com" target="_blank">Adasight</a></div>
+      </div>
+      <div class="footer-links">
+        <a href="/tools/">Tools</a>
+        <a href="/guides/">Guides</a>
+        <a href="/blog/">Blog</a>
+        <a href="https://adasight.com" target="_blank">Adasight.com ↗</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

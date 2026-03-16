@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 Analytics Mistakes That Kill Growth Experiments — And How to Fix Them — Growth Analytics Engine</title>
+  <meta name="description" content="Most failed A/B tests aren't the experiment's fault — they're analytics problems. Here are the five most common mistakes growth teams make and how to fix each one.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Inter:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script src="/assets/js/analytics.js" defer></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "5 Analytics Mistakes That Kill Growth Experiments (And How to Fix Them)",
+  "description": "Most failed A/B tests aren't the experiment's fault \u2014 they're analytics problems. Here are the five most common mistakes growth teams make and how to fix each one.",
+  "author": {
+    "@type": "Person",
+    "name": "Gregor Spielmann",
+    "url": "https://adasight.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Adasight",
+    "url": "https://adasight.com"
+  },
+  "datePublished": "March 2026",
+  "url": "https://growthanalyticsengine.com/blog/analytics-mistakes-that-kill-experiments/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the most common reason A/B tests fail?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Insufficient sample size is the most common cause of failed or inconclusive A/B tests. Teams often run experiments for a fixed time period (e.g., one week) regardless of traffic volume, which means low-traffic experiments are chronically underpowered. Always calculate required sample size before starting and don't stop early."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you know if an A/B test result is reliable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Check three things: (1) did you reach your pre-calculated sample size, (2) did you run for at least one full business cycle (usually two weeks), and (3) does the effect hold up when you look at secondary metrics? A reliable result shows a statistically significant primary metric movement with no concerning guardrail metric degradation, reached after hitting your predetermined sample size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a 95% confidence level required for A/B tests?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "95% is a convention, not a requirement. Some teams use 90% for low-stakes experiments and 99% for changes that affect revenue or core user experience. The right threshold depends on the cost of a false positive \u2014 shipping a change that has no real effect \u2014 relative to the cost of a false negative \u2014 missing a real improvement. Define your threshold before the experiment starts, not after."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Growth Analytics <span>Engine</span></a>
+      <ul class="nav-links">
+        <li><a href="/tools/">Free Tools</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="https://adasight.com" target="_blank" rel="noopener">Adasight ↗</a></li>
+      </ul>
+      <a href="/tools/analytics-maturity/" class="btn nav-cta">Free Assessment →</a>
+    </div>
+  </nav>
+
+  <main class="guide-page">
+    <div class="guide-meta">
+      <span class="tag">Experimentation</span>
+      <span class="author">By Gregor Spielmann, Adasight</span>
+      <time>March 2026</time>
+    </div>
+
+    <h1>5 Analytics Mistakes That Kill Growth Experiments (And How to Fix Them)</h1>
+
+    <p class="guide-intro">After working with dozens of growth teams on their experimentation programs, there's a pattern: most experiment failures aren't caused by bad ideas. They're caused by measurement problems that were invisible until a result came back inconclusive — or worse, confidently wrong. Here are the five mistakes that kill otherwise good experiments.</p>
+
+    <div class="guide-content">
+
+      <div class="guide-tool-cta">
+        <p>🧮 <strong>Free tool:</strong> Sample Size Calculator — no signup required</p>
+        <a href="/tools/sample-size-calculator/" class="btn btn-accent">Open tool →</a>
+      </div>
+
+      <h2>Mistake 1: Measuring the wrong metric</h2>
+      <p>The experiment measured click-through rate. But the business cares about revenue. These two things don't always move together — an experiment can lift CTR by 20% while producing zero revenue impact if the users who click through are lower intent. The fix: before running any experiment, define your primary metric (the one that actually reflects business value) and your guardrail metrics (the ones you're not allowed to move negatively). CTR, session duration, and page views are diagnostic metrics — they're useful for understanding why something happened, but they shouldn't be the primary success criterion for an experiment.</p>
+      <h2>Mistake 2: Stopping the experiment too early</h2>
+      <p>You see a 15% lift at day 3. You ship it. A week later, the lift disappears — or reverses. This is called peeking, and it's one of the most common ways teams generate false positives. Statistical significance at any given moment doesn't mean the effect is real or stable — it means the current data is unlikely under the null hypothesis, which changes as more data comes in. The fix: calculate your required sample size before the experiment starts (use the free sample size calculator on this site), then don't evaluate results until you've reached it. Set a calendar reminder. Don't look at results daily.</p>
+      <h2>Mistake 3: Running multiple experiments on the same population</h2>
+      <p>You're testing a new onboarding flow and a new pricing page at the same time, both targeting new signups. Half the users are in both experiments simultaneously. Now your results are contaminated — you can't tell whether the onboarding result was influenced by the pricing variant the user also saw. The fix: implement a mutual exclusion layer in your experimentation tool. In Amplitude Experiment, LaunchDarkly, and most mature tools, you can configure experiment groups to not overlap. If you don't have that capability, run experiments sequentially on the same user population.</p>
+      <h2>Mistake 4: Not accounting for novelty effect</h2>
+      <p>New things get clicks. Users engage with a redesigned UI because it's different — not because it's better. Experiments that measure behavior in the first 48 hours frequently show a positive lift that decays as novelty fades. The fix: for experiments on existing users, extend your measurement window past the novelty period (usually 2 weeks minimum) and check whether the effect is stable in week 2 vs. week 1. For new user experiments, novelty is less of a concern since all users are experiencing your product for the first time.</p>
+      <h2>Mistake 5: Treating inconclusive results as failures</h2>
+      <p>An experiment returns p=0.4 and gets filed away as 'didn't work.' But inconclusive doesn't mean the idea is wrong — it might mean the experiment was underpowered (too small a sample or too short a runtime). It might mean the effect exists but is smaller than you hypothesized. It might mean the metric was too noisy to detect a real signal. The fix: when an experiment is inconclusive, run a post-hoc power analysis. If you were underpowered, re-run with a corrected sample size. If you were adequately powered and still saw no effect, then you can more confidently conclude the idea didn't work. Inconclusive results are information — treat them as such.</p>
+    </div>
+
+    <div class="cta-block">
+      <h3>Need expert help with growth analytics?</h3>
+      <p>Adasight works with scaling D2C and SaaS companies to build the analytics foundations and experimentation programs that drive measurable growth.</p>
+      <a href="https://adasight.com" target="_blank" rel="noopener">Talk to Adasight →</a>
+    </div>
+
+
+      <div class="faq-block">
+        <h2>Frequently asked questions</h2>
+        
+        <div class="faq-item">
+          <h4>What is the most common reason A/B tests fail?</h4>
+          <p>Insufficient sample size is the most common cause of failed or inconclusive A/B tests. Teams often run experiments for a fixed time period (e.g., one week) regardless of traffic volume, which means low-traffic experiments are chronically underpowered. Always calculate required sample size before starting and don't stop early.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How do you know if an A/B test result is reliable?</h4>
+          <p>Check three things: (1) did you reach your pre-calculated sample size, (2) did you run for at least one full business cycle (usually two weeks), and (3) does the effect hold up when you look at secondary metrics? A reliable result shows a statistically significant primary metric movement with no concerning guardrail metric degradation, reached after hitting your predetermined sample size.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Is a 95% confidence level required for A/B tests?</h4>
+          <p>95% is a convention, not a requirement. Some teams use 90% for low-stakes experiments and 99% for changes that affect revenue or core user experience. The right threshold depends on the cost of a false positive — shipping a change that has no real effect — relative to the cost of a false negative — missing a real improvement. Define your threshold before the experiment starts, not after.</p>
+        </div>
+      </div>
+
+    <div class="related-section">
+      <h2>More from the blog</h2>
+      <div class="card-grid card-grid-2">
+        
+          <a href="/blog/amplitude-vs-google-analytics-4/" class="card-link">
+            <div class="card">
+              <span class="tag">Tool Comparison</span>
+              <h3>Amplitude vs. Google Analytics 4: Which Is Right for Your Growth Team?</h3>
+              <p>GA4 is free and already installed on most sites. Amplitude costs money and requires setup. So why do serious growth team...</p>
+              <span class="card-cta">Read post →</span>
+            </div>
+          </a>
+          <a href="/blog/how-to-build-growth-dashboard-amplitude/" class="card-link">
+            <div class="card">
+              <span class="tag">How-To</span>
+              <h3>How to Build a Growth Dashboard in Amplitude (Step-by-Step)</h3>
+              <p>A good growth dashboard doesn't show everything — it shows the right things. This walkthrough covers how to build an Amp...</p>
+              <span class="card-cta">Read post →</span>
+            </div>
+          </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Growth Analytics <span>Engine</span></div>
+        <div class="footer-tagline">A free resource by <a href="https://adasight.com" target="_blank">Adasight</a></div>
+      </div>
+      <div class="footer-links">
+        <a href="/tools/">Tools</a>
+        <a href="/guides/">Guides</a>
+        <a href="/blog/">Blog</a>
+        <a href="https://adasight.com" target="_blank">Adasight.com ↗</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

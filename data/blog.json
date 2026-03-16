@@ -1,0 +1,244 @@
+{
+  "posts": [
+    {
+      "slug": "amplitude-vs-google-analytics-4",
+      "title": "Amplitude vs. Google Analytics 4: Which Is Right for Your Growth Team?",
+      "seo_title": "Amplitude vs. Google Analytics 4 (2026): Full Comparison for Growth Teams",
+      "meta_description": "Amplitude and GA4 both track user behavior, but they're built for different jobs. Here's an honest comparison to help growth teams choose the right tool.",
+      "tag": "Tool Comparison",
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "GA4 is free and already installed on most sites. Amplitude costs money and requires setup. So why do serious growth teams keep choosing Amplitude? This comparison breaks down exactly where each tool wins — and where it falls short — so you can make the call without wading through vendor marketing.",
+      "sections": [
+        {
+          "h2": "What each tool is actually built for",
+          "body": "GA4 is a web analytics tool that evolved from a marketing attribution background. Its core strength is tracking traffic sources, measuring ad campaign performance, and reporting on sessions, users, and conversions at a aggregate level. Amplitude is a product analytics tool built from the ground up for behavioral analysis at the user level. It's designed to answer questions like: which users retained after 30 days, what did they do differently in week one, and which features correlate with expansion revenue? Different origin stories mean different strengths — and different answers."
+        },
+        {
+          "h2": "Where Amplitude wins",
+          "body": "Cohort analysis is where Amplitude is in a different league. You can define any behavioral cohort — 'users who triggered X event within 7 days of signup but did not reach Y milestone' — and instantly see how they retained, converted, and monetized compared to any other cohort. This kind of analysis takes minutes in Amplitude and is either impossible or requires BigQuery exports in GA4. Amplitude also wins on funnel analysis (any event sequence, not just predefined goals), user-level event streams, A/B testing integration, and the data model itself — Amplitude's event-property schema is far more flexible than GA4's rigid hit types."
+        },
+        {
+          "h2": "Where GA4 wins",
+          "body": "Cost is the obvious one — GA4 is free up to 10M hits/month, while Amplitude's paid plans start at meaningful numbers for scaling companies. GA4 also has native Google Ads integration that is genuinely hard to replicate: you get automatic conversion import, audience syncing, and attribution modeling that ties media spend directly to on-site behavior. If your team's primary analytics use case is media measurement and campaign optimization, GA4's Google ecosystem integration is a real advantage. GA4 also has a lower setup bar for teams without an event taxonomy already in place."
+        },
+        {
+          "h2": "Can you run both?",
+          "body": "Yes, and many growth teams do. A common setup: GA4 for marketing attribution and campaign reporting (it's free, keep it running), Amplitude for product analytics and retention analysis. The two tools don't overlap as much as they appear to — GA4 answers 'where did users come from and what did they do on the site,' Amplitude answers 'what did users do in the product and who came back.' The risk is data fragmentation: if your team is looking at different numbers in each tool, you need a clear source-of-truth policy before adding both."
+        },
+        {
+          "h2": "The verdict for growth teams",
+          "body": "If your primary growth lever is paid acquisition and your analytics maturity is early-stage, start with GA4. It's free, integrates natively with Google Ads, and covers the basics. If you're working on retention, activation, and product-led growth — or if you're running experiments and need cohort-level analysis — Amplitude is worth the investment. The question isn't which tool is better in the abstract; it's which tool answers the questions your growth team is actually asking."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Is Amplitude worth the cost over GA4?",
+          "a": "For teams focused on product-led growth, retention analysis, or running A/B tests, yes. Amplitude's cohort analysis and behavioral reporting capabilities are significantly more powerful than GA4 for product analytics use cases. For teams primarily doing marketing attribution and campaign measurement, GA4 is often sufficient."
+        },
+        {
+          "q": "Can you use Amplitude and GA4 together?",
+          "a": "Yes — many growth teams run both. GA4 handles marketing attribution and ad campaign reporting (free, native Google Ads integration), while Amplitude handles product analytics, cohort analysis, and retention work. The key is establishing a clear source of truth for shared metrics to avoid confusion."
+        },
+        {
+          "q": "Does GA4 replace Amplitude?",
+          "a": "Not for product analytics. GA4 has improved significantly since Universal Analytics, but its data model, cohort analysis, and user-level behavioral reporting still lag behind Amplitude for growth and product teams. GA4 replaced Universal Analytics; it hasn't replaced dedicated product analytics tools."
+        }
+      ],
+      "related_guide": "amplitude-analytics-d2c-ecommerce",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"}
+    },
+    {
+      "slug": "how-to-build-growth-dashboard-amplitude",
+      "title": "How to Build a Growth Dashboard in Amplitude (Step-by-Step)",
+      "seo_title": "How to Build a Growth Dashboard in Amplitude: Step-by-Step Guide (2026)",
+      "meta_description": "A practical walkthrough for building an Amplitude dashboard that tracks acquisition, activation, retention, and revenue — the four pillars of growth analytics.",
+      "tag": "How-To",
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "A good growth dashboard doesn't show everything — it shows the right things. This walkthrough covers how to build an Amplitude dashboard that your whole growth team will actually open every week, with the charts that matter most for each stage of the funnel.",
+      "sections": [
+        {
+          "h2": "Step 1: Define your four core metrics before opening Amplitude",
+          "body": "The most common mistake when building dashboards is starting with the tool instead of the questions. Before touching Amplitude, write down one metric for each pillar: (1) Acquisition — new activated users per week, (2) Activation — percentage of new users reaching your defined aha moment within 7 days, (3) Retention — D30 retention rate for weekly cohorts, (4) Revenue — new MRR from the current cohort. These four metrics become the top row of your dashboard. Everything else is a supporting diagnostic chart."
+        },
+        {
+          "h2": "Step 2: Build your activation funnel",
+          "body": "In Amplitude, go to Funnels → create a new funnel with your core activation sequence. This is typically: sign up → complete onboarding step → reach key feature → activate (however you define it). Set the conversion window to 7 days. Add a breakdown by acquisition source (UTM medium or channel property). This chart tells you where users are dropping off and which channels bring users who actually activate — two of the most important diagnostics in growth analytics."
+        },
+        {
+          "h2": "Step 3: Add your retention curve",
+          "body": "Go to Retention → create a new retention analysis using your activation event as the start event and your 'return visit' or 'core action' event as the return event. Set time period to weekly, look-back to 8 weeks. Add a breakdown by acquisition cohort or user segment. This is the chart that tells you whether you have product-market fit — if your retention curve flattens above 0% by week 4, you have something. If it keeps declining toward zero, you have a retention problem that no amount of acquisition spend will fix."
+        },
+        {
+          "h2": "Step 4: Build your growth accounting chart",
+          "body": "Amplitude's User Sessions or custom event charts can be used to approximate the growth accounting model: new users + resurrected users - churned users = net new active users. This is more useful than raw active user counts because it tells you whether growth is coming from new acquisition, reactivation, or retention. Create a stacked bar chart showing these three components week over week. The shape of this chart reveals your growth engine — if it's mostly new user growth with high churn, you have an acquisition-dependent model that won't scale efficiently."
+        },
+        {
+          "h2": "Step 5: Add your top feature adoption metrics",
+          "body": "Create a user composition chart showing what percentage of active users triggered each of your 3-5 core features in the last 30 days. This is your feature health scorecard. Sort by adoption rate. Features with low adoption among retained users are candidates for UX improvement or deprecation. Features with high adoption among retained users are candidates for onboarding emphasis — get new users to them faster. Pin this chart to your dashboard next to the retention curve."
+        },
+        {
+          "h2": "Step 6: Schedule a weekly review",
+          "body": "A dashboard no one looks at is worse than no dashboard — it creates false confidence. Once your Amplitude dashboard is built, set it as the opening agenda item for your weekly growth meeting. The review should take 15 minutes: read each chart top to bottom, note what moved, form one hypothesis about why it moved, and assign one experiment to test that hypothesis. The habit of weekly data review is more valuable than the sophistication of the charts."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "How many charts should a growth dashboard have?",
+          "a": "Between 6 and 12. A dashboard with fewer than 6 charts probably isn't covering all four growth pillars. A dashboard with more than 12 charts is usually a sign that the team hasn't decided what actually matters. Aim for one chart per question you need to answer each week."
+        },
+        {
+          "q": "What is the most important chart to have in an Amplitude growth dashboard?",
+          "a": "The retention curve. It's the single most diagnostic chart in product analytics — it tells you whether your product has genuine product-market fit, where users disengage, and whether your activation improvements are actually improving long-term behavior. If you could only have one chart, this is it."
+        },
+        {
+          "q": "How often should a growth dashboard be updated?",
+          "a": "Weekly for the growth team's operational review. Monthly for the executive summary version. Quarterly for major restructuring. The data refreshes automatically in Amplitude — the question is how often you sit down to interpret it, which should be weekly."
+        }
+      ],
+      "related_guide": "growth-analytics-dashboard-guide",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"}
+    },
+    {
+      "slug": "analytics-mistakes-that-kill-experiments",
+      "title": "5 Analytics Mistakes That Kill Growth Experiments (And How to Fix Them)",
+      "seo_title": "5 Analytics Mistakes That Kill Growth Experiments — And How to Fix Them",
+      "meta_description": "Most failed A/B tests aren't the experiment's fault — they're analytics problems. Here are the five most common mistakes growth teams make and how to fix each one.",
+      "tag": "Experimentation",
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "After working with dozens of growth teams on their experimentation programs, there's a pattern: most experiment failures aren't caused by bad ideas. They're caused by measurement problems that were invisible until a result came back inconclusive — or worse, confidently wrong. Here are the five mistakes that kill otherwise good experiments.",
+      "sections": [
+        {
+          "h2": "Mistake 1: Measuring the wrong metric",
+          "body": "The experiment measured click-through rate. But the business cares about revenue. These two things don't always move together — an experiment can lift CTR by 20% while producing zero revenue impact if the users who click through are lower intent. The fix: before running any experiment, define your primary metric (the one that actually reflects business value) and your guardrail metrics (the ones you're not allowed to move negatively). CTR, session duration, and page views are diagnostic metrics — they're useful for understanding why something happened, but they shouldn't be the primary success criterion for an experiment."
+        },
+        {
+          "h2": "Mistake 2: Stopping the experiment too early",
+          "body": "You see a 15% lift at day 3. You ship it. A week later, the lift disappears — or reverses. This is called peeking, and it's one of the most common ways teams generate false positives. Statistical significance at any given moment doesn't mean the effect is real or stable — it means the current data is unlikely under the null hypothesis, which changes as more data comes in. The fix: calculate your required sample size before the experiment starts (use the free sample size calculator on this site), then don't evaluate results until you've reached it. Set a calendar reminder. Don't look at results daily."
+        },
+        {
+          "h2": "Mistake 3: Running multiple experiments on the same population",
+          "body": "You're testing a new onboarding flow and a new pricing page at the same time, both targeting new signups. Half the users are in both experiments simultaneously. Now your results are contaminated — you can't tell whether the onboarding result was influenced by the pricing variant the user also saw. The fix: implement a mutual exclusion layer in your experimentation tool. In Amplitude Experiment, LaunchDarkly, and most mature tools, you can configure experiment groups to not overlap. If you don't have that capability, run experiments sequentially on the same user population."
+        },
+        {
+          "h2": "Mistake 4: Not accounting for novelty effect",
+          "body": "New things get clicks. Users engage with a redesigned UI because it's different — not because it's better. Experiments that measure behavior in the first 48 hours frequently show a positive lift that decays as novelty fades. The fix: for experiments on existing users, extend your measurement window past the novelty period (usually 2 weeks minimum) and check whether the effect is stable in week 2 vs. week 1. For new user experiments, novelty is less of a concern since all users are experiencing your product for the first time."
+        },
+        {
+          "h2": "Mistake 5: Treating inconclusive results as failures",
+          "body": "An experiment returns p=0.4 and gets filed away as 'didn't work.' But inconclusive doesn't mean the idea is wrong — it might mean the experiment was underpowered (too small a sample or too short a runtime). It might mean the effect exists but is smaller than you hypothesized. It might mean the metric was too noisy to detect a real signal. The fix: when an experiment is inconclusive, run a post-hoc power analysis. If you were underpowered, re-run with a corrected sample size. If you were adequately powered and still saw no effect, then you can more confidently conclude the idea didn't work. Inconclusive results are information — treat them as such."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What is the most common reason A/B tests fail?",
+          "a": "Insufficient sample size is the most common cause of failed or inconclusive A/B tests. Teams often run experiments for a fixed time period (e.g., one week) regardless of traffic volume, which means low-traffic experiments are chronically underpowered. Always calculate required sample size before starting and don't stop early."
+        },
+        {
+          "q": "How do you know if an A/B test result is reliable?",
+          "a": "Check three things: (1) did you reach your pre-calculated sample size, (2) did you run for at least one full business cycle (usually two weeks), and (3) does the effect hold up when you look at secondary metrics? A reliable result shows a statistically significant primary metric movement with no concerning guardrail metric degradation, reached after hitting your predetermined sample size."
+        },
+        {
+          "q": "Is a 95% confidence level required for A/B tests?",
+          "a": "95% is a convention, not a requirement. Some teams use 90% for low-stakes experiments and 99% for changes that affect revenue or core user experience. The right threshold depends on the cost of a false positive — shipping a change that has no real effect — relative to the cost of a false negative — missing a real improvement. Define your threshold before the experiment starts, not after."
+        }
+      ],
+      "related_guide": "ab-testing-statistics-guide",
+      "related_tool": {"name": "Sample Size Calculator", "url": "/tools/sample-size-calculator/"}
+    },
+    {
+      "slug": "when-to-hire-growth-analytics-consultant",
+      "title": "When to Hire a Growth Analytics Consultant (And When Not To)",
+      "seo_title": "When to Hire a Growth Analytics Consultant — And When to Build In-House",
+      "meta_description": "Consulting isn't always the right answer — but sometimes it's exactly the right answer. Here's how to tell the difference and what to look for when you do hire.",
+      "tag": "Strategy",
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "The decision to hire a growth analytics consultant is usually made in one of two situations: something is broken and you don't know why, or something needs to be built and you don't have the internal expertise. Both are legitimate reasons. But consultants are also sometimes hired when the real problem is a strategic or organizational one — and no amount of analytics expertise fixes that. Here's how to tell the difference.",
+      "sections": [
+        {
+          "h2": "When consulting makes sense",
+          "body": "There are three situations where an external analytics consultant adds clear value. First, tool implementation: setting up Amplitude, Mixpanel, or a data warehouse correctly from scratch requires expertise that most teams don't have internally and don't need to maintain long-term. Paying for three months of consulting to implement it right is usually cheaper than 12 months of bad data. Second, analytics audits: if your team suspects the data is wrong but can't diagnose why, a structured audit by someone who has seen hundreds of implementations can find the issues in days that might take your team months to track down. Third, maturity step-changes: moving from basic reporting to a full experimentation program requires building new processes, tooling, and team skills simultaneously — a consultant who has done that transition before can compress the timeline significantly."
+        },
+        {
+          "h2": "When consulting is the wrong answer",
+          "body": "If the problem is that your team doesn't know which metrics to look at, consulting won't fix it — your team needs to develop that judgment, and the only way to develop it is by being forced to make the calls themselves. If the problem is organizational (leadership doesn't trust data, teams don't share information, there's no accountability for experiment results), analytics consulting won't solve it. And if the problem is budget — you want more sophisticated analytics but can't afford the tool stack — a consultant won't change the constraint. Consultants are best at transferring skills and building systems. They can't substitute for leadership buy-in or strategic clarity."
+        },
+        {
+          "h2": "What to look for in a growth analytics consultant",
+          "body": "The most important thing is industry and business model specificity. A consultant who specializes in D2C e-commerce analytics will outperform a generalist for a D2C company every time — not because the fundamentals are different, but because the benchmarks, the common failure modes, and the relevant tools are different. Beyond that, look for: a structured discovery process (if they're jumping straight to solutions, they're not diagnosing your actual problem), references from companies at a similar stage, clear scope definition in the engagement, and a knowledge transfer plan. If a consultant can't explain how your team will own the work after they leave, they're not building you a capability — they're building you a dependency."
+        },
+        {
+          "h2": "How to scope an analytics consulting engagement",
+          "body": "The most successful engagements start with a narrow, well-defined problem. 'Help us set up Amplitude with the right event taxonomy for our SaaS product' is a solvable consulting problem. 'Help us improve our analytics' is not — it's too broad to scope, too hard to measure, and usually indicates the company isn't sure what it actually needs. A good engagement structure: 2-week discovery and audit phase (what's the current state, what's the gap, what will success look like), 6-8 week implementation phase (build the thing, with internal team alongside to learn), 2-week handoff and documentation phase. Anything that runs longer than 3 months without a clear milestone structure is probably drifting."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "How much does a growth analytics consultant cost?",
+          "a": "Rates vary significantly by specialization and market. Boutique analytics consultancies typically charge $5,000–$15,000 per month for a structured engagement. Independent consultants with strong domain expertise charge $200–$500 per hour. Project-based engagements (e.g., a full Amplitude implementation) often run $15,000–$40,000 depending on complexity. The ROI question is simpler: if better analytics would let you run more experiments and improve conversion or retention by even 1–2%, the math usually works out clearly."
+        },
+        {
+          "q": "Should I hire a full-time analytics person or a consultant?",
+          "a": "For an initial setup or a specific capability gap, start with a consultant. Once you know what 'good' looks like and have a clear job description for the ongoing role, hire full-time. Hiring full-time before you know what you need often results in the wrong person in the wrong role — and analytics hires are slow to course-correct because their impact isn't immediately visible."
+        },
+        {
+          "q": "What is the difference between a growth analytics consultant and a data analyst?",
+          "a": "A data analyst typically works within defined processes — pulling reports, building dashboards, answering specific questions from stakeholders. A growth analytics consultant is more likely to define the processes, select and implement the tooling, and build the measurement framework from scratch. The skill sets overlap significantly; the scope and engagement model are different."
+        }
+      ],
+      "related_guide": "analytics-maturity-model",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"}
+    },
+    {
+      "slug": "product-analytics-for-saas-retention",
+      "title": "Product Analytics for SaaS Retention: The Metrics That Actually Predict Churn",
+      "seo_title": "Product Analytics for SaaS Retention: Metrics That Predict Churn (2026)",
+      "meta_description": "Churn is a lagging indicator. Here are the leading product analytics metrics that predict which SaaS customers are at risk — before they cancel.",
+      "tag": "SaaS Analytics",
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "By the time a SaaS customer churns, the decision was made weeks or months ago. The cancellation is just the administrative act. Product analytics lets you identify the behavioral signals that precede churn — and intervene while you still can. This is the metric set that has the highest predictive validity for SaaS churn in our experience working with scaling B2B and B2C SaaS companies.",
+      "sections": [
+        {
+          "h2": "The problem with churn as a metric",
+          "body": "Churn rate is a lagging indicator — it tells you what happened, not what's about to happen. By the time monthly churn ticks up, the disengagement that caused it started weeks earlier. Optimizing for churn rate directly (e.g., by adding exit friction or offering discounts at cancellation) addresses symptoms. Product analytics lets you work on causes: identifying which usage patterns predict churn and intervening at the behavioral level before the decision is made."
+        },
+        {
+          "h2": "L28: The single best leading indicator of SaaS churn",
+          "body": "L28 — days active in the last 28 days — is the most reliable leading indicator of churn we've found across SaaS business models. A customer who was active 20 out of 28 days last month is not a churn risk. A customer who was active 3 out of 28 days is almost certainly disengaging. Track L28 at the account level (not user level, for B2B), and create automated alerts when an account's L28 drops below your empirically-determined threshold. For most SaaS products, a drop below 30-40% of typical usage is a strong churn signal."
+        },
+        {
+          "h2": "Feature adoption breadth",
+          "body": "Customers who use only one feature of your product are far more likely to churn than customers who have integrated multiple features into their workflow. Single-feature users can be replaced by a point solution; multi-feature users have switching costs. Track the number of distinct core features each account has triggered in the last 30 days. Accounts with feature adoption breadth below 2-3 features (depending on your product's depth) should be flagged for customer success outreach. The goal: get them to a second feature before they cancel."
+        },
+        {
+          "h2": "Collaborative signals for B2B SaaS",
+          "body": "For B2B products, individual user activity isn't enough — you need to track whether the product is embedded in team workflows. The leading indicators here are: number of active users within an account (not just seats purchased), frequency of account-to-account sharing or collaboration events, and whether the account has completed any integration setup (API connections, data imports, SSO). Accounts where only one person is active, even if they're a power user, are at significantly higher churn risk than accounts with distributed activity."
+        },
+        {
+          "h2": "The 'dark period' signal",
+          "body": "One of the most predictive churn signals is a sudden drop in activity after a period of normal or high engagement — what we call a dark period. A customer who was active daily and suddenly goes 10+ days without logging in hasn't quietly solved their problem; they're almost certainly evaluating alternatives or have lost their internal champion. Set up an automated alert in Amplitude or your CRM for accounts that trigger 0 events in a rolling 7-day window after averaging 5+ active days per week in the prior 30 days. This signal has the highest urgency — these accounts need a customer success reach-out within 24-48 hours."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What is the best metric to predict SaaS churn?",
+          "a": "L28 (days active in the last 28 days) is the most reliable single leading indicator for most SaaS products. At the account level, a significant drop in L28 — particularly below 30-40% of the account's typical baseline — predicts churn 4-8 weeks in advance in most cases, giving customer success teams time to intervene."
+        },
+        {
+          "q": "How do you reduce SaaS churn with product analytics?",
+          "a": "The process has three steps: (1) identify the behavioral signals that precede churn (L28, feature breadth, dark periods), (2) build automated alerts that notify customer success when accounts cross risk thresholds, and (3) develop playbooks for each risk signal — what CS should say and offer depends on whether the risk is low engagement, single-feature adoption, or a sudden dark period."
+        },
+        {
+          "q": "What is a good churn rate for SaaS?",
+          "a": "It depends heavily on your segment, price point, and business model. For SMB SaaS, monthly churn of 2-3% (25-35% annualized) is common but leaves significant room for improvement. For mid-market, 1-1.5% monthly is typical. For enterprise, below 0.5% monthly is expected. The more meaningful benchmark is how your churn compares to your cohort from 6 and 12 months ago — the trend matters more than the absolute number."
+        }
+      ],
+      "related_guide": "growth-analytics-for-saas",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"}
+    }
+  ]
+}

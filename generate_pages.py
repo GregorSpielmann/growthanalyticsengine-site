@@ -24,6 +24,7 @@ NAV = """
       <ul class="nav-links">
         <li><a href="/tools/">Free Tools</a></li>
         <li><a href="/guides/">Guides</a></li>
+        <li><a href="/blog/">Blog</a></li>
         <li><a href="https://adasight.com" target="_blank" rel="noopener">Adasight ↗</a></li>
       </ul>
       <a href="/tools/analytics-maturity/" class="btn nav-cta">Free Assessment →</a>
