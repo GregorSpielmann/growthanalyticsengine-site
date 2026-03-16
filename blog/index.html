@@ -14,7 +14,16 @@
 <body>
   <nav class="site-nav">
     <div class="nav-inner">
-      <a href="/" class="nav-logo">Growth Analytics <span>Engine</span></a>
+      <a href="/" class="nav-logo">
+        <svg class="nav-logo-mark" width="30" height="22" viewBox="0 0 30 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="3.5" cy="18.5" r="3.5" fill="#2F7A62"/>
+          <circle cx="15" cy="11" r="3.5" fill="#2F7A62" opacity="0.75"/>
+          <circle cx="26.5" cy="3.5" r="3.5" fill="#2F7A62" opacity="0.5"/>
+          <line x1="3.5" y1="18.5" x2="15" y2="11" stroke="#2F7A62" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="15" y1="11" x2="26.5" y2="3.5" stroke="#2F7A62" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span class="nav-logo-text">Growth Analytics <em>Engine</em></span>
+      </a>
       <ul class="nav-links">
         <li><a href="/tools/">Free Tools</a></li>
         <li><a href="/guides/">Guides</a></li>
@@ -105,16 +114,35 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <div>
-        <div class="footer-brand">Growth Analytics <span>Engine</span></div>
-        <div class="footer-tagline">A free resource by <a href="https://adasight.com" target="_blank">Adasight</a></div>
+      <div class="footer-brand-col">
+        <a href="/" class="footer-logo">Growth Analytics <span>Engine</span></a>
+        <p>A free resource by <a href="https://adasight.com" target="_blank" rel="noopener">Adasight</a> — built by <a href="https://www.linkedin.com/in/gregor-spielmann/" target="_blank" rel="noopener">Gregor Spielmann</a>, growth analytics and experimentation specialist.</p>
       </div>
-      <div class="footer-links">
-        <a href="/tools/">Tools</a>
-        <a href="/guides/">Guides</a>
-        <a href="/blog/">Blog</a>
-        <a href="https://adasight.com" target="_blank">Adasight.com ↗</a>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="/tools/analytics-maturity/">Maturity Assessment</a></li>
+          <li><a href="/tools/sample-size-calculator/">Sample Size Calculator</a></li>
+          <li><a href="/tools/experimentation-roi/">ROI Calculator</a></li>
+        </ul>
       </div>
+      <div class="footer-col">
+        <h4>Content</h4>
+        <ul>
+          <li><a href="/guides/">All Guides</a></li>
+          <li><a href="/blog/">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Adasight</h4>
+        <ul>
+          <li><a href="https://adasight.com" target="_blank" rel="noopener">adasight.com</a></li>
+          <li><a href="https://www.linkedin.com/in/gregor-spielmann/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Growth Analytics Engine · A free resource by Adasight</p>
     </div>
   </footer>
 </body>

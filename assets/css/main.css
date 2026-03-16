@@ -571,3 +571,168 @@ input[type="range"] { padding: 6px 0; cursor: pointer; accent-color: var(--color
   color: var(--color-ink-500);
   letter-spacing: 0.02em;
 }
+
+/* ── Logo mark ─────────────────────────────────────────────────────────────── */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--color-ink-950);
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+.nav-logo em {
+  font-style: normal;
+  color: var(--color-brand-600);
+}
+.nav-logo-mark { flex-shrink: 0; }
+.nav-logo:hover { color: var(--color-ink-950); }
+.nav-logo:hover .nav-logo-mark circle,
+.nav-logo:hover .nav-logo-mark line { opacity: 0.8; }
+
+/* ── Hero split layout ─────────────────────────────────────────────────────── */
+.hero {
+  padding: var(--space-10) var(--space-5) !important;
+  background: linear-gradient(150deg, var(--color-brand-50) 0%, white 55%) !important;
+  text-align: left !important;
+}
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: var(--space-9);
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.hero-text { max-width: 560px; }
+.hero-text .hero-eyebrow { display: inline-block; }
+.hero-text h1 { max-width: 520px; margin-left: 0; text-align: left; }
+.hero-text .lead { text-align: left; margin-left: 0; }
+.hero-text .hero-actions { justify-content: flex-start; }
+.hero-text .hero-proof { text-align: left; }
+
+/* Hero visual — CSS dashboard */
+.hero-visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.hv-card {
+  background: white;
+  border: 1px solid var(--color-line-200);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-sm);
+}
+.hv-card-wide { grid-column: 1 / -1; }
+.hv-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-ink-500);
+  margin-bottom: 6px;
+}
+.hv-value {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-ink-950);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.hv-sublabel {
+  font-size: 0.72rem;
+  color: var(--color-ink-500);
+  margin-top: 4px;
+}
+.hv-bar {
+  height: 4px;
+  background: var(--color-line-200);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.hv-bar-fill {
+  height: 100%;
+  background: var(--color-brand-500);
+  border-radius: 99px;
+}
+.hv-bar-amber .hv-bar-fill { background: var(--color-accent-amber); }
+.hv-stage-dots {
+  display: flex;
+  gap: 5px;
+  margin-top: 6px;
+}
+.hv-dot {
+  width: 20px;
+  height: 5px;
+  border-radius: 99px;
+  background: var(--color-line-200);
+}
+.hv-dot.active { background: var(--color-brand-500); }
+.hv-trend {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 32px;
+  margin-top: 8px;
+}
+.hv-bar-mini {
+  flex: 1;
+  background: var(--color-brand-100);
+  border-radius: 3px 3px 0 0;
+}
+.hv-bar-mini.hi { background: var(--color-brand-500); }
+
+/* ── Guide intro (editorial large first paragraph) ─────────────────────────── */
+.guide-intro {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  line-height: 1.75;
+  color: var(--color-ink-700);
+  margin: var(--space-5) 0 var(--space-7);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-line-200);
+  max-width: 640px;
+}
+
+/* ── Author byline ─────────────────────────────────────────────────────────── */
+.author-byline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-5) 0;
+  border-top: 1px solid var(--color-line-200);
+  border-bottom: 1px solid var(--color-line-200);
+  margin: var(--space-7) 0;
+}
+.author-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-brand-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--color-brand-700);
+  flex-shrink: 0;
+}
+.author-byline-text { font-size: 0.82rem; color: var(--color-ink-500); line-height: 1.5; }
+.author-byline-text strong { color: var(--color-ink-800); font-weight: 600; }
+.author-byline-text a { color: var(--color-brand-600); text-decoration: none; }
+
+/* Hero responsive */
+@media (max-width: 900px) {
+  .hero-split { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .hero { text-align: center !important; }
+  .hero-text h1, .hero-text .lead, .hero-text .hero-proof { text-align: center; max-width: 100%; }
+  .hero-text .hero-actions { justify-content: center; }
+}
