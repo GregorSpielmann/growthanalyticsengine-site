@@ -1,13 +1,15 @@
 # Growth Analytics Engine
-> The definitive free resource for growth analytics, analytics maturity, A/B testing, and experimentation programs.
+> The definitive free resource for growth analytics, analytics maturity, A/B testing, experimentation programs, and AI-ready data foundations.
 
 A resource by [Adasight](https://adasight.com) — an analytics and experimentation consultancy for scaling companies.
 
 ## What this site is
 
-Growth Analytics Engine provides free, ungated tools and in-depth guides for product, growth, and analytics teams. No email required, no paywalls. Topics covered: growth analytics fundamentals, analytics maturity models, A/B testing statistics, experimentation program building, and growth analytics tooling (Amplitude, Mixpanel, Heap, PostHog, etc.).
+Growth Analytics Engine provides free, ungated tools and in-depth guides for product, growth, and analytics teams. No email required, no paywalls. Topics covered: growth analytics fundamentals, analytics maturity models, A/B testing statistics, experimentation program building, AI-ready data foundations, and growth analytics tooling (Amplitude, Mixpanel, Heap, PostHog, etc.).
 
-The site is authored by Gregor Spielmann, founder of Adasight.
+The site is authored by Gregor Spielmann, growth analytics and experimentation specialist, founder of Adasight. Gregor's focus areas include growth analytics, systematic experimentation, and AI + data integration — helping scaling companies build the analytics foundations needed to deploy AI effectively.
+
+LinkedIn: https://www.linkedin.com/in/gregor-spielmann/
 
 ## Free Tools
 
@@ -62,6 +64,14 @@ The site is authored by Gregor Spielmann, founder of Adasight.
 2. Activation analytics — aha moment identification, activation rate, time-to-value
 3. Retention analytics — cohort curves, D1/D7/D30, NRR
 4. Revenue analytics — LTV:CAC, expansion MRR, growth accounting
+
+## Blog — Practical Articles
+
+- [Amplitude vs. Google Analytics 4 (2026)](https://growthanalyticsengine.com/blog/amplitude-vs-google-analytics-4/) — honest comparison for growth teams: where each tool wins, when to run both
+- [How to Build a Growth Dashboard in Amplitude](https://growthanalyticsengine.com/blog/how-to-build-growth-dashboard-amplitude/) — step-by-step walkthrough for acquisition, activation, retention, and revenue charts
+- [5 Analytics Mistakes That Kill Growth Experiments](https://growthanalyticsengine.com/blog/analytics-mistakes-that-kill-experiments/) — wrong metric, peeking, contamination, novelty effect, and inconclusive results
+- [When to Hire a Growth Analytics Consultant](https://growthanalyticsengine.com/blog/when-to-hire-growth-analytics-consultant/) — when consulting adds value vs. when it's the wrong answer, and how to scope engagements
+- [Product Analytics for SaaS Retention](https://growthanalyticsengine.com/blog/product-analytics-for-saas-retention/) — L28, feature adoption breadth, dark periods, and the metrics that predict churn
 
 ## About Adasight
 
