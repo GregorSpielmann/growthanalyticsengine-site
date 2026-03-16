@@ -204,19 +204,48 @@ def generate_post_page(post, all_posts, all_guides):
 
 
 def generate_blog_index(posts):
-    cards = ""
-    for post in posts:
-        cards += f"""
-        <a href="/blog/{post['slug']}/" class="card-link">
-          <div class="card">
-            <div class="card-meta">
-              <span class="tag">{post['tag']}</span>
-              <time class="card-date">{post['date']}</time>
-            </div>
-            <h3>{post['title']}</h3>
-            <p>{post['intro'][:140]}...</p>
-            <span class="card-cta">Read post →</span>
+    if not posts:
+        return ""
+
+    # Featured post — always the first entry
+    featured = posts[0]
+    rest = posts[1:]
+
+    featured_html = f"""
+  <section class="blog-featured">
+    <div class="container">
+      <a href="/blog/{featured['slug']}/" class="blog-featured-link">
+        <div class="blog-featured-inner">
+          <div class="blog-featured-meta">
+            <span class="tag">{featured['tag']}</span>
+            <time>{featured['date']}</time>
           </div>
+          <h2 class="blog-featured-title">{featured['title']}</h2>
+          <p class="blog-featured-excerpt">{featured['intro']}</p>
+          <span class="blog-featured-cta">Read post →</span>
+        </div>
+      </a>
+    </div>
+  </section>"""
+
+    # Rest of posts as 2-col list
+    rest_cards = ""
+    for post in rest:
+        # Truncate at word boundary around 160 chars
+        excerpt = post['intro']
+        if len(excerpt) > 160:
+            excerpt = excerpt[:160].rsplit(' ', 1)[0] + '…'
+        rest_cards += f"""
+        <a href="/blog/{post['slug']}/" class="blog-card-link">
+          <article class="blog-card">
+            <div class="blog-card-meta">
+              <span class="tag">{post['tag']}</span>
+              <time>{post['date']}</time>
+            </div>
+            <h3 class="blog-card-title">{post['title']}</h3>
+            <p class="blog-card-excerpt">{excerpt}</p>
+            <span class="blog-card-cta">Read post →</span>
+          </article>
         </a>"""
 
     html = f"""<!DOCTYPE html>
@@ -235,18 +264,21 @@ def generate_blog_index(posts):
 <body>
 {NAV}
 
-  <section class="page-hero">
+  <div class="blog-header">
     <div class="container">
-      <span class="section-label">From the team at Adasight</span>
-      <h1>Blog</h1>
-      <p class="hero-sub">Practical articles on growth analytics, experimentation, and building data-driven growth teams.</p>
+      <p class="blog-header-label">From the team at Adasight</p>
+      <h1 class="blog-header-title">Blog</h1>
+      <p class="blog-header-sub">Practical writing on growth analytics, experimentation, and data-driven growth teams.</p>
     </div>
-  </section>
+  </div>
 
-  <section class="section">
-    <div class="container-wide">
-      <div class="card-grid card-grid-2">
-{cards}
+{featured_html}
+
+  <section class="blog-list-section">
+    <div class="container">
+      <h2 class="blog-list-heading">More posts</h2>
+      <div class="blog-list">
+{rest_cards}
       </div>
     </div>
   </section>
