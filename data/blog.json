@@ -12,7 +12,7 @@
       "sections": [
         {
           "h2": "What each tool is actually built for",
-          "body": "GA4 is a web analytics tool that evolved from a marketing attribution background. Its core strength is tracking traffic sources, measuring ad campaign performance, and reporting on sessions, users, and conversions at a aggregate level. Amplitude is a product analytics tool built from the ground up for behavioral analysis at the user level. It's designed to answer questions like: which users retained after 30 days, what did they do differently in week one, and which features correlate with expansion revenue? Different origin stories mean different strengths — and different answers."
+          "body": "GA4 is a web analytics tool that evolved from a marketing attribution background. Its core strength is tracking traffic sources, measuring ad campaign performance, and reporting on sessions, users, and conversions at an aggregate level. Amplitude is a product analytics tool built from the ground up for behavioral analysis at the user level. It's designed to answer questions like: which users retained after 30 days, what did they do differently in week one, and which features correlate with expansion revenue? Different origin stories mean different strengths — and different answers."
         },
         {
           "h2": "Where Amplitude wins",
@@ -46,6 +46,670 @@
         }
       ],
       "related_guide": "amplitude-analytics-d2c-ecommerce",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"}
+    },
+    {
+      "slug": "mixpanel-vs-amplitude",
+      "title": "Mixpanel vs. Amplitude: Which Product Analytics Tool Is Right for Your Team?",
+      "seo_title": "Mixpanel vs. Amplitude (2026): Honest Comparison for Product & Growth Teams",
+      "meta_description": "Both tools track user behavior — but they differ in data model, pricing, and query flexibility. Here's how Mixpanel and Amplitude compare for product analytics teams.",
+      "tag": "Tool Comparison",
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Mixpanel and Amplitude are the two most widely used product analytics tools, and the honest answer to 'which is better' is: it depends on what questions you're asking and how your team works. This comparison cuts through the marketing language and focuses on the differences that actually matter in practice.",
+      "sections": [
+        {
+          "h2": "The core architectural difference",
+          "body": "Both Mixpanel and Amplitude are event-based analytics tools — they ingest a stream of user events with properties and let you query and visualize that data. The core difference is in how they approach the data model. Amplitude is built around the concept of 'user journeys' — its default views emphasize cohort analysis, retention curves, and behavioral segmentation over time. Mixpanel leans more toward ad-hoc querying: its JQL (now replaced by a more visual query builder) and Insights reports give analysts more flexibility to ask unexpected questions without predefined structures. If your team does a lot of exploratory analysis, Mixpanel often feels more fluid. If you want opinionated, pre-built analytics frameworks (funnels, retention, pathways), Amplitude's structure is a feature rather than a constraint."
+        },
+        {
+          "h2": "Where Amplitude has the edge",
+          "body": "Amplitude's behavioral cohorts are genuinely best-in-class. The ability to define a cohort based on any sequence of events and property combinations — and then use that cohort as a filter in any other chart — is a capability that Mixpanel has approached but not fully matched. Amplitude's Compass feature (which identifies the behaviors most correlated with retention) and its Session Replay integration are also strong differentiators. For teams building experimentation programs, Amplitude Experiment is a tightly integrated A/B testing layer that Mixpanel doesn't have a direct equivalent for."
+        },
+        {
+          "h2": "Where Mixpanel has the edge",
+          "body": "Mixpanel's pricing model has historically been more transparent and more favorable for early-stage companies — though both products have adjusted their pricing multiple times. More meaningfully, Mixpanel's user interface for querying events feels more intuitive to many analysts who come from a SQL or BI tool background. Its Board feature for building shared dashboards is clean and flexible. Mixpanel's group analytics (where the analysis unit is an account or company rather than a user) is also mature, which makes it strong for B2B SaaS use cases where you need to analyze at the account level."
+        },
+        {
+          "h2": "Pricing and total cost comparison",
+          "body": "Both tools have moved to event-volume-based pricing, which makes direct comparison difficult without knowing your event volume. As a rough benchmark: at the startup scale (under 10M events/month), both tools offer free tiers that are genuinely usable. At mid-market scale (50M–500M events/month), you're looking at $1,000–$3,000/month for either tool depending on plan features. At enterprise scale, both tools move to custom contracts. The more important cost factor is often implementation: Amplitude's data modeling requires more up-front architecture work; Mixpanel's more flexible model can get you insights faster but can lead to data quality issues if not governed carefully."
+        },
+        {
+          "h2": "Which should you choose?",
+          "body": "Choose Amplitude if: your primary use cases are retention analysis and behavioral cohorts, you're building or scaling an experimentation program, and you want opinionated frameworks that guide how your team thinks about growth. Choose Mixpanel if: you value query flexibility and your analysts prefer to explore data without prescribed structures, you're a B2B SaaS with strong account-level analysis needs, or you need faster time-to-insight on event tracking without heavy up-front data modeling. Either tool will serve a mature product analytics function well — the meaningful differences show up in the specific workflows your team uses most."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Is Mixpanel or Amplitude better for startups?",
+          "a": "Both have usable free tiers. Amplitude's free plan includes more out-of-the-box analysis frameworks (cohorts, retention, pathways), which is useful for early-stage teams that don't have dedicated analysts. Mixpanel's free plan allows more ad-hoc querying. For most early-stage teams, Amplitude's structure makes it easier to get to meaningful insights faster."
+        },
+        {
+          "q": "Is Mixpanel easier to use than Amplitude?",
+          "a": "For analysts comfortable with exploratory data querying, Mixpanel often feels more intuitive. For growth teams that want pre-built retention and cohort frameworks, Amplitude's structure is easier. Both tools have improved their UX significantly in recent years — the best way to answer this for your team is to run a proof of concept with your actual data."
+        },
+        {
+          "q": "Can you migrate from Mixpanel to Amplitude?",
+          "a": "Yes, though historical data migration is complex. Most teams run both tools in parallel during a transition period — implement Amplitude tracking alongside existing Mixpanel tracking, validate that the data matches, then sunset Mixpanel after a defined period. Historical cohort comparisons are the hardest part: Amplitude won't have pre-migration behavioral data."
+        }
+      ],
+      "related_guide": "amplitude-analytics-d2c-ecommerce",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"}
+    },
+    {
+      "slug": "what-is-activation-rate",
+      "title": "What Is Activation Rate? How to Define, Measure, and Improve It",
+      "seo_title": "Activation Rate: How to Define, Measure, and Improve It for Your Product",
+      "meta_description": "Activation rate measures whether new users reach your product's first value moment. Here's how to define your activation milestone and improve the metric.",
+      "tag": "Concepts",
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Activation rate is the percentage of new users who reach your product's defined 'aha moment' within a given time window — typically 7 or 14 days after signup. It's one of the most leveraged metrics in growth analytics because improving activation compounds: better activation means better retention, better retention means lower CAC payback, better CAC payback means faster sustainable growth.",
+      "sections": [
+        {
+          "h2": "How to define your activation milestone",
+          "body": "The activation milestone is the minimum meaningful action that predicts a user will become a retained customer. It's not the same as completing onboarding, creating an account, or visiting the product a second time — those are proxies. The real activation milestone is the first action that correlates strongly with long-term retention in your data. To find it: take your retained users (active at D30 or beyond) and look at what events they completed in their first 7 days. Compare that to churned users. The events that appear significantly more often in retained users' first-week behavior are your activation signal candidates. Test the strongest candidate as your activation milestone."
+        },
+        {
+          "h2": "Common activation milestone examples by product type",
+          "body": "The activation milestone varies by product category, but patterns repeat. For SaaS productivity tools, activation is typically completing a core workflow (not just setting it up — actually using it): a project management tool might define activation as 'created a project and added a collaborator.' For consumer social apps, activation often involves a social action: 'followed 5 accounts' or 'received a like on the first post.' For e-commerce, activation is typically the first purchase. For developer tools, activation is often 'sent first API request' or 'completed first successful integration.' The common thread: it's a concrete action that delivers product value, not just product familiarity."
+        },
+        {
+          "h2": "How to measure activation rate accurately",
+          "body": "Activation rate = (users who completed activation milestone within time window) / (new users who signed up in the same cohort). The time window matters: 7 days is standard for most SaaS products, 24-48 hours for consumer apps with high intent, 14-30 days for complex B2B products with longer evaluation cycles. Measure it as a cohort metric — look at week-over-week or month-over-month cohorts, not as a rolling average. Rolling averages mask important trends: a change in your onboarding flow in week 3 will show up as a noise blip in a rolling average, but will be a clear step-change in cohort analysis."
+        },
+        {
+          "h2": "What is a good activation rate?",
+          "body": "Benchmarks depend heavily on product category, acquisition channel, and how the milestone is defined. As rough reference points: consumer mobile apps typically see activation rates of 25-40% on a 24-48 hour window. SaaS products see 30-50% activation within 7 days for self-serve products (lower for complex enterprise tools). E-commerce first-purchase conversion from signup is typically 10-25% depending on intent of the acquisition channel. These benchmarks are less useful than your own trend: if your activation rate is improving cohort-over-cohort, you're making progress regardless of the absolute level."
+        },
+        {
+          "h2": "How to improve activation rate",
+          "body": "The highest-leverage activation interventions are time-to-value reductions — removing friction between signup and the first meaningful product moment. Audit your onboarding flow for every step that delays reaching the activation milestone without adding value. Common high-impact improvements: removing required fields from signup (every field is a drop-off point), pre-populating the product with sample data so users see value before they've added their own, in-app contextual prompts that guide users toward the activation action, and triggered email sequences that reach out to users who've signed up but haven't activated within 24 hours. The onboarding flow is the highest-ROI area of your product to instrument and iterate on."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What is the difference between activation and retention?",
+          "a": "Activation is whether a new user reaches their first meaningful value moment — it happens once, in the first days after signup. Retention is whether activated users come back and continue getting value — it's measured over weeks and months. Activation predicts retention: users who don't activate almost never retain. But activation alone doesn't guarantee retention — a user can activate and still churn if the ongoing product experience doesn't deliver repeated value."
+        },
+        {
+          "q": "How do you find your product's activation milestone?",
+          "a": "Run a correlation analysis in your product analytics tool (Amplitude or Mixpanel both support this): take cohorts of retained users (active at D30+) and churned users, and compare their first-week event sequences. Events that appear significantly more often in retained users' first 7 days are strong activation milestone candidates. Amplitude's Compass feature automates this analysis. Validate your candidate milestone by building a funnel from signup to the milestone and checking whether milestone completion strongly predicts D30 retention."
+        },
+        {
+          "q": "Should activation rate be measured in 7 days or 14 days?",
+          "a": "7 days is the most common window for SaaS and consumer apps because it's short enough to be actionable (you can intervene with re-engagement campaigns for non-activators) while being long enough to capture users who didn't engage on day one. Use 14-30 days if your product has a long evaluation cycle or a complex implementation requirement — enterprise tools, data platforms, or any product where time-to-setup is inherently longer."
+        }
+      ],
+      "related_guide": "analytics-maturity-model",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"}
+    },
+    {
+      "slug": "how-to-define-north-star-metric",
+      "title": "How to Define Your North Star Metric (With Examples for SaaS, Marketplace, and Consumer)",
+      "seo_title": "How to Define Your North Star Metric — Examples for SaaS, Marketplace & Consumer",
+      "meta_description": "Your north star metric is the single number that captures the value your product delivers. Here's how to choose it — and common mistakes to avoid.",
+      "tag": "Strategy",
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "The north star metric concept is widely discussed and frequently misapplied. Most companies either pick a metric that's too easy to move (like 'visits' or 'signups'), too hard to measure, or so focused on revenue that it becomes indistinguishable from a financial KPI. A well-chosen north star metric captures the value your product delivers to users — and predicts long-term revenue as a consequence.",
+      "sections": [
+        {
+          "h2": "What makes a good north star metric",
+          "body": "A north star metric should satisfy three criteria. First, it should measure value delivered to the customer — not just activity. 'Messages sent' isn't necessarily a north star; 'messages that received a reply within 24 hours' is closer, because it captures whether the communication is actually working. Second, it should predict long-term revenue without being a direct revenue metric. Revenue is an outcome of value delivery; if you optimize directly for revenue, you're optimizing for extraction rather than value — and users notice. Third, it should be movable by the product team. 'Number of enterprise contracts signed' isn't a product metric; it's a sales metric. The product team should be able to run experiments that visibly move the north star."
+        },
+        {
+          "h2": "North star metric examples by business model",
+          "body": "Different business models have different north stars. For SaaS productivity tools, common choices are weekly active teams (not just users — teams, because team adoption predicts enterprise retention), or 'projects completed this week' for project management tools. For consumer social products, it's typically a quality engagement metric: 'users who both posted and consumed content in the last 7 days' rather than raw DAU. For marketplaces, the north star is often 'successful transactions per week' — note that this is a double-sided metric, capturing value for both buyers and sellers simultaneously. For e-commerce, it might be 'repeat purchasers as a percentage of 90-day active buyers.' The pattern: all of these measure value exchange or task completion, not just presence."
+        },
+        {
+          "h2": "The relationship between north star and input metrics",
+          "body": "The north star metric is not the only metric that matters — it's the single metric the whole company aligns around. Supporting it is a set of input metrics that the team directly works to move: activation rate, feature adoption, engagement frequency, and so on. These input metrics are the levers; the north star is the outcome. A useful structure: the north star is reviewed weekly as a health check on the business. Input metrics are reviewed daily by product and growth teams and are the primary subject of experimentation. If your north star is 'weekly active teams,' your input metrics might be 'activation rate for team use cases,' 'team invitation conversion rate,' and 'multi-user session frequency in week 1.'"
+        },
+        {
+          "h2": "Common mistakes when picking a north star metric",
+          "body": "The most common mistake is picking a vanity metric — something that looks impressive but doesn't predict actual business health. 'Total registered users' is the canonical example: it only goes up (you never delete users), it's easy to inflate with low-quality acquisition, and a company can have millions of registered users while its retention curves head toward zero. Another common mistake is picking a metric that's manipulable without delivering real value — 'time in app' can be inflated by adding friction, 'pages visited' can be inflated by breaking single pages into multiple. A good test: can someone game your north star metric in a way that looks good but makes the product worse for users? If yes, it's the wrong metric."
+        },
+        {
+          "h2": "How to get organizational alignment on the north star",
+          "body": "The hardest part of the north star exercise isn't choosing the metric — it's getting leadership and cross-functional teams to actually use it. The most common failure mode: the north star gets announced, then promptly ignored in favor of the metrics each team was already using (revenue for finance, sign-ups for marketing, tickets closed for support). To avoid this: the north star has to appear in the weekly leadership review, it has to be the reference point for roadmap prioritization ('how does this feature move our north star?'), and it has to be the primary metric in your growth team's sprint reviews. The organizational muscle of using a single shared metric is more valuable than the specific metric chosen."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What is a north star metric?",
+          "a": "A north star metric is the single metric that best captures the value your product delivers to customers and predicts the long-term health of your business. It's not a revenue metric — it's a product value metric that, when it grows, revenue follows. Well-known examples include Airbnb's 'nights booked,' Facebook's 'daily active users who post or engage,' and Slack's 'messages sent within an organization per day.'"
+        },
+        {
+          "q": "What is the difference between a north star metric and an OKR?",
+          "a": "An OKR (Objective and Key Result) is a goal-setting framework that defines what you're trying to achieve in a given period and how you'll measure progress. The north star metric is a persistent, directional single metric that stays constant over years. OKRs may reference the north star as an objective, and key results are the input metrics you'll move to get there. The north star is a compass; OKRs are the quarterly navigation decisions."
+        },
+        {
+          "q": "How often should you change your north star metric?",
+          "a": "Rarely — if you're changing it more than once every 2-3 years, you likely haven't found the right one yet, or your business model is in active transformation. The north star should be stable enough that the whole organization can build intuition around it. That said, north stars do evolve: Facebook's shifted from DAU to more quality-adjusted engagement metrics as the business matured. The trigger for re-evaluation is when the metric no longer captures what most creates value for your users."
+        }
+      ],
+      "related_guide": "analytics-maturity-model",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"}
+    },
+    {
+      "slug": "bayesian-vs-frequentist-ab-testing",
+      "title": "Bayesian vs. Frequentist A/B Testing: Which Approach Should Your Team Use?",
+      "seo_title": "Bayesian vs. Frequentist A/B Testing (2026): Which Is Right for Your Team?",
+      "meta_description": "Bayesian and frequentist are two different statistical frameworks for A/B testing. Here's what the difference means in practice and how to choose the right approach.",
+      "tag": "Experimentation",
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "The debate between Bayesian and frequentist A/B testing isn't just academic — it shapes how you interpret results, how long you run experiments, and how confidently you ship. Most teams use frequentist testing without knowing it's a choice they made. Here's what the difference actually means for your experimentation program.",
+      "sections": [
+        {
+          "h2": "The core difference in plain terms",
+          "body": "Frequentist testing asks: 'If there were no real difference between the variants, how often would I see a result this extreme by chance?' That probability is your p-value. When p < 0.05, you reject the null hypothesis (no difference) and declare statistical significance. The limitation: you can only decide 'significant or not' — you can't say how likely it is that one variant is actually better than the other. Bayesian testing asks a different question: 'Given the data I've observed, what is the probability that variant B is better than variant A?' The output is a probability: 'there is an 87% chance variant B lifts conversion.' This is more intuitive and lets you make decisions before a fixed sample size is reached."
+        },
+        {
+          "h2": "Practical advantages of Bayesian testing",
+          "body": "Bayesian testing has two practical advantages that matter for growth teams. First, continuous monitoring: because you're tracking a posterior probability rather than a p-value, you can look at results while the test is running without the same peeking problem that afflicts frequentist tests. Most Bayesian testing tools (VWO, Evolv AI, Statsig with Bayesian mode) allow you to call experiments earlier when the evidence is strong enough, reducing average experiment runtime. Second, interpretability: 'there is a 94% chance variant B is better' is much easier for non-statisticians to understand and act on than 'p = 0.041.' This matters when you're presenting results to stakeholders who don't have a statistics background."
+        },
+        {
+          "h2": "Practical advantages of frequentist testing",
+          "body": "Frequentist testing's main advantage is that it's the statistical standard — most A/B testing tools default to it, most analysts learned it, and most research literature uses it. There's less room for prior specification errors (in Bayesian testing, choosing a poorly calibrated prior can distort results). Frequentist tests are also easier to audit: did you hit the required sample size? Did you reach significance? The decision rules are explicit and reviewable. For organizations with strong statistical governance requirements (healthcare, finance, regulated industries), frequentist testing's explicitness and auditability is often preferred."
+        },
+        {
+          "h2": "The false tradeoff: most modern tools handle both",
+          "body": "The Bayesian vs. frequentist debate is most relevant when you're building a testing infrastructure from scratch or selecting a statistical methodology deliberately. Most mature experimentation platforms — Optimizely, VWO, Statsig, LaunchDarkly — now offer both approaches or hybrid approaches like sequential testing. Sequential testing is a frequentist method that allows continuous monitoring while controlling Type I error rate, bridging the gap between the two approaches. If you're using Amplitude Experiment, the default is frequentist with a fixed sample size and p-value threshold; you can override this with sequential testing."
+        },
+        {
+          "h2": "Which approach should your team use?",
+          "body": "For most growth teams, the practical recommendation is: use your platform's default (usually frequentist), understand the rules that go with it (pre-determine sample size, don't peek, run for a full business cycle), and invest your energy in experiment velocity and quality rather than statistical methodology debates. If your team runs high volumes of experiments (50+ per quarter) and wants faster iteration cycles, explore Bayesian or sequential testing methods. If you have a statistician or data scientist embedded in your team, have them evaluate the tradeoffs for your specific context. The methodology matters less than the discipline of using it correctly."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Is Bayesian testing better than frequentist for A/B tests?",
+          "a": "Neither is universally better — they answer different questions. Bayesian testing is generally more intuitive and allows more flexible stopping rules. Frequentist testing is more established, easier to audit, and the default in most tools. The more important factors for A/B test quality are: pre-determining your success metrics, not peeking at results before reaching your sample size, and running tests for at least one full business cycle."
+        },
+        {
+          "q": "What is a p-value in A/B testing?",
+          "a": "The p-value is the probability of observing a result as extreme as the one you observed, assuming there is actually no difference between the variants. A p-value of 0.05 means there's a 5% chance you'd see this result by random variation alone. It's commonly misinterpreted as 'the probability that the variant is better' — it's not. It's a measure of how unlikely the observed data is under the assumption of no effect."
+        },
+        {
+          "q": "What is statistical significance in A/B testing?",
+          "a": "Statistical significance means the observed difference between test and control variants is unlikely to be due to random chance, at a predetermined confidence threshold (typically 95%). Achieving statistical significance does not mean the effect is large enough to matter for the business — a statistically significant 0.01% conversion lift is rarely worth shipping. Always evaluate both statistical significance and practical significance (effect size) together."
+        }
+      ],
+      "related_guide": "ab-testing-statistics-guide",
+      "related_tool": {"name": "Sample Size Calculator", "url": "/tools/sample-size-calculator/"}
+    },
+    {
+      "slug": "saas-event-tracking-setup",
+      "title": "How to Set Up Event Tracking for a SaaS Product: A Practical Guide",
+      "seo_title": "SaaS Event Tracking: How to Set It Up the Right Way (Step-by-Step Guide)",
+      "meta_description": "Poor event tracking is the root cause of most bad product analytics. Here's how to design and implement a clean event taxonomy for a SaaS product from scratch.",
+      "tag": "How-To",
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Bad event tracking is the most common reason product analytics fails — not bad tools, not bad dashboards, but a messy, inconsistent event stream that makes every analysis a data quality exercise before you can answer a business question. Getting this right upfront takes a week of careful thinking; getting it wrong costs months of re-implementation later.",
+      "sections": [
+        {
+          "h2": "Step 1: Define your tracking plan before writing a single line of code",
+          "body": "A tracking plan is a spreadsheet or document that defines every event your product will send, what it means, what properties each event carries, and who on the team is responsible for it. Before opening your analytics SDK, write out the events you need to answer your three most important analytics questions. If question one is 'what percentage of new users complete onboarding in 7 days,' you need: a signup event, at least three onboarding step events, and an 'onboarding completed' event. If question two is 'which features do retained users use in their first week,' you need events for each core feature. The tracking plan is the specification; the implementation comes second."
+        },
+        {
+          "h2": "Step 2: Choose a naming convention and commit to it",
+          "body": "Naming convention inconsistency is the number one source of analytics data quality problems. A common pattern that scales well: Object-Action in title case — 'Dashboard Created,' 'Experiment Started,' 'Report Exported.' The Object is the thing the user is interacting with; the Action is what they did to it. Avoid: verb-first names ('Created Dashboard' — hard to sort), past vs. present tense mixing ('user_sign_up' vs 'user_signed_in'), mixing snake_case and camelCase in the same tracking plan. Once you pick a convention, document it and enforce it in code review. The cost of inconsistency compounds as your data volume grows."
+        },
+        {
+          "h2": "Step 3: Design your event properties for segmentation",
+          "body": "Events without properties are nearly useless for analytics. Every event should carry at minimum: a user ID, a timestamp (added automatically by most SDKs), and the properties needed to answer follow-up questions. For a 'Dashboard Created' event, useful properties include: dashboard_type, number_of_charts, is_team_dashboard (boolean), plan_tier (for segmenting by pricing tier), days_since_signup (for understanding where in the user lifecycle this happened). Think ahead: the properties you wish you had in three months are almost always the properties that were obvious when the event was first implemented but not included because nobody specified them."
+        },
+        {
+          "h2": "Step 4: Implement server-side events for critical actions",
+          "body": "Client-side event tracking (in-browser JavaScript or mobile SDK) is convenient but unreliable for high-stakes events. Ad blockers, network interruptions, and client-side errors can silently drop events. For actions that have business consequences — purchases, subscription upgrades, feature unlocks, contract signatures — always implement server-side tracking alongside or instead of client-side. Your backend server sends the event to your analytics platform directly after the action completes, ensuring 100% capture. Client-side tracking is fine for behavioral events (page views, clicks, UI interactions); server-side tracking is non-negotiable for conversion and revenue events."
+        },
+        {
+          "h2": "Step 5: Validate your tracking before shipping to production",
+          "body": "The most common mistake in event tracking implementation is shipping unvalidated tracking and discovering the errors six weeks later when you try to build a funnel. Before any tracking changes go live: use your analytics platform's debugger mode (Amplitude has an Event Debugger, Mixpanel has Live View) to verify that every event fires correctly with the right property values. Automated tests should check that critical events fire on critical user actions. Set up a data quality alert for any event that drops below its expected volume — a sudden drop in 'Dashboard Created' events is a sign of a tracking break, and catching it in 24 hours is much less painful than catching it in three weeks."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What is an event tracking taxonomy?",
+          "a": "An event tracking taxonomy is the organized system of event names, property names, and naming conventions that defines how user actions are tracked in your analytics platform. A well-designed taxonomy is consistent (all events follow the same naming pattern), complete (all important user actions are tracked), and documented (any team member can look up what any event means and what properties it carries)."
+        },
+        {
+          "q": "Should I use client-side or server-side event tracking?",
+          "a": "Use server-side tracking for any event that has business consequences: purchases, subscriptions, account upgrades, or any conversion that drives revenue. Server-side tracking is reliable and unaffected by ad blockers. Use client-side tracking for behavioral events (UI interactions, page views, feature engagement) where a small percentage of dropped events is acceptable. Many teams use both — client-side for behavioral analytics, server-side for revenue-critical conversions."
+        },
+        {
+          "q": "What is the best tool for SaaS event tracking?",
+          "a": "The most common setups for SaaS are: Segment (or RudderStack for self-hosted) as a customer data platform that routes events to multiple destinations, combined with Amplitude or Mixpanel as the analysis layer. This separation lets you add or change analytics tools without re-implementing tracking. If you don't need the CDP layer, implementing Amplitude or Mixpanel directly via their SDKs is simpler and works well for teams without a dedicated data engineer."
+        }
+      ],
+      "related_guide": "analytics-maturity-model",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"}
+    },
+    {
+      "slug": "net-revenue-retention-analytics",
+      "title": "Net Revenue Retention: What It Is, How to Measure It, and How to Improve It",
+      "seo_title": "Net Revenue Retention (NRR): How to Measure and Improve It with Analytics",
+      "meta_description": "NRR is the most important metric for SaaS business health. Here's how to calculate it, what drives it, and how product analytics can help you improve it.",
+      "tag": "SaaS Analytics",
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Net Revenue Retention is the single metric most correlated with SaaS company valuation multiples, and it's the one metric that product and customer success teams can both move. Understanding what drives NRR — and building the analytics to track those drivers — is one of the highest-leverage investments a scaling SaaS company can make.",
+      "sections": [
+        {
+          "h2": "How to calculate NRR correctly",
+          "body": "NRR measures how much revenue you retain from an existing cohort of customers over a period, including expansion (upsells, seat additions, plan upgrades) and excluding new customer revenue. The formula: NRR = (Starting MRR from a cohort + Expansion MRR − Contraction MRR − Churned MRR) / Starting MRR × 100. An NRR above 100% means you're growing revenue from existing customers even without any new customer acquisition — existing customers are expanding faster than others are churning. Above 120% is considered exceptional (Snowflake and Twilio sustained 150%+ at their peaks). Below 100% means you're shrinking even if you're acquiring new customers, which creates a leaky bucket problem that acquisition alone can't solve."
+        },
+        {
+          "h2": "The four components of NRR and how to track them",
+          "body": "NRR is made up of four components, each with distinct product analytics signals. Retention (no churn): tracked through L28, feature adoption breadth, and engagement frequency — the leading indicators covered in our SaaS retention piece. Expansion (upsells): tracked through product usage approaching plan limits, feature usage in higher tiers, and team growth signals (new user invitations, cross-department adoption). Contraction (downgrades): tracked through sudden drops in usage, seat reductions, or disengagement from paid features. Churn: tracked through dark period signals and feature abandonment. Build a single NRR driver dashboard that shows these four components side by side — it's one of the most useful executive-level dashboards for a SaaS company."
+        },
+        {
+          "h2": "Which product behaviors predict expansion revenue",
+          "body": "Expansion revenue is the most underinstrumented part of the NRR equation. The product behaviors that most reliably precede expansion events: (1) Usage volume approaching plan tier limits — track the percentage of accounts within 20% of their usage ceiling; these are your highest-priority expansion candidates. (2) Cross-department adoption — when a product that started in one team spreads to another department, multi-year expansion deals almost always follow. (3) Advanced feature adoption — accounts that use 4+ features and reach the most sophisticated features of the product have materially higher expansion rates. Instrument these signals in your analytics and pipe them into your CRM as expansion opportunity signals for your customer success team."
+        },
+        {
+          "h2": "The relationship between NRR and CAC payback period",
+          "body": "NRR and CAC payback period are deeply linked. With 100% NRR, a customer who costs $10,000 to acquire at $1,000/year MRR takes 12 months to pay back (ignoring margins). With 120% NRR, that same customer generates $1,200 in year 2, $1,440 in year 3 — the effective CAC payback shrinks dramatically on a lifetime value basis. This is why high-NRR SaaS companies can spend aggressively on acquisition and still produce excellent unit economics. The analytics implication: when optimizing growth spend, model out scenarios with different NRR assumptions — the relationship between acquisition CAC and retention economics is the fundamental lever of SaaS unit economics."
+        },
+        {
+          "h2": "How to build an NRR improvement program",
+          "body": "An NRR improvement program has three workstreams. First, retention: identify the leading indicators of churn (L28, feature breadth, dark periods) and build automated CS alerts. Second, expansion: instrument the product signals that precede upsells and build customer success workflows triggered by expansion signals. Third, onboarding quality: track whether customers who activate on more use cases in their first 90 days have materially better NRR — they almost always do. This means investing in onboarding that exposes customers to multiple product value propositions early, not just getting them to first value as quickly as possible."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What is a good NRR for SaaS?",
+          "a": "Above 100% NRR is the baseline target — this means existing customer revenue is growing, not shrinking. Strong NRR is 110-120%. Exceptional NRR is 120%+, sustained by significant expansion revenue. Benchmarks vary by segment: enterprise SaaS typically shows higher NRR due to larger expansion deals; SMB SaaS has higher churn that's harder to offset with expansion. The trend is more important than the absolute number — improving NRR from 95% to 105% over 12 months is a strong signal."
+        },
+        {
+          "q": "What is the difference between NRR and GRR?",
+          "a": "Gross Revenue Retention (GRR) measures how much revenue you keep from existing customers, excluding expansion. GRR can only go to 100% (you can't retain more than 100% of existing revenue without expansion). NRR includes expansion and can exceed 100%. GRR is a measure of churn control; NRR is a measure of the full account growth dynamic. Both metrics together tell a complete retention story."
+        },
+        {
+          "q": "How does product analytics improve NRR?",
+          "a": "Product analytics improves NRR by identifying the specific behaviors that predict churn (enabling early intervention) and the behaviors that predict expansion (enabling proactive upsell outreach). Without product analytics, customer success teams work from lagging signals — support tickets, renewal dates, and account health scores based on rough heuristics. With product analytics, they work from leading behavioral signals that predict outcomes 4-8 weeks in advance."
+        }
+      ],
+      "related_guide": "growth-analytics-for-saas",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"}
+    },
+    {
+      "slug": "feature-flags-vs-ab-tests",
+      "title": "Feature Flags vs. A/B Tests: When to Use Each (And How They Work Together)",
+      "seo_title": "Feature Flags vs. A/B Tests: When to Use Each for Product Development",
+      "meta_description": "Feature flags and A/B tests solve different problems. Here's when to use each, how they overlap, and how mature teams combine them in a single experimentation stack.",
+      "tag": "Tool Comparison",
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Feature flags and A/B tests are often conflated — both involve showing different experiences to different users. But they solve fundamentally different problems, and confusing them leads to either missing insights or overcomplicating your release process. Here's a clear framework for when each is the right tool.",
+      "sections": [
+        {
+          "h2": "What feature flags are actually for",
+          "body": "A feature flag (also called a feature toggle) is a mechanism for deploying code to production while controlling who sees the feature. The primary use case is risk management in the release process: you ship the code, then gradually roll it out to 1% of users, then 10%, then 100% — with the ability to instantly roll back by flipping the flag off without a deployment. Feature flags are fundamentally an engineering and deployment tool. They answer 'can I ship this safely?' They don't, by themselves, answer 'does this feature improve my metrics?' That requires measurement."
+        },
+        {
+          "h2": "What A/B tests are actually for",
+          "body": "An A/B test is a controlled experiment where users are randomly assigned to a control or variant experience, and the metric difference between the groups is measured with statistical rigor. The primary use case is decision-making under uncertainty: 'we have two designs for this onboarding flow — which one produces better 7-day retention?' A/B tests answer causal questions with statistical confidence. They require a large enough user volume to detect meaningful effects, clear success metrics defined in advance, and sufficient runtime to account for novelty effects and weekly seasonality. They're a measurement tool, not a release tool."
+        },
+        {
+          "h2": "The overlap: when feature flags become A/B tests",
+          "body": "Feature flags become A/B tests when you add three things: random assignment to variant groups, a pre-defined success metric, and statistical analysis of the results. Most mature feature flagging tools — LaunchDarkly, Statsig, Unleash — support this transition explicitly. You can configure a flag to split traffic 50/50, define the metric you're measuring, run for a required sample size, and then analyze whether the variant moved the metric. This is sometimes called 'experimentation on top of feature flags.' The result: you get both the deployment safety of feature flags and the decision-making rigor of A/B testing in the same workflow."
+        },
+        {
+          "h2": "Which tools combine both",
+          "body": "Several tools have built experimentation capabilities on top of feature flag infrastructure. Statsig is designed from the ground up as a combined feature flags + experimentation platform, with a strong statistical analysis layer. LaunchDarkly added Experimentation as a module on top of its feature management platform. Optimizely has moved in the opposite direction — starting from A/B testing and adding feature flags for full-stack testing. Amplitude Experiment uses Amplitude's analytics layer for metric analysis but requires a separate implementation for flag management. The best choice depends on your existing stack: if you're already using LaunchDarkly, adding Experimentation is the obvious path. If you're starting fresh, Statsig is worth evaluating for teams that want both capabilities in a single modern platform."
+        },
+        {
+          "h2": "The practical decision framework",
+          "body": "Use a feature flag (without experimentation) when: you're deploying a new feature and want the ability to roll back quickly, the feature isn't expected to degrade or significantly change a key metric, and you don't have a clear hypothesis to test. Use an A/B test when: you have a specific, measurable hypothesis about user behavior, you have enough traffic volume to detect the effect size you care about, and the decision about which experience to ship is genuinely uncertain. Use both together when: you're releasing a feature that has a meaningful impact on a core metric and you want to both release safely and learn from the release."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Can you use feature flags for A/B testing?",
+          "a": "Yes — most mature feature flagging tools support A/B testing by splitting traffic between flag variants and measuring metric differences. Statsig, LaunchDarkly, and Split.io all support this. The key additions needed to turn a feature flag rollout into a proper A/B test are: random assignment (not sequential), a pre-defined success metric, and a statistical analysis layer that calculates significance and effect size."
+        },
+        {
+          "q": "What is the difference between A/B testing and multivariate testing?",
+          "a": "An A/B test compares two variants: control (A) and one treatment (B). Multivariate testing compares multiple variants simultaneously — for example, testing three different headlines and two button colors in all combinations. Multivariate tests require significantly more traffic to reach statistical significance for each combination and are most useful when you need to test multiple elements simultaneously. For most growth teams, running sequential A/B tests is more practical and faster than multivariate tests."
+        },
+        {
+          "q": "What are the best feature flag tools for growth teams?",
+          "a": "For teams that want feature flags and experimentation in one platform: Statsig (strong experimentation layer, competitive pricing) and LaunchDarkly with Experimentation (enterprise-grade, higher cost). For feature flags focused primarily on engineering release management: Unleash (open source), ConfigCat, or Flagsmith. If you're already using Amplitude, Amplitude Experiment integrates natively for A/B testing but relies on a separate feature flag solution for release management."
+        }
+      ],
+      "related_guide": "ab-testing-statistics-guide",
+      "related_tool": {"name": "Sample Size Calculator", "url": "/tools/sample-size-calculator/"}
+    },
+    {
+      "slug": "time-to-value-saas",
+      "title": "How to Measure Time to Value in SaaS — And Why It Predicts Retention",
+      "seo_title": "Time to Value (TTV) in SaaS: How to Measure It and Why It Predicts Retention",
+      "meta_description": "Time to value is how long it takes a new user to experience your product's first meaningful outcome. Here's how to measure it and use it to improve retention.",
+      "tag": "SaaS Analytics",
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Time to value (TTV) is the elapsed time between a user's first contact with your product and the moment they experience meaningful value from it. It's one of the most predictive leading indicators of long-term retention we've found across SaaS products — and it's one of the most underinstrumented metrics in most growth analytics stacks.",
+      "sections": [
+        {
+          "h2": "How to define and measure TTV for your product",
+          "body": "TTV is measured as the median (or 25th/75th percentile) time between a user's signup event and their activation event — where activation is defined as reaching your product's first meaningful value moment (see our activation rate guide for how to identify this). In Amplitude, this is a Funnel analysis with 'Time to Convert' as the metric rather than conversion rate. You want to see both the distribution (how many users activate within 1 hour, 24 hours, 48 hours, 7 days) and the trend (is median TTV improving or worsening over time as you make onboarding changes?). Segment TTV by acquisition channel: users who come in from referral or word-of-mouth often have faster TTV than paid acquisition users, which affects how you set channel-specific expectations."
+        },
+        {
+          "h2": "Why TTV predicts long-term retention",
+          "body": "The relationship between TTV and retention is well-established empirically: users who experience value faster are significantly more likely to return. The intuitive explanation is straightforward — if a user spends 3 days in your product without understanding why it's valuable, they've already mentally classified it as 'probably not for me' before they've given it a fair evaluation. Conversely, a user who experiences value within 30 minutes has anchored their mental model of your product around a positive outcome. In practice, every 24-hour reduction in median TTV correlates with a measurable improvement in D7 and D30 retention. This is why TTV is one of the highest-ROI metrics to optimize in your growth stack."
+        },
+        {
+          "h2": "Common barriers to fast time to value",
+          "body": "The barriers to fast TTV fall into three categories. Setup friction: required fields, email verification steps, mandatory profile completion, or integration requirements that delay getting to the core product experience. Empty state problem: new users land in a product with no data and no starting point, which creates cognitive load without delivering value — adding sample data or templates dramatically reduces this. Unclear value path: users don't know what to do first, so they explore randomly until they either find value by chance or give up. Good onboarding flows eliminate optionality in the first session: there's one clear next action that leads to the activation milestone, not a menu of features to explore."
+        },
+        {
+          "h2": "How to use TTV data to prioritize onboarding improvements",
+          "body": "Build a TTV funnel with three stages: signup to first meaningful action (step 1 of onboarding), first meaningful action to activation event, and activation to second session. Measure the time and drop-off at each stage. The stage with the longest median time and highest drop-off is your highest-priority improvement area. For most products, the gap between signup and first meaningful action is where the most time is lost — users create an account and then get overwhelmed or confused before doing anything productive. Fixing this stage (simplifying the first-session experience, adding contextual guidance, pre-filling data) consistently produces the largest TTV improvements."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What is time to value in SaaS?",
+          "a": "Time to value (TTV) is the elapsed time between when a new user first encounters your product (typically signup) and when they experience their first meaningful outcome from using it. It's the gap between 'I signed up' and 'I got something useful from this.' Products with short TTV — where users experience value in their first session — consistently show better activation rates and long-term retention than products with long TTV."
+        },
+        {
+          "q": "How do you reduce time to value for a SaaS product?",
+          "a": "The most impactful TTV reductions come from: removing friction from the signup and setup flow (eliminating unnecessary required steps), solving the empty state problem by pre-populating the product with sample data or templates, and building a first-session experience that guides users directly to the activation milestone rather than presenting them with a full feature set to explore. Each of these can be tested as a standalone A/B experiment."
+        },
+        {
+          "q": "Is time to value the same as onboarding completion rate?",
+          "a": "Not exactly. Onboarding completion rate measures whether users finished your onboarding flow. TTV measures whether users reached a meaningful value outcome. These often correlate, but they're not the same: a user can complete a 10-step onboarding wizard and still not have experienced real value, or they can skip your onboarding entirely and reach value through their own exploration. TTV is a more direct measure of what actually matters."
+        }
+      ],
+      "related_guide": "growth-analytics-for-saas",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"}
+    },
+    {
+      "slug": "product-led-growth-analytics",
+      "title": "Product-Led Growth Analytics: The Metrics PLG Teams Actually Track",
+      "seo_title": "Product-Led Growth Analytics: Key Metrics PLG Teams Track in 2026",
+      "meta_description": "PLG companies need a different analytics stack than sales-led companies. Here are the metrics, signals, and data flows that define a mature PLG analytics program.",
+      "tag": "Concepts",
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Product-led growth companies use their product as the primary acquisition, activation, and expansion engine — which means their analytics needs are fundamentally different from sales-led companies. The metrics that matter, the signals that predict revenue, and the data flows that enable action all require a deliberate PLG analytics architecture.",
+      "sections": [
+        {
+          "h2": "How PLG analytics differs from traditional SaaS analytics",
+          "body": "In a sales-led company, the primary revenue driver is the sales team, and analytics supports that team with pipeline reporting, lead scoring, and activity tracking. In a PLG company, the product IS the revenue driver — users self-discover, self-activate, and often self-purchase. This shifts analytics priority from CRM data to product behavioral data. The critical difference: in PLG, you need to identify who is ready to buy before they raise their hand, because they often won't raise their hand. Product qualified leads (PQLs) — users who have demonstrated a specific pattern of product engagement that predicts purchase intent — are the core analytics output of a PLG motion."
+        },
+        {
+          "h2": "The PLG metric stack: free-to-paid conversion",
+          "body": "The core conversion metric for PLG companies is free-to-paid conversion rate: what percentage of free tier or trial users convert to a paying plan. Segment this by: acquisition channel (which channels bring users who convert?), activation status (do activated users convert at 5x the rate of non-activated users?), company size (SMB vs mid-market), and time-in-trial (when in the trial period do conversions cluster?). Most PLG products see conversion clustering in two windows: very early (users who immediately see value and want full access) and near trial expiry (urgency-driven). Understanding your conversion timing helps you design retention campaigns and in-product upgrade prompts."
+        },
+        {
+          "h2": "Product qualified leads (PQL): how to define and score them",
+          "body": "A PQL is a user or account that has demonstrated specific product behaviors that correlate with willingness to pay. The definition varies by product, but the methodology is the same: take your paid customers and identify what they did in the product in the 30 days before they converted. Compare to non-converters. The behavioral patterns that significantly distinguish converters are your PQL signals. Common PQL signals: reached a plan usage limit (invitation quota, storage cap, API call threshold), used an advanced feature that's paywalled, expanded to a second team or department, exported or shared output with someone outside the product. Score users against these signals and route high-PQL-score accounts to your sales team or trigger in-product upgrade prompts."
+        },
+        {
+          "h2": "Viral and sharing analytics for PLG",
+          "body": "Many PLG products have a viral or sharing component — users invite teammates, share outputs externally, or create artifacts that bring new users into the product. Tracking this is essential for understanding your growth loops. The core viral analytics metrics: viral coefficient (new users per existing user, per time period), invitation acceptance rate, share-to-signup rate (what percentage of users who receive a shared item sign up?), and time-from-invite-to-activate for invited users vs. organic signups. Invited users almost always activate and retain at much higher rates than organic signups — quantifying this difference helps you prioritize in-product sharing features in your roadmap."
+        },
+        {
+          "h2": "Expansion analytics for PLG",
+          "body": "In a PLG model, expansion revenue comes from users who started on a free tier or entry-level plan and grow into higher plans — usually driven by either hitting usage limits or spreading to more users within an account. Track: the percentage of accounts within 20% of any plan limit (your most immediate upgrade signal), the average number of active users per account by company size, the feature adoption breadth at the point of plan upgrade (what features were they using before they converted to a higher tier?), and the elapsed time from activation to first upgrade event. This data shapes both your pricing model and your product expansion strategy."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What is product-led growth (PLG)?",
+          "a": "Product-led growth is a go-to-market strategy where the product itself is the primary driver of acquisition, activation, retention, and expansion — rather than relying primarily on sales or marketing teams. Examples include Slack, Figma, Dropbox, and Notion. Users can try and adopt the product without speaking to a salesperson, and upgrades happen organically through product usage and value delivery."
+        },
+        {
+          "q": "What is a product qualified lead (PQL)?",
+          "a": "A product qualified lead (PQL) is a user or account that has demonstrated specific product behaviors that correlate with purchase intent. Unlike marketing qualified leads (which are scored on demographic and intent data) or sales qualified leads (which have expressed explicit interest), PQLs are identified through product usage patterns — specific actions that historically precede conversion to paid."
+        },
+        {
+          "q": "What analytics tools do PLG companies use?",
+          "a": "PLG companies typically use a combination of: a product analytics tool (Amplitude or Mixpanel) for behavioral analysis, a customer data platform (Segment or RudderStack) to unify product and CRM data, a feature flagging and experimentation platform (Statsig or LaunchDarkly) for rapid product iteration, and a CRM (HubSpot or Salesforce) enriched with PQL scores from product data. The data flow from product analytics into sales and CS workflows is what differentiates a mature PLG analytics stack."
+        }
+      ],
+      "related_guide": "growth-analytics-for-saas",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"}
+    },
+    {
+      "slug": "amplitude-vs-heap",
+      "title": "Amplitude vs. Heap: Structured Events vs. Autocapture — Which Is Right for You?",
+      "seo_title": "Amplitude vs. Heap (2026): Autocapture vs. Structured Events Compared",
+      "meta_description": "Heap captures everything automatically; Amplitude requires deliberate instrumentation. Here's the real tradeoff and which approach produces better analytics outcomes.",
+      "tag": "Tool Comparison",
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Amplitude and Heap represent two fundamentally different philosophies about how to instrument product analytics. Amplitude requires you to define and instrument events deliberately before you can analyze them. Heap captures every user interaction automatically and lets you define events retroactively. Both approaches have real tradeoffs — the right choice depends on your team's analytics maturity and workflow.",
+      "sections": [
+        {
+          "h2": "The core difference: intentional vs. autocapture instrumentation",
+          "body": "Amplitude's model is intentional: your engineering team implements event tracking calls ('track this action as an event with these properties') and those events appear in Amplitude. If you didn't instrument something, you can't analyze it. Heap's model is autocapture: Heap automatically captures every click, form submission, page view, and interaction without any instrumentation. You can then define 'events' in the UI retroactively by specifying which interactions constitute a meaningful action. The marketing pitch of autocapture is compelling — you never lose data because you didn't instrument something. The reality is more nuanced."
+        },
+        {
+          "h2": "The practical advantages of Heap's autocapture",
+          "body": "Autocapture shines in two scenarios. First, retroactive analysis: if a product change three months ago is now suspected to have caused a metric shift, Heap users can go back and analyze that period even if no specific tracking was implemented at the time. Amplitude users can't — if it wasn't instrumented, it doesn't exist in the data. Second, low-friction startup: a Heap implementation can start providing useful data within hours of adding the Heap script, without requiring engineering work to define and implement events. For teams with limited engineering bandwidth for analytics instrumentation, this is a genuine advantage."
+        },
+        {
+          "h2": "The practical disadvantages of autocapture",
+          "body": "Autocapture creates data quality challenges that become more acute as your product and team scale. Because every click is captured, defining what's meaningful requires ongoing curation — your Heap virtual events library can become unwieldy without strong governance. CSS class changes or UI restructuring can silently break event definitions that were built on element selectors. Most importantly, autocapture doesn't capture server-side events or application state changes that don't have a corresponding DOM interaction — which means critical events like subscription upgrades, API calls, or background processes often need to be instrumented manually anyway, eliminating one of the core advantages."
+        },
+        {
+          "h2": "When Amplitude's intentional model wins",
+          "body": "The deliberate instrumentation model produces higher quality analytics data at scale. When your engineering team defines events explicitly — with clear names, consistent conventions, and intentional property design — every analyst who queries that data knows exactly what it means. Amplitude's data quality governance tools (including their Data catalog and Schema) reinforce this. The investment in up-front instrumentation pays off as your analytics practice matures: Amplitude's cohort analysis, behavioral pathways, and Experiment features are all built around clean, well-defined event data. Teams that have implemented both tools often report that Amplitude's structured approach produces more reliable analyses, while Heap's retroactive capabilities are useful for ad-hoc investigations."
+        },
+        {
+          "h2": "The verdict: which to choose",
+          "body": "Choose Heap if: you're early stage, have limited engineering bandwidth for analytics instrumentation, and value the ability to ask retroactive questions about user behavior. Choose Amplitude if: you have engineering capacity for instrumentation, are building a systematic analytics and experimentation program, and want the most powerful behavioral analysis capabilities available. Many mature teams end up with a hybrid: Amplitude for their core analytics and experimentation stack, supplemented by session replay tools (FullStory, Microsoft Clarity, or Amplitude's own session replay) for the qualitative behavioral data that autocapture tools provide."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Is Heap easier to implement than Amplitude?",
+          "a": "Initially, yes. Adding Heap's JavaScript snippet gives you immediate autocapture data without any event instrumentation. Getting meaningful, well-organized analytics from Heap still requires ongoing curation of virtual events and data governance. Amplitude's implementation requires upfront engineering work, but produces more reliable and maintainable data quality over time."
+        },
+        {
+          "q": "Does Amplitude have autocapture?",
+          "a": "Amplitude has added autocapture capabilities to its platform in recent product updates, though it remains primarily structured around deliberate event instrumentation. Their session replay feature provides qualitative behavioral capture. For teams that want the best of both approaches, Amplitude's modern stack can accommodate both intentional events and some autocapture capabilities."
+        },
+        {
+          "q": "What happened to Heap?",
+          "a": "Heap was acquired by Contentsquare in 2023, combining Heap's behavioral analytics capabilities with Contentsquare's experience analytics platform. The Heap product continues to be developed and marketed, though the long-term roadmap is increasingly integrated with the broader Contentsquare platform."
+        }
+      ],
+      "related_guide": "amplitude-analytics-d2c-ecommerce",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"}
+    },
+    {
+      "slug": "how-to-prioritize-experiments",
+      "title": "How to Prioritize Experiments: ICE, PIE, and RICE Frameworks Compared",
+      "seo_title": "How to Prioritize Experiments: ICE vs PIE vs RICE Scoring Compared",
+      "meta_description": "ICE, PIE, and RICE are three frameworks for prioritizing A/B tests and experiments. Here's how each works and which approach fits your growth team's workflow.",
+      "tag": "Experimentation",
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Most growth teams have more experiment ideas than they have traffic or engineering bandwidth to run them. Prioritization frameworks prevent the loudest voice in the room from winning. ICE, PIE, and RICE are the three most widely used scoring systems — here's how each works and what each one gets right and wrong.",
+      "sections": [
+        {
+          "h2": "ICE: the fastest prioritization method",
+          "body": "ICE stands for Impact, Confidence, Ease. Each experiment idea is scored 1-10 on each dimension, and the scores are multiplied (or averaged, depending on your team's preference). Impact: how large a metric improvement would a successful version of this experiment produce? Confidence: how confident are you that this experiment will produce a positive result, based on data, user research, or proven patterns? Ease: how simple is this to implement — low engineering effort, no design work, can be done this sprint? ICE is fast to run (a team can score 20 ideas in 30 minutes) and gives a rough prioritization that's better than gut feel. Its weakness: it doesn't explicitly account for the volume of users affected, which means a high-scoring ICE experiment might actually affect very few users if it's deep in the product funnel."
+        },
+        {
+          "h2": "PIE: ICE with reach built in",
+          "body": "PIE stands for Potential, Importance, Ease. Potential is similar to ICE's Impact but focuses on how much improvement there is relative to the current state (high-potential experiments are on pages or flows that are currently underperforming their benchmark). Importance captures how important the affected user segment is — an experiment on your highest-traffic onboarding screen is more important than one on your account settings page, even if both have similar conversion improvement potential. Ease is the same as ICE. PIE was developed by Widerfunnel and is especially useful for teams running CRO experiments on marketing and landing pages where page-level traffic data makes Importance easy to quantify."
+        },
+        {
+          "h2": "RICE: the most rigorous framework",
+          "body": "RICE stands for Reach, Impact, Confidence, Effort. Reach is the number of users affected per time period — not a 1-10 score but an actual estimate: 'this experiment affects users in the onboarding flow, which 2,000 users per month go through.' Impact is a multiplier (0.25, 0.5, 1, 2, 3) for how much this moves the needle per user affected. Confidence is a percentage (100% = definitive data, 80% = strong data, 50% = gut feel). Effort is person-months of engineering and design work. RICE score = (Reach × Impact × Confidence) / Effort. The output is comparable across experiments — a RICE score of 1,200 vs. 350 gives you a clear ranking. The tradeoff: RICE takes longer to score carefully, and the estimates for Reach and Impact require real data to be meaningful."
+        },
+        {
+          "h2": "Which framework should your team use?",
+          "body": "The right choice depends on your stage and experimentation velocity. Early-stage (under 5 experiments/month): use ICE or PIE — the overhead of RICE isn't worth it, and the main benefit is simply making the prioritization conversation explicit rather than gut-driven. Mid-stage (5-20 experiments/month): add a RICE-style Reach estimate to your ICE scores. Just having a column for 'users affected per month' dramatically improves prioritization quality. High-velocity (20+ experiments/month): implement full RICE with real Reach data pulled from your analytics tool. At this velocity, the difference between high-RICE and low-RICE experiments meaningfully compounds over time. Regardless of framework: always track the outcome of prioritization decisions. If your top-scored experiments consistently underperform your lower-scored ones, your scoring calibration is off."
+        },
+        {
+          "h2": "Avoiding the most common prioritization mistakes",
+          "body": "The most common mistake with prioritization frameworks is scoring ideas with scores that reflect personal enthusiasm rather than actual data. Impact scores of 8-10 are assigned to ideas the team is excited about, and low scores are assigned to ideas they're skeptical of — the framework becomes a rationalization of pre-existing preferences rather than an objective ranking tool. Two practices that counteract this: have multiple team members score ideas independently before comparing scores (disagreements reveal where assumptions differ), and require that any score above 7 for Impact or Confidence be backed by a specific data point or research source. The discipline of sourcing your scores is most of the value of the framework."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What is the ICE scoring model for experiments?",
+          "a": "ICE stands for Impact, Confidence, and Ease. Each experiment idea is scored 1-10 on each dimension: Impact (how large a metric improvement would success produce), Confidence (how likely is this to work based on data or evidence), and Ease (how little effort is required to implement and run it). The three scores are multiplied together to produce a priority score. ICE is simple, fast, and better than gut-feel prioritization — its main limitation is that it doesn't account for the volume of users affected."
+        },
+        {
+          "q": "What is the RICE framework for prioritization?",
+          "a": "RICE stands for Reach, Impact, Confidence, and Effort. Unlike ICE's 1-10 scoring, RICE uses actual estimates: Reach (users affected per time period), Impact (a multiplier for how much this moves the needle per user), Confidence (a percentage reflecting evidence quality), and Effort (person-months of work). RICE score = (Reach × Impact × Confidence) / Effort. RICE produces more rigorous prioritization but requires real data to be meaningful."
+        },
+        {
+          "q": "How do you build an experiment backlog?",
+          "a": "An experiment backlog should contain: a hypothesis statement ('We believe that [change] will cause [outcome] because [evidence]'), the primary metric and guardrail metrics for the test, an estimated sample size requirement, an effort estimate, and a priority score. Review the backlog in a weekly experimentation meeting, promote the highest-priority ready items to 'in flight,' and retrospectively tag each completed experiment with the actual outcome. The historical record of what worked and didn't is as valuable as the current backlog."
+        }
+      ],
+      "related_guide": "ab-testing-statistics-guide",
+      "related_tool": {"name": "Sample Size Calculator", "url": "/tools/sample-size-calculator/"}
+    },
+    {
+      "slug": "analytics-event-taxonomy",
+      "title": "Analytics Event Taxonomy: How to Design Yours the Right Way",
+      "seo_title": "Analytics Event Taxonomy: A Step-by-Step Guide for SaaS Teams (2026)",
+      "meta_description": "A well-designed event taxonomy is the foundation of trustworthy product analytics. Here's how to build one that scales with your product and team.",
+      "tag": "How-To",
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Your analytics is only as good as the events feeding it. A poorly designed event taxonomy — inconsistent naming, missing properties, unclear definitions — means every analysis starts with data archaeology instead of business questions. This guide covers how to design an event taxonomy that works from day one and holds up as your product and team scale.",
+      "sections": [
+        {
+          "h2": "Start with your analytics questions, not your product features",
+          "body": "The most common mistake in event taxonomy design is building a list of 'everything that happens in the product' rather than starting from the questions you need to answer. Start here: what are the five most important analytics questions your team needs to answer in the next quarter? Map each question to the events and properties required to answer it. This approach ensures your taxonomy is complete for the analyses that matter and avoids the trap of instrumenting hundreds of low-value events that add noise without insight. Most mature product analytics stacks have 50-150 core events — teams with 500+ events usually have a data quality problem, not a data richness advantage."
+        },
+        {
+          "h2": "Choosing a naming convention",
+          "body": "Object-Action is the most durable naming convention for product events: the event name describes what object the user interacted with (Report, Dashboard, Experiment, Comment) followed by what action they took (Created, Updated, Deleted, Shared, Exported). Examples: 'Report Created,' 'Dashboard Shared,' 'Experiment Started,' 'Comment Posted.' This convention has several advantages: events sort alphabetically by object, making them easy to find in analytics tools; it's intuitive to read ('something happened to this thing'); and it scales well as the product grows. Avoid: verb-first naming (Clicked Dashboard, Viewed Report) which hides relationships between related events; mixing tenses (user_sign_up vs user_logged_in); and mixing case styles within the same taxonomy."
+        },
+        {
+          "h2": "Defining your global user properties",
+          "body": "User properties are characteristics of the user that are attached to every event they fire — you define them once per user, not per event. They're essential for segmentation. Standard global user properties for SaaS: user_id, account_id, plan_tier, signup_date, acquisition_channel, account_size, role (admin/member/viewer), days_since_signup (recalculated dynamically), and any key demographic or firmographic data relevant to your ICP. User properties are where most teams under-invest: if you can't segment any analysis by plan tier or acquisition channel, you're operating with one hand tied behind your back. Build the full user property set before implementing your first event."
+        },
+        {
+          "h2": "Event properties: what to capture and how",
+          "body": "Every event should carry the properties needed to answer follow-up questions about that specific action. For 'Report Created': report_type, number_of_metrics, is_shared (boolean), creation_context (which page or workflow it was created from). A useful heuristic: for each event, ask 'if this event spiked 5x next week, what questions would I need to answer to understand why?' The properties needed to answer those questions should be on the event. Common omissions that cause regret: not capturing the user's plan tier or role on every event (makes it impossible to segment by plan without a separate lookup), not capturing a context property that records where in the app an action was taken, and not capturing boolean properties that encode whether an action was a first-time occurrence."
+        },
+        {
+          "h2": "Governance: keeping your taxonomy clean over time",
+          "body": "Event taxonomy degrades over time without deliberate governance. The symptoms: event names that no longer match the UI they track (after a product redesign), duplicate events for the same action (added at different times by different engineers), and properties that have inconsistent values (some events send 'true' as a boolean, others send the string 'True'). Governance practices that prevent this: a single owner for the tracking plan (usually a data analyst or analytics engineer), required PR review for any changes to tracked events, a versioned tracking plan document that's updated in sync with code changes, and quarterly audits of event volume (events that have gone to zero usually indicate a broken implementation or a deprecated feature that should be removed from the taxonomy)."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What is an event taxonomy in analytics?",
+          "a": "An event taxonomy is the organized system of event names, property definitions, naming conventions, and documentation that governs how user actions are tracked in your analytics platform. A good taxonomy is consistent (all events follow the same naming pattern), complete (all important user actions are covered), and documented (any analyst can look up what any event means, what properties it carries, and who owns it)."
+        },
+        {
+          "q": "What is the best naming convention for analytics events?",
+          "a": "Object-Action in Title Case (e.g., 'Dashboard Created,' 'Report Exported,' 'Experiment Paused') is widely recommended as the most readable and scalable convention for product analytics events. It clearly describes what happened, sorts sensibly alphabetically by object, and scales naturally as the product grows. Avoid mixing naming conventions within the same taxonomy — consistency matters more than which specific convention you choose."
+        },
+        {
+          "q": "How many events should a SaaS product track?",
+          "a": "Most mature SaaS products have between 50 and 150 intentionally defined core events. Fewer than 30 events usually means important user behaviors are not being tracked. More than 300 events is often a sign of instrumentation sprawl — low-value events and duplicate events added over time without taxonomy governance. Quality and consistency of events matters far more than quantity."
+        }
+      ],
+      "related_guide": "analytics-maturity-model",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"}
+    },
+    {
+      "slug": "posthog-vs-amplitude",
+      "title": "PostHog vs. Amplitude: Open-Source vs. Enterprise Product Analytics",
+      "seo_title": "PostHog vs. Amplitude (2026): Open-Source vs. Enterprise Product Analytics",
+      "meta_description": "PostHog is open-source and self-hostable. Amplitude is enterprise-grade SaaS. Here's how they compare on features, data control, pricing, and analytics depth.",
+      "tag": "Tool Comparison",
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "PostHog has emerged as the most credible open-source alternative to Amplitude and Mixpanel, combining product analytics, session replay, feature flags, and A/B testing in a single platform. For teams with data residency requirements, privacy constraints, or cost sensitivity, it's a genuine contender. Here's how the two tools compare in 2026.",
+      "sections": [
+        {
+          "h2": "What PostHog offers that Amplitude doesn't",
+          "body": "PostHog's primary differentiators are self-hosting, all-in-one tooling, and open-source transparency. Self-hosting means your event data never leaves your infrastructure — a compelling proposition for companies in regulated industries (healthcare, finance, legal) or with strong data residency requirements. All-in-one means PostHog combines product analytics, session replay, feature flags, A/B experiments, surveys, and data pipelines in a single tool with a single SDK. For early-stage teams that would otherwise need Amplitude + LaunchDarkly + FullStory + a survey tool, PostHog's breadth is a meaningful operational simplification. Open-source means you can read and audit the code — important for security-sensitive organizations."
+        },
+        {
+          "h2": "What Amplitude offers that PostHog doesn't",
+          "body": "Amplitude's analytical depth is meaningfully greater than PostHog's for complex behavioral analysis. Amplitude's cohort analysis, behavioral segmentation, and Compass (correlation analysis) are more sophisticated and more powerful for teams doing advanced product analytics work. Amplitude also has a more mature data governance layer (Data catalog, Schema enforcement), which matters at scale when data quality issues become expensive. Amplitude's integrations ecosystem — with Salesforce, HubSpot, Braze, and dozens of data warehouse tools — is broader and more production-tested. For enterprise teams that need analytics to drive both product decisions and downstream marketing or sales workflows, Amplitude's integration layer is a real advantage."
+        },
+        {
+          "h2": "Pricing comparison: where PostHog wins on cost",
+          "body": "PostHog's cloud pricing is event-volume based with a generous free tier (1M events/month free in 2026). Self-hosted PostHog is free at any scale — you pay for infrastructure rather than per-event fees. This makes PostHog the clear cost winner for high-volume consumer apps where event volumes are in the billions per month, or for companies where per-event Amplitude pricing becomes a budget constraint. Amplitude's pricing scales with monthly tracked users (MTUs) and feature tiers, and can become significant at enterprise scale. The TCO comparison is nuanced: self-hosting PostHog requires engineering time for infrastructure management, which has a real cost that doesn't appear in the tool's licensing fee."
+        },
+        {
+          "h2": "Which type of team should choose each tool",
+          "body": "Choose PostHog if: you're an engineer-led company that values open-source tooling, you have data residency or privacy requirements that make cloud-based analytics tools difficult, you need feature flags and A/B testing alongside analytics and want a single-tool solution, or you're early-stage and cost-sensitive. Choose Amplitude if: you're building a systematic growth analytics practice and need best-in-class behavioral cohort analysis, you have downstream data workflows that depend on analytics platform integrations, or your team's primary use case is product analytics at scale with strong data governance requirements."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Is PostHog a good alternative to Amplitude?",
+          "a": "For teams with data privacy constraints, open-source preferences, or cost sensitivity, yes. PostHog's analytics capabilities have matured significantly and cover most standard product analytics use cases. For teams that need the deepest behavioral cohort analysis, Amplitude's advanced features still lead. The best way to evaluate is to run a proof of concept with your actual data and your team's most common analysis workflows."
+        },
+        {
+          "q": "Can PostHog be self-hosted?",
+          "a": "Yes — self-hosting is one of PostHog's primary value propositions. You can run PostHog on your own infrastructure (AWS, GCP, or any Kubernetes environment), keeping all your event data within your own systems. PostHog publishes detailed self-hosting documentation and provides a community for self-hosted deployments. Note that self-hosting requires engineering capacity for infrastructure management."
+        },
+        {
+          "q": "What is the difference between PostHog and Mixpanel?",
+          "a": "PostHog and Mixpanel are both product analytics tools but with different philosophies. PostHog is open-source, self-hostable, and broader in scope (analytics + feature flags + session replay + A/B testing in one platform). Mixpanel is a cloud-only SaaS product focused specifically on product analytics with a strong emphasis on flexible event querying. PostHog appeals to engineering-led teams; Mixpanel appeals to analyst and product teams that prefer a purpose-built analytics interface."
+        }
+      ],
+      "related_guide": "amplitude-analytics-d2c-ecommerce",
+      "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"}
+    },
+    {
+      "slug": "cohort-analysis-guide",
+      "title": "Cohort Analysis Explained: How to Build and Interpret Cohort Reports",
+      "seo_title": "Cohort Analysis: How to Build and Interpret Cohort Reports in 2026",
+      "meta_description": "Cohort analysis reveals how different groups of users behave over time. Here's what it is, how to build one, and how to use it to improve retention and growth.",
+      "tag": "How-To",
+      "author": "Gregor Spielmann, Adasight",
+      "date": "March 2026",
+      "intro": "Cohort analysis is one of the most powerful tools in growth analytics — and one of the most misunderstood. It reveals patterns that aggregate metrics completely hide: retention problems that disguise themselves as growth, activation improvements that don't translate to long-term retention, and the specific user segments driving all of your best (and worst) outcomes.",
+      "sections": [
+        {
+          "h2": "What is a cohort and why cohorts matter",
+          "body": "A cohort is a group of users who share a common characteristic at a specific point in time — most commonly, the time period in which they first used your product. An acquisition cohort groups all users who signed up in the same week or month. An activation cohort groups all users who completed a specific action in the same period. The reason cohorts matter: aggregate metrics like 'monthly active users' mix together users from different time periods who may behave very differently. A product that's acquiring 1,000 new users per month but has 80% D30 churn looks fine in aggregate DAU — but a cohort view reveals a company pouring water into a leaky bucket. Cohort analysis exposes the leak."
+        },
+        {
+          "h2": "Retention cohorts: the most important chart in product analytics",
+          "body": "A retention cohort report shows, for users acquired in a given period, what percentage were still active at each time interval after acquisition (D7, D14, D30, D60, D90). The visualization is a grid — rows are acquisition cohorts (Jan users, Feb users, etc.), columns are time intervals, and the values are retention percentages. Two patterns matter most. First, the 'curve shape' — does retention flatten out above 0%, indicating a core retained user base, or does it trend toward zero, indicating no product-market fit for the acquired cohort? Second, the 'cohort improvement trend' — are more recent cohorts (recent rows) retaining better at each interval than older cohorts? Improving cohort retention over time is the most important leading indicator of product-market fit momentum."
+        },
+        {
+          "h2": "Behavioral cohorts: going beyond acquisition date",
+          "body": "Behavioral cohorts segment users by actions they took, not just when they signed up. A behavioral cohort might be: 'users who completed onboarding in their first 7 days,' 'users who invited a teammate in week 1,' or 'users who used Feature X in their first session.' The power of behavioral cohorts is that they let you test the impact of specific product behaviors on long-term outcomes. If users who invite a teammate in week 1 retain at 65% at D30 while users who don't retain at 22%, you've identified a high-impact activation target. This analysis is the foundation of activation milestone discovery and is the core use case for tools like Amplitude Compass."
+        },
+        {
+          "h2": "How to build a cohort analysis in Amplitude",
+          "body": "In Amplitude, go to Retention → New Retention Analysis. Set your start event (typically 'any event' or your signup event for an acquisition cohort, or a specific action for a behavioral cohort). Set your return event (the action that counts as 'retained' — typically 'any event' for broad retention, or a core feature action for engaged retention). Set the measurement to weekly intervals, set the look-back window to 8-12 weeks. Enable 'Usage Interval' mode to see the classic retention grid. Add a segment or group-by property (acquisition channel, user plan tier, or any user property) to compare retention across segments. The resulting grid is your retention cohort report."
+        },
+        {
+          "h2": "Common misinterpretations and how to avoid them",
+          "body": "The most common misinterpretation of cohort analysis is confusing improving aggregate metrics with improving cohort retention. A product that improves its D30 retention from 15% to 20% while also increasing acquisition 3x will show rising DAU — but the underlying retention improvement is masked by the acquisition volume. Always analyze cohort retention separately from growth volume. A second common error: comparing cohorts of different sizes without normalizing. A cohort of 50 users has much more statistical noise than a cohort of 5,000 — small cohorts should be grouped by month rather than week to produce stable retention estimates. Third: attributing cohort retention differences to the wrong variable. If January cohorts retain better than December cohorts, it might be seasonality, a product change, or an acquisition mix shift — always investigate before concluding."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What is cohort analysis in product analytics?",
+          "a": "Cohort analysis is the practice of grouping users by a shared characteristic at a specific point in time (most commonly their signup date) and tracking their behavior over subsequent time periods. The most common use is retention cohort analysis: tracking what percentage of users from each acquisition period were still active at D7, D14, D30, and beyond. Cohort analysis reveals patterns that aggregate metrics hide, particularly around retention, engagement, and the long-term impact of product changes."
+        },
+        {
+          "q": "What does a good retention cohort look like?",
+          "a": "A healthy retention cohort 'flattens' above 0% — the retention curve starts at 100%, drops significantly in the first weeks, and then stabilizes at a consistent baseline (commonly called the 'retained core'). If the curve keeps declining all the way to 0%, it means all users eventually churn and there is no retained core, which is a product-market fit signal. The higher the flattening point and the more recently-acquired cohorts look similar to or better than older cohorts, the healthier the retention profile."
+        },
+        {
+          "q": "How is cohort analysis different from funnel analysis?",
+          "a": "Funnel analysis measures the conversion rate between sequential steps in a single user flow (signup → onboarding step → activation) at a point in time. Cohort analysis tracks the same group of users over an extended time period to understand long-term behavioral patterns like retention and engagement frequency. Both are essential analytics tools: funnels diagnose conversion problems in specific flows, cohorts reveal long-term health and product-market fit signals."
+        }
+      ],
+      "related_guide": "growth-analytics-dashboard-guide",
       "related_tool": {"name": "Analytics Maturity Assessment", "url": "/tools/analytics-maturity/"}
     },
     {

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SaaS Event Tracking: How to Set It Up the Right Way (Step-by-Step Guide) — Growth Analytics Engine</title>
+  <meta name="description" content="Poor event tracking is the root cause of most bad product analytics. Here's how to design and implement a clean event taxonomy for a SaaS product from scratch.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Inter:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script src="/assets/js/analytics.js" defer></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How to Set Up Event Tracking for a SaaS Product: A Practical Guide",
+  "description": "Poor event tracking is the root cause of most bad product analytics. Here's how to design and implement a clean event taxonomy for a SaaS product from scratch.",
+  "author": {
+    "@type": "Person",
+    "name": "Gregor Spielmann",
+    "url": "https://adasight.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Adasight",
+    "url": "https://adasight.com"
+  },
+  "datePublished": "March 2026",
+  "url": "https://growthanalyticsengine.com/blog/saas-event-tracking-setup/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an event tracking taxonomy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An event tracking taxonomy is the organized system of event names, property names, and naming conventions that defines how user actions are tracked in your analytics platform. A well-designed taxonomy is consistent (all events follow the same naming pattern), complete (all important user actions are tracked), and documented (any team member can look up what any event means and what properties it carries)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use client-side or server-side event tracking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use server-side tracking for any event that has business consequences: purchases, subscriptions, account upgrades, or any conversion that drives revenue. Server-side tracking is reliable and unaffected by ad blockers. Use client-side tracking for behavioral events (UI interactions, page views, feature engagement) where a small percentage of dropped events is acceptable. Many teams use both \u2014 client-side for behavioral analytics, server-side for revenue-critical conversions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best tool for SaaS event tracking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most common setups for SaaS are: Segment (or RudderStack for self-hosted) as a customer data platform that routes events to multiple destinations, combined with Amplitude or Mixpanel as the analysis layer. This separation lets you add or change analytics tools without re-implementing tracking. If you don't need the CDP layer, implementing Amplitude or Mixpanel directly via their SDKs is simpler and works well for teams without a dedicated data engineer."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <svg class="nav-logo-mark" width="30" height="22" viewBox="0 0 30 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="3.5" cy="18.5" r="3.5" fill="#2F7A62"/>
+          <circle cx="15" cy="11" r="3.5" fill="#2F7A62" opacity="0.75"/>
+          <circle cx="26.5" cy="3.5" r="3.5" fill="#2F7A62" opacity="0.5"/>
+          <line x1="3.5" y1="18.5" x2="15" y2="11" stroke="#2F7A62" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="15" y1="11" x2="26.5" y2="3.5" stroke="#2F7A62" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span class="nav-logo-text">Growth Analytics <em>Engine</em></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/tools/">Free Tools</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="https://adasight.com" target="_blank" rel="noopener">Adasight ↗</a></li>
+      </ul>
+      <a href="/tools/analytics-maturity/" class="btn nav-cta">Free Assessment →</a>
+    </div>
+  </nav>
+
+  <main class="guide-page">
+    <div class="guide-meta">
+      <span class="tag">How-To</span>
+      <span class="author">By Gregor Spielmann, Adasight</span>
+      <time>March 2026</time>
+    </div>
+
+    <h1>How to Set Up Event Tracking for a SaaS Product: A Practical Guide</h1>
+
+    <p class="guide-intro">Bad event tracking is the most common reason product analytics fails — not bad tools, not bad dashboards, but a messy, inconsistent event stream that makes every analysis a data quality exercise before you can answer a business question. Getting this right upfront takes a week of careful thinking; getting it wrong costs months of re-implementation later.</p>
+
+    <div class="guide-content">
+
+      <div class="guide-tool-cta">
+        <p>🧮 <strong>Free tool:</strong> Analytics Maturity Assessment — no signup required</p>
+        <a href="/tools/analytics-maturity/" class="btn btn-accent">Open tool →</a>
+      </div>
+
+      <h2>Step 1: Define your tracking plan before writing a single line of code</h2>
+      <p>A tracking plan is a spreadsheet or document that defines every event your product will send, what it means, what properties each event carries, and who on the team is responsible for it. Before opening your analytics SDK, write out the events you need to answer your three most important analytics questions. If question one is 'what percentage of new users complete onboarding in 7 days,' you need: a signup event, at least three onboarding step events, and an 'onboarding completed' event. If question two is 'which features do retained users use in their first week,' you need events for each core feature. The tracking plan is the specification; the implementation comes second.</p>
+      <h2>Step 2: Choose a naming convention and commit to it</h2>
+      <p>Naming convention inconsistency is the number one source of analytics data quality problems. A common pattern that scales well: Object-Action in title case — 'Dashboard Created,' 'Experiment Started,' 'Report Exported.' The Object is the thing the user is interacting with; the Action is what they did to it. Avoid: verb-first names ('Created Dashboard' — hard to sort), past vs. present tense mixing ('user_sign_up' vs 'user_signed_in'), mixing snake_case and camelCase in the same tracking plan. Once you pick a convention, document it and enforce it in code review. The cost of inconsistency compounds as your data volume grows.</p>
+      <h2>Step 3: Design your event properties for segmentation</h2>
+      <p>Events without properties are nearly useless for analytics. Every event should carry at minimum: a user ID, a timestamp (added automatically by most SDKs), and the properties needed to answer follow-up questions. For a 'Dashboard Created' event, useful properties include: dashboard_type, number_of_charts, is_team_dashboard (boolean), plan_tier (for segmenting by pricing tier), days_since_signup (for understanding where in the user lifecycle this happened). Think ahead: the properties you wish you had in three months are almost always the properties that were obvious when the event was first implemented but not included because nobody specified them.</p>
+      <h2>Step 4: Implement server-side events for critical actions</h2>
+      <p>Client-side event tracking (in-browser JavaScript or mobile SDK) is convenient but unreliable for high-stakes events. Ad blockers, network interruptions, and client-side errors can silently drop events. For actions that have business consequences — purchases, subscription upgrades, feature unlocks, contract signatures — always implement server-side tracking alongside or instead of client-side. Your backend server sends the event to your analytics platform directly after the action completes, ensuring 100% capture. Client-side tracking is fine for behavioral events (page views, clicks, UI interactions); server-side tracking is non-negotiable for conversion and revenue events.</p>
+      <h2>Step 5: Validate your tracking before shipping to production</h2>
+      <p>The most common mistake in event tracking implementation is shipping unvalidated tracking and discovering the errors six weeks later when you try to build a funnel. Before any tracking changes go live: use your analytics platform's debugger mode (Amplitude has an Event Debugger, Mixpanel has Live View) to verify that every event fires correctly with the right property values. Automated tests should check that critical events fire on critical user actions. Set up a data quality alert for any event that drops below its expected volume — a sudden drop in 'Dashboard Created' events is a sign of a tracking break, and catching it in 24 hours is much less painful than catching it in three weeks.</p>
+    </div>
+
+    <div class="cta-block">
+      <h3>Need expert help with growth analytics?</h3>
+      <p>Adasight works with scaling D2C and SaaS companies to build the analytics foundations and experimentation programs that drive measurable growth.</p>
+      <a href="https://adasight.com" target="_blank" rel="noopener">Talk to Adasight →</a>
+    </div>
+
+
+      <div class="faq-block">
+        <h2>Frequently asked questions</h2>
+        
+        <div class="faq-item">
+          <h4>What is an event tracking taxonomy?</h4>
+          <p>An event tracking taxonomy is the organized system of event names, property names, and naming conventions that defines how user actions are tracked in your analytics platform. A well-designed taxonomy is consistent (all events follow the same naming pattern), complete (all important user actions are tracked), and documented (any team member can look up what any event means and what properties it carries).</p>
+        </div>
+        <div class="faq-item">
+          <h4>Should I use client-side or server-side event tracking?</h4>
+          <p>Use server-side tracking for any event that has business consequences: purchases, subscriptions, account upgrades, or any conversion that drives revenue. Server-side tracking is reliable and unaffected by ad blockers. Use client-side tracking for behavioral events (UI interactions, page views, feature engagement) where a small percentage of dropped events is acceptable. Many teams use both — client-side for behavioral analytics, server-side for revenue-critical conversions.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What is the best tool for SaaS event tracking?</h4>
+          <p>The most common setups for SaaS are: Segment (or RudderStack for self-hosted) as a customer data platform that routes events to multiple destinations, combined with Amplitude or Mixpanel as the analysis layer. This separation lets you add or change analytics tools without re-implementing tracking. If you don't need the CDP layer, implementing Amplitude or Mixpanel directly via their SDKs is simpler and works well for teams without a dedicated data engineer.</p>
+        </div>
+      </div>
+
+    <div class="related-section">
+      <h2>More from the blog</h2>
+      <div class="card-grid card-grid-2">
+        
+          <a href="/blog/amplitude-vs-google-analytics-4/" class="card-link">
+            <div class="card">
+              <span class="tag">Tool Comparison</span>
+              <h3>Amplitude vs. Google Analytics 4: Which Is Right for Your Growth Team?</h3>
+              <p>GA4 is free and already installed on most sites. Amplitude costs money and requires setup. So why do serious growth team...</p>
+              <span class="card-cta">Read post →</span>
+            </div>
+          </a>
+          <a href="/blog/mixpanel-vs-amplitude/" class="card-link">
+            <div class="card">
+              <span class="tag">Tool Comparison</span>
+              <h3>Mixpanel vs. Amplitude: Which Product Analytics Tool Is Right for Your Team?</h3>
+              <p>Mixpanel and Amplitude are the two most widely used product analytics tools, and the honest answer to 'which is better' ...</p>
+              <span class="card-cta">Read post →</span>
+            </div>
+          </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand-col">
+        <a href="/" class="footer-logo">Growth Analytics <span>Engine</span></a>
+        <p>A free resource by <a href="https://adasight.com" target="_blank" rel="noopener">Adasight</a> — built by <a href="https://www.linkedin.com/in/gregor-spielmann/" target="_blank" rel="noopener">Gregor Spielmann</a>, growth analytics and experimentation specialist.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="/tools/analytics-maturity/">Maturity Assessment</a></li>
+          <li><a href="/tools/sample-size-calculator/">Sample Size Calculator</a></li>
+          <li><a href="/tools/experimentation-roi/">ROI Calculator</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Content</h4>
+        <ul>
+          <li><a href="/guides/">All Guides</a></li>
+          <li><a href="/blog/">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Adasight</h4>
+        <ul>
+          <li><a href="https://adasight.com" target="_blank" rel="noopener">adasight.com</a></li>
+          <li><a href="https://www.linkedin.com/in/gregor-spielmann/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Growth Analytics Engine · A free resource by Adasight</p>
+    </div>
+  </footer>
+
+</body>
+</html>

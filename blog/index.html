@@ -42,29 +42,186 @@
     </div>
   </div>
 
-
-  <section class="blog-featured">
-    <div class="container">
-      <a href="/blog/amplitude-vs-google-analytics-4/" class="blog-featured-link">
-        <div class="blog-featured-inner">
-          <div class="blog-featured-meta">
-            <span class="tag">Tool Comparison</span>
-            <time>March 2026</time>
-          </div>
-          <h2 class="blog-featured-title">Amplitude vs. Google Analytics 4: Which Is Right for Your Growth Team?</h2>
-          <p class="blog-featured-excerpt">GA4 is free and already installed on most sites. Amplitude costs money and requires setup. So why do serious growth teams keep choosing Amplitude? This comparison breaks down exactly where each tool wins — and where it falls short — so you can make the call without wading through vendor marketing.</p>
-          <span class="blog-featured-cta">Read post →</span>
-        </div>
-      </a>
-    </div>
-  </section>
-
   <section class="blog-list-section">
     <div class="container">
-      <h2 class="blog-list-heading">More posts</h2>
-      <div class="blog-list">
+      <div class="blog-filters">
+      <button class="blog-filter-btn active" data-filter="all">All</button>
+      <button class="blog-filter-btn" data-filter="Tool Comparison">Tool Comparison</button>
+      <button class="blog-filter-btn" data-filter="Concepts">Concepts</button>
+      <button class="blog-filter-btn" data-filter="Strategy">Strategy</button>
+      <button class="blog-filter-btn" data-filter="Experimentation">Experimentation</button>
+      <button class="blog-filter-btn" data-filter="How-To">How-To</button>
+      <button class="blog-filter-btn" data-filter="SaaS Analytics">SaaS Analytics</button>
 
-        <a href="/blog/how-to-build-growth-dashboard-amplitude/" class="blog-card-link">
+      </div>
+      <div class="blog-list" id="blog-list">
+
+        <a href="/blog/amplitude-vs-google-analytics-4/" class="blog-card-link" data-category="Tool Comparison">
+          <article class="blog-card">
+            <div class="blog-card-meta">
+              <span class="tag">Tool Comparison</span>
+              <time>March 2026</time>
+            </div>
+            <h3 class="blog-card-title">Amplitude vs. Google Analytics 4: Which Is Right for Your Growth Team?</h3>
+            <p class="blog-card-excerpt">GA4 is free and already installed on most sites. Amplitude costs money and requires setup. So why do serious growth teams keep choosing Amplitude? This…</p>
+            <span class="blog-card-cta">Read post →</span>
+          </article>
+        </a>
+        <a href="/blog/mixpanel-vs-amplitude/" class="blog-card-link" data-category="Tool Comparison">
+          <article class="blog-card">
+            <div class="blog-card-meta">
+              <span class="tag">Tool Comparison</span>
+              <time>March 2026</time>
+            </div>
+            <h3 class="blog-card-title">Mixpanel vs. Amplitude: Which Product Analytics Tool Is Right for Your Team?</h3>
+            <p class="blog-card-excerpt">Mixpanel and Amplitude are the two most widely used product analytics tools, and the honest answer to 'which is better' is: it depends on what questions you're…</p>
+            <span class="blog-card-cta">Read post →</span>
+          </article>
+        </a>
+        <a href="/blog/what-is-activation-rate/" class="blog-card-link" data-category="Concepts">
+          <article class="blog-card">
+            <div class="blog-card-meta">
+              <span class="tag">Concepts</span>
+              <time>March 2026</time>
+            </div>
+            <h3 class="blog-card-title">What Is Activation Rate? How to Define, Measure, and Improve It</h3>
+            <p class="blog-card-excerpt">Activation rate is the percentage of new users who reach your product's defined 'aha moment' within a given time window — typically 7 or 14 days after signup.…</p>
+            <span class="blog-card-cta">Read post →</span>
+          </article>
+        </a>
+        <a href="/blog/how-to-define-north-star-metric/" class="blog-card-link" data-category="Strategy">
+          <article class="blog-card">
+            <div class="blog-card-meta">
+              <span class="tag">Strategy</span>
+              <time>March 2026</time>
+            </div>
+            <h3 class="blog-card-title">How to Define Your North Star Metric (With Examples for SaaS, Marketplace, and Consumer)</h3>
+            <p class="blog-card-excerpt">The north star metric concept is widely discussed and frequently misapplied. Most companies either pick a metric that's too easy to move (like 'visits' or…</p>
+            <span class="blog-card-cta">Read post →</span>
+          </article>
+        </a>
+        <a href="/blog/bayesian-vs-frequentist-ab-testing/" class="blog-card-link" data-category="Experimentation">
+          <article class="blog-card">
+            <div class="blog-card-meta">
+              <span class="tag">Experimentation</span>
+              <time>March 2026</time>
+            </div>
+            <h3 class="blog-card-title">Bayesian vs. Frequentist A/B Testing: Which Approach Should Your Team Use?</h3>
+            <p class="blog-card-excerpt">The debate between Bayesian and frequentist A/B testing isn't just academic — it shapes how you interpret results, how long you run experiments, and how…</p>
+            <span class="blog-card-cta">Read post →</span>
+          </article>
+        </a>
+        <a href="/blog/saas-event-tracking-setup/" class="blog-card-link" data-category="How-To">
+          <article class="blog-card">
+            <div class="blog-card-meta">
+              <span class="tag">How-To</span>
+              <time>March 2026</time>
+            </div>
+            <h3 class="blog-card-title">How to Set Up Event Tracking for a SaaS Product: A Practical Guide</h3>
+            <p class="blog-card-excerpt">Bad event tracking is the most common reason product analytics fails — not bad tools, not bad dashboards, but a messy, inconsistent event stream that makes…</p>
+            <span class="blog-card-cta">Read post →</span>
+          </article>
+        </a>
+        <a href="/blog/net-revenue-retention-analytics/" class="blog-card-link" data-category="SaaS Analytics">
+          <article class="blog-card">
+            <div class="blog-card-meta">
+              <span class="tag">SaaS Analytics</span>
+              <time>March 2026</time>
+            </div>
+            <h3 class="blog-card-title">Net Revenue Retention: What It Is, How to Measure It, and How to Improve It</h3>
+            <p class="blog-card-excerpt">Net Revenue Retention is the single metric most correlated with SaaS company valuation multiples, and it's the one metric that product and customer success…</p>
+            <span class="blog-card-cta">Read post →</span>
+          </article>
+        </a>
+        <a href="/blog/feature-flags-vs-ab-tests/" class="blog-card-link" data-category="Tool Comparison">
+          <article class="blog-card">
+            <div class="blog-card-meta">
+              <span class="tag">Tool Comparison</span>
+              <time>March 2026</time>
+            </div>
+            <h3 class="blog-card-title">Feature Flags vs. A/B Tests: When to Use Each (And How They Work Together)</h3>
+            <p class="blog-card-excerpt">Feature flags and A/B tests are often conflated — both involve showing different experiences to different users. But they solve fundamentally different…</p>
+            <span class="blog-card-cta">Read post →</span>
+          </article>
+        </a>
+        <a href="/blog/time-to-value-saas/" class="blog-card-link" data-category="SaaS Analytics">
+          <article class="blog-card">
+            <div class="blog-card-meta">
+              <span class="tag">SaaS Analytics</span>
+              <time>March 2026</time>
+            </div>
+            <h3 class="blog-card-title">How to Measure Time to Value in SaaS — And Why It Predicts Retention</h3>
+            <p class="blog-card-excerpt">Time to value (TTV) is the elapsed time between a user's first contact with your product and the moment they experience meaningful value from it. It's one of…</p>
+            <span class="blog-card-cta">Read post →</span>
+          </article>
+        </a>
+        <a href="/blog/product-led-growth-analytics/" class="blog-card-link" data-category="Concepts">
+          <article class="blog-card">
+            <div class="blog-card-meta">
+              <span class="tag">Concepts</span>
+              <time>March 2026</time>
+            </div>
+            <h3 class="blog-card-title">Product-Led Growth Analytics: The Metrics PLG Teams Actually Track</h3>
+            <p class="blog-card-excerpt">Product-led growth companies use their product as the primary acquisition, activation, and expansion engine — which means their analytics needs are…</p>
+            <span class="blog-card-cta">Read post →</span>
+          </article>
+        </a>
+        <a href="/blog/amplitude-vs-heap/" class="blog-card-link" data-category="Tool Comparison">
+          <article class="blog-card">
+            <div class="blog-card-meta">
+              <span class="tag">Tool Comparison</span>
+              <time>March 2026</time>
+            </div>
+            <h3 class="blog-card-title">Amplitude vs. Heap: Structured Events vs. Autocapture — Which Is Right for You?</h3>
+            <p class="blog-card-excerpt">Amplitude and Heap represent two fundamentally different philosophies about how to instrument product analytics. Amplitude requires you to define and…</p>
+            <span class="blog-card-cta">Read post →</span>
+          </article>
+        </a>
+        <a href="/blog/how-to-prioritize-experiments/" class="blog-card-link" data-category="Experimentation">
+          <article class="blog-card">
+            <div class="blog-card-meta">
+              <span class="tag">Experimentation</span>
+              <time>March 2026</time>
+            </div>
+            <h3 class="blog-card-title">How to Prioritize Experiments: ICE, PIE, and RICE Frameworks Compared</h3>
+            <p class="blog-card-excerpt">Most growth teams have more experiment ideas than they have traffic or engineering bandwidth to run them. Prioritization frameworks prevent the loudest voice…</p>
+            <span class="blog-card-cta">Read post →</span>
+          </article>
+        </a>
+        <a href="/blog/analytics-event-taxonomy/" class="blog-card-link" data-category="How-To">
+          <article class="blog-card">
+            <div class="blog-card-meta">
+              <span class="tag">How-To</span>
+              <time>March 2026</time>
+            </div>
+            <h3 class="blog-card-title">Analytics Event Taxonomy: How to Design Yours the Right Way</h3>
+            <p class="blog-card-excerpt">Your analytics is only as good as the events feeding it. A poorly designed event taxonomy — inconsistent naming, missing properties, unclear definitions —…</p>
+            <span class="blog-card-cta">Read post →</span>
+          </article>
+        </a>
+        <a href="/blog/posthog-vs-amplitude/" class="blog-card-link" data-category="Tool Comparison">
+          <article class="blog-card">
+            <div class="blog-card-meta">
+              <span class="tag">Tool Comparison</span>
+              <time>March 2026</time>
+            </div>
+            <h3 class="blog-card-title">PostHog vs. Amplitude: Open-Source vs. Enterprise Product Analytics</h3>
+            <p class="blog-card-excerpt">PostHog has emerged as the most credible open-source alternative to Amplitude and Mixpanel, combining product analytics, session replay, feature flags, and A/B…</p>
+            <span class="blog-card-cta">Read post →</span>
+          </article>
+        </a>
+        <a href="/blog/cohort-analysis-guide/" class="blog-card-link" data-category="How-To">
+          <article class="blog-card">
+            <div class="blog-card-meta">
+              <span class="tag">How-To</span>
+              <time>March 2026</time>
+            </div>
+            <h3 class="blog-card-title">Cohort Analysis Explained: How to Build and Interpret Cohort Reports</h3>
+            <p class="blog-card-excerpt">Cohort analysis is one of the most powerful tools in growth analytics — and one of the most misunderstood. It reveals patterns that aggregate metrics…</p>
+            <span class="blog-card-cta">Read post →</span>
+          </article>
+        </a>
+        <a href="/blog/how-to-build-growth-dashboard-amplitude/" class="blog-card-link" data-category="How-To">
           <article class="blog-card">
             <div class="blog-card-meta">
               <span class="tag">How-To</span>
@@ -75,7 +232,7 @@
             <span class="blog-card-cta">Read post →</span>
           </article>
         </a>
-        <a href="/blog/analytics-mistakes-that-kill-experiments/" class="blog-card-link">
+        <a href="/blog/analytics-mistakes-that-kill-experiments/" class="blog-card-link" data-category="Experimentation">
           <article class="blog-card">
             <div class="blog-card-meta">
               <span class="tag">Experimentation</span>
@@ -86,7 +243,7 @@
             <span class="blog-card-cta">Read post →</span>
           </article>
         </a>
-        <a href="/blog/when-to-hire-growth-analytics-consultant/" class="blog-card-link">
+        <a href="/blog/when-to-hire-growth-analytics-consultant/" class="blog-card-link" data-category="Strategy">
           <article class="blog-card">
             <div class="blog-card-meta">
               <span class="tag">Strategy</span>
@@ -97,7 +254,7 @@
             <span class="blog-card-cta">Read post →</span>
           </article>
         </a>
-        <a href="/blog/product-analytics-for-saas-retention/" class="blog-card-link">
+        <a href="/blog/product-analytics-for-saas-retention/" class="blog-card-link" data-category="SaaS Analytics">
           <article class="blog-card">
             <div class="blog-card-meta">
               <span class="tag">SaaS Analytics</span>
@@ -109,6 +266,7 @@
           </article>
         </a>
       </div>
+      <p id="blog-no-results" style="display:none; color: var(--text-muted); padding: 2rem 0;">No posts in this category yet.</p>
     </div>
   </section>
 
@@ -145,5 +303,38 @@
       <p>© 2026 Growth Analytics Engine · A free resource by Adasight</p>
     </div>
   </footer>
+
+  <script>
+    (function() {
+      var btns = document.querySelectorAll('.blog-filter-btn');
+      var cards = document.querySelectorAll('.blog-card-link');
+      var noResults = document.getElementById('blog-no-results');
+
+      btns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var filter = this.getAttribute('data-filter');
+
+          // Update active button
+          btns.forEach(function(b) { b.classList.remove('active'); });
+          this.classList.add('active');
+
+          // Filter cards
+          var visible = 0;
+          cards.forEach(function(card) {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.style.display = '';
+              visible++;
+            } else {
+              card.style.display = 'none';
+            }
+          });
+
+          if (noResults) {
+            noResults.style.display = visible === 0 ? 'block' : 'none';
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

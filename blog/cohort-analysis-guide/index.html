@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cohort Analysis: How to Build and Interpret Cohort Reports in 2026 — Growth Analytics Engine</title>
+  <meta name="description" content="Cohort analysis reveals how different groups of users behave over time. Here's what it is, how to build one, and how to use it to improve retention and growth.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Inter:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script src="/assets/js/analytics.js" defer></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Cohort Analysis Explained: How to Build and Interpret Cohort Reports",
+  "description": "Cohort analysis reveals how different groups of users behave over time. Here's what it is, how to build one, and how to use it to improve retention and growth.",
+  "author": {
+    "@type": "Person",
+    "name": "Gregor Spielmann",
+    "url": "https://adasight.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Adasight",
+    "url": "https://adasight.com"
+  },
+  "datePublished": "March 2026",
+  "url": "https://growthanalyticsengine.com/blog/cohort-analysis-guide/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is cohort analysis in product analytics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cohort analysis is the practice of grouping users by a shared characteristic at a specific point in time (most commonly their signup date) and tracking their behavior over subsequent time periods. The most common use is retention cohort analysis: tracking what percentage of users from each acquisition period were still active at D7, D14, D30, and beyond. Cohort analysis reveals patterns that aggregate metrics hide, particularly around retention, engagement, and the long-term impact of product changes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does a good retention cohort look like?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A healthy retention cohort 'flattens' above 0% \u2014 the retention curve starts at 100%, drops significantly in the first weeks, and then stabilizes at a consistent baseline (commonly called the 'retained core'). If the curve keeps declining all the way to 0%, it means all users eventually churn and there is no retained core, which is a product-market fit signal. The higher the flattening point and the more recently-acquired cohorts look similar to or better than older cohorts, the healthier the retention profile."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is cohort analysis different from funnel analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Funnel analysis measures the conversion rate between sequential steps in a single user flow (signup \u2192 onboarding step \u2192 activation) at a point in time. Cohort analysis tracks the same group of users over an extended time period to understand long-term behavioral patterns like retention and engagement frequency. Both are essential analytics tools: funnels diagnose conversion problems in specific flows, cohorts reveal long-term health and product-market fit signals."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <svg class="nav-logo-mark" width="30" height="22" viewBox="0 0 30 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="3.5" cy="18.5" r="3.5" fill="#2F7A62"/>
+          <circle cx="15" cy="11" r="3.5" fill="#2F7A62" opacity="0.75"/>
+          <circle cx="26.5" cy="3.5" r="3.5" fill="#2F7A62" opacity="0.5"/>
+          <line x1="3.5" y1="18.5" x2="15" y2="11" stroke="#2F7A62" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="15" y1="11" x2="26.5" y2="3.5" stroke="#2F7A62" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span class="nav-logo-text">Growth Analytics <em>Engine</em></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/tools/">Free Tools</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="https://adasight.com" target="_blank" rel="noopener">Adasight ↗</a></li>
+      </ul>
+      <a href="/tools/analytics-maturity/" class="btn nav-cta">Free Assessment →</a>
+    </div>
+  </nav>
+
+  <main class="guide-page">
+    <div class="guide-meta">
+      <span class="tag">How-To</span>
+      <span class="author">By Gregor Spielmann, Adasight</span>
+      <time>March 2026</time>
+    </div>
+
+    <h1>Cohort Analysis Explained: How to Build and Interpret Cohort Reports</h1>
+
+    <p class="guide-intro">Cohort analysis is one of the most powerful tools in growth analytics — and one of the most misunderstood. It reveals patterns that aggregate metrics completely hide: retention problems that disguise themselves as growth, activation improvements that don't translate to long-term retention, and the specific user segments driving all of your best (and worst) outcomes.</p>
+
+    <div class="guide-content">
+
+      <div class="guide-tool-cta">
+        <p>🧮 <strong>Free tool:</strong> Analytics Maturity Assessment — no signup required</p>
+        <a href="/tools/analytics-maturity/" class="btn btn-accent">Open tool →</a>
+      </div>
+
+      <h2>What is a cohort and why cohorts matter</h2>
+      <p>A cohort is a group of users who share a common characteristic at a specific point in time — most commonly, the time period in which they first used your product. An acquisition cohort groups all users who signed up in the same week or month. An activation cohort groups all users who completed a specific action in the same period. The reason cohorts matter: aggregate metrics like 'monthly active users' mix together users from different time periods who may behave very differently. A product that's acquiring 1,000 new users per month but has 80% D30 churn looks fine in aggregate DAU — but a cohort view reveals a company pouring water into a leaky bucket. Cohort analysis exposes the leak.</p>
+      <h2>Retention cohorts: the most important chart in product analytics</h2>
+      <p>A retention cohort report shows, for users acquired in a given period, what percentage were still active at each time interval after acquisition (D7, D14, D30, D60, D90). The visualization is a grid — rows are acquisition cohorts (Jan users, Feb users, etc.), columns are time intervals, and the values are retention percentages. Two patterns matter most. First, the 'curve shape' — does retention flatten out above 0%, indicating a core retained user base, or does it trend toward zero, indicating no product-market fit for the acquired cohort? Second, the 'cohort improvement trend' — are more recent cohorts (recent rows) retaining better at each interval than older cohorts? Improving cohort retention over time is the most important leading indicator of product-market fit momentum.</p>
+      <h2>Behavioral cohorts: going beyond acquisition date</h2>
+      <p>Behavioral cohorts segment users by actions they took, not just when they signed up. A behavioral cohort might be: 'users who completed onboarding in their first 7 days,' 'users who invited a teammate in week 1,' or 'users who used Feature X in their first session.' The power of behavioral cohorts is that they let you test the impact of specific product behaviors on long-term outcomes. If users who invite a teammate in week 1 retain at 65% at D30 while users who don't retain at 22%, you've identified a high-impact activation target. This analysis is the foundation of activation milestone discovery and is the core use case for tools like Amplitude Compass.</p>
+      <h2>How to build a cohort analysis in Amplitude</h2>
+      <p>In Amplitude, go to Retention → New Retention Analysis. Set your start event (typically 'any event' or your signup event for an acquisition cohort, or a specific action for a behavioral cohort). Set your return event (the action that counts as 'retained' — typically 'any event' for broad retention, or a core feature action for engaged retention). Set the measurement to weekly intervals, set the look-back window to 8-12 weeks. Enable 'Usage Interval' mode to see the classic retention grid. Add a segment or group-by property (acquisition channel, user plan tier, or any user property) to compare retention across segments. The resulting grid is your retention cohort report.</p>
+      <h2>Common misinterpretations and how to avoid them</h2>
+      <p>The most common misinterpretation of cohort analysis is confusing improving aggregate metrics with improving cohort retention. A product that improves its D30 retention from 15% to 20% while also increasing acquisition 3x will show rising DAU — but the underlying retention improvement is masked by the acquisition volume. Always analyze cohort retention separately from growth volume. A second common error: comparing cohorts of different sizes without normalizing. A cohort of 50 users has much more statistical noise than a cohort of 5,000 — small cohorts should be grouped by month rather than week to produce stable retention estimates. Third: attributing cohort retention differences to the wrong variable. If January cohorts retain better than December cohorts, it might be seasonality, a product change, or an acquisition mix shift — always investigate before concluding.</p>
+    </div>
+
+    <div class="cta-block">
+      <h3>Need expert help with growth analytics?</h3>
+      <p>Adasight works with scaling D2C and SaaS companies to build the analytics foundations and experimentation programs that drive measurable growth.</p>
+      <a href="https://adasight.com" target="_blank" rel="noopener">Talk to Adasight →</a>
+    </div>
+
+
+      <div class="faq-block">
+        <h2>Frequently asked questions</h2>
+        
+        <div class="faq-item">
+          <h4>What is cohort analysis in product analytics?</h4>
+          <p>Cohort analysis is the practice of grouping users by a shared characteristic at a specific point in time (most commonly their signup date) and tracking their behavior over subsequent time periods. The most common use is retention cohort analysis: tracking what percentage of users from each acquisition period were still active at D7, D14, D30, and beyond. Cohort analysis reveals patterns that aggregate metrics hide, particularly around retention, engagement, and the long-term impact of product changes.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What does a good retention cohort look like?</h4>
+          <p>A healthy retention cohort 'flattens' above 0% — the retention curve starts at 100%, drops significantly in the first weeks, and then stabilizes at a consistent baseline (commonly called the 'retained core'). If the curve keeps declining all the way to 0%, it means all users eventually churn and there is no retained core, which is a product-market fit signal. The higher the flattening point and the more recently-acquired cohorts look similar to or better than older cohorts, the healthier the retention profile.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How is cohort analysis different from funnel analysis?</h4>
+          <p>Funnel analysis measures the conversion rate between sequential steps in a single user flow (signup → onboarding step → activation) at a point in time. Cohort analysis tracks the same group of users over an extended time period to understand long-term behavioral patterns like retention and engagement frequency. Both are essential analytics tools: funnels diagnose conversion problems in specific flows, cohorts reveal long-term health and product-market fit signals.</p>
+        </div>
+      </div>
+
+    <div class="related-section">
+      <h2>More from the blog</h2>
+      <div class="card-grid card-grid-2">
+        
+          <a href="/blog/amplitude-vs-google-analytics-4/" class="card-link">
+            <div class="card">
+              <span class="tag">Tool Comparison</span>
+              <h3>Amplitude vs. Google Analytics 4: Which Is Right for Your Growth Team?</h3>
+              <p>GA4 is free and already installed on most sites. Amplitude costs money and requires setup. So why do serious growth team...</p>
+              <span class="card-cta">Read post →</span>
+            </div>
+          </a>
+          <a href="/blog/mixpanel-vs-amplitude/" class="card-link">
+            <div class="card">
+              <span class="tag">Tool Comparison</span>
+              <h3>Mixpanel vs. Amplitude: Which Product Analytics Tool Is Right for Your Team?</h3>
+              <p>Mixpanel and Amplitude are the two most widely used product analytics tools, and the honest answer to 'which is better' ...</p>
+              <span class="card-cta">Read post →</span>
+            </div>
+          </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand-col">
+        <a href="/" class="footer-logo">Growth Analytics <span>Engine</span></a>
+        <p>A free resource by <a href="https://adasight.com" target="_blank" rel="noopener">Adasight</a> — built by <a href="https://www.linkedin.com/in/gregor-spielmann/" target="_blank" rel="noopener">Gregor Spielmann</a>, growth analytics and experimentation specialist.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="/tools/analytics-maturity/">Maturity Assessment</a></li>
+          <li><a href="/tools/sample-size-calculator/">Sample Size Calculator</a></li>
+          <li><a href="/tools/experimentation-roi/">ROI Calculator</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Content</h4>
+        <ul>
+          <li><a href="/guides/">All Guides</a></li>
+          <li><a href="/blog/">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Adasight</h4>
+        <ul>
+          <li><a href="https://adasight.com" target="_blank" rel="noopener">adasight.com</a></li>
+          <li><a href="https://www.linkedin.com/in/gregor-spielmann/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Growth Analytics Engine · A free resource by Adasight</p>
+    </div>
+  </footer>
+
+</body>
+</html>

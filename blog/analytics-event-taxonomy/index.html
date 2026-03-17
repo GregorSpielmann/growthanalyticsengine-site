@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics Event Taxonomy: A Step-by-Step Guide for SaaS Teams (2026) — Growth Analytics Engine</title>
+  <meta name="description" content="A well-designed event taxonomy is the foundation of trustworthy product analytics. Here's how to build one that scales with your product and team.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Inter:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script src="/assets/js/analytics.js" defer></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Analytics Event Taxonomy: How to Design Yours the Right Way",
+  "description": "A well-designed event taxonomy is the foundation of trustworthy product analytics. Here's how to build one that scales with your product and team.",
+  "author": {
+    "@type": "Person",
+    "name": "Gregor Spielmann",
+    "url": "https://adasight.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Adasight",
+    "url": "https://adasight.com"
+  },
+  "datePublished": "March 2026",
+  "url": "https://growthanalyticsengine.com/blog/analytics-event-taxonomy/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an event taxonomy in analytics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An event taxonomy is the organized system of event names, property definitions, naming conventions, and documentation that governs how user actions are tracked in your analytics platform. A good taxonomy is consistent (all events follow the same naming pattern), complete (all important user actions are covered), and documented (any analyst can look up what any event means, what properties it carries, and who owns it)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best naming convention for analytics events?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Object-Action in Title Case (e.g., 'Dashboard Created,' 'Report Exported,' 'Experiment Paused') is widely recommended as the most readable and scalable convention for product analytics events. It clearly describes what happened, sorts sensibly alphabetically by object, and scales naturally as the product grows. Avoid mixing naming conventions within the same taxonomy \u2014 consistency matters more than which specific convention you choose."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many events should a SaaS product track?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most mature SaaS products have between 50 and 150 intentionally defined core events. Fewer than 30 events usually means important user behaviors are not being tracked. More than 300 events is often a sign of instrumentation sprawl \u2014 low-value events and duplicate events added over time without taxonomy governance. Quality and consistency of events matters far more than quantity."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <svg class="nav-logo-mark" width="30" height="22" viewBox="0 0 30 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="3.5" cy="18.5" r="3.5" fill="#2F7A62"/>
+          <circle cx="15" cy="11" r="3.5" fill="#2F7A62" opacity="0.75"/>
+          <circle cx="26.5" cy="3.5" r="3.5" fill="#2F7A62" opacity="0.5"/>
+          <line x1="3.5" y1="18.5" x2="15" y2="11" stroke="#2F7A62" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="15" y1="11" x2="26.5" y2="3.5" stroke="#2F7A62" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span class="nav-logo-text">Growth Analytics <em>Engine</em></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/tools/">Free Tools</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="https://adasight.com" target="_blank" rel="noopener">Adasight ↗</a></li>
+      </ul>
+      <a href="/tools/analytics-maturity/" class="btn nav-cta">Free Assessment →</a>
+    </div>
+  </nav>
+
+  <main class="guide-page">
+    <div class="guide-meta">
+      <span class="tag">How-To</span>
+      <span class="author">By Gregor Spielmann, Adasight</span>
+      <time>March 2026</time>
+    </div>
+
+    <h1>Analytics Event Taxonomy: How to Design Yours the Right Way</h1>
+
+    <p class="guide-intro">Your analytics is only as good as the events feeding it. A poorly designed event taxonomy — inconsistent naming, missing properties, unclear definitions — means every analysis starts with data archaeology instead of business questions. This guide covers how to design an event taxonomy that works from day one and holds up as your product and team scale.</p>
+
+    <div class="guide-content">
+
+      <div class="guide-tool-cta">
+        <p>🧮 <strong>Free tool:</strong> Analytics Maturity Assessment — no signup required</p>
+        <a href="/tools/analytics-maturity/" class="btn btn-accent">Open tool →</a>
+      </div>
+
+      <h2>Start with your analytics questions, not your product features</h2>
+      <p>The most common mistake in event taxonomy design is building a list of 'everything that happens in the product' rather than starting from the questions you need to answer. Start here: what are the five most important analytics questions your team needs to answer in the next quarter? Map each question to the events and properties required to answer it. This approach ensures your taxonomy is complete for the analyses that matter and avoids the trap of instrumenting hundreds of low-value events that add noise without insight. Most mature product analytics stacks have 50-150 core events — teams with 500+ events usually have a data quality problem, not a data richness advantage.</p>
+      <h2>Choosing a naming convention</h2>
+      <p>Object-Action is the most durable naming convention for product events: the event name describes what object the user interacted with (Report, Dashboard, Experiment, Comment) followed by what action they took (Created, Updated, Deleted, Shared, Exported). Examples: 'Report Created,' 'Dashboard Shared,' 'Experiment Started,' 'Comment Posted.' This convention has several advantages: events sort alphabetically by object, making them easy to find in analytics tools; it's intuitive to read ('something happened to this thing'); and it scales well as the product grows. Avoid: verb-first naming (Clicked Dashboard, Viewed Report) which hides relationships between related events; mixing tenses (user_sign_up vs user_logged_in); and mixing case styles within the same taxonomy.</p>
+      <h2>Defining your global user properties</h2>
+      <p>User properties are characteristics of the user that are attached to every event they fire — you define them once per user, not per event. They're essential for segmentation. Standard global user properties for SaaS: user_id, account_id, plan_tier, signup_date, acquisition_channel, account_size, role (admin/member/viewer), days_since_signup (recalculated dynamically), and any key demographic or firmographic data relevant to your ICP. User properties are where most teams under-invest: if you can't segment any analysis by plan tier or acquisition channel, you're operating with one hand tied behind your back. Build the full user property set before implementing your first event.</p>
+      <h2>Event properties: what to capture and how</h2>
+      <p>Every event should carry the properties needed to answer follow-up questions about that specific action. For 'Report Created': report_type, number_of_metrics, is_shared (boolean), creation_context (which page or workflow it was created from). A useful heuristic: for each event, ask 'if this event spiked 5x next week, what questions would I need to answer to understand why?' The properties needed to answer those questions should be on the event. Common omissions that cause regret: not capturing the user's plan tier or role on every event (makes it impossible to segment by plan without a separate lookup), not capturing a context property that records where in the app an action was taken, and not capturing boolean properties that encode whether an action was a first-time occurrence.</p>
+      <h2>Governance: keeping your taxonomy clean over time</h2>
+      <p>Event taxonomy degrades over time without deliberate governance. The symptoms: event names that no longer match the UI they track (after a product redesign), duplicate events for the same action (added at different times by different engineers), and properties that have inconsistent values (some events send 'true' as a boolean, others send the string 'True'). Governance practices that prevent this: a single owner for the tracking plan (usually a data analyst or analytics engineer), required PR review for any changes to tracked events, a versioned tracking plan document that's updated in sync with code changes, and quarterly audits of event volume (events that have gone to zero usually indicate a broken implementation or a deprecated feature that should be removed from the taxonomy).</p>
+    </div>
+
+    <div class="cta-block">
+      <h3>Need expert help with growth analytics?</h3>
+      <p>Adasight works with scaling D2C and SaaS companies to build the analytics foundations and experimentation programs that drive measurable growth.</p>
+      <a href="https://adasight.com" target="_blank" rel="noopener">Talk to Adasight →</a>
+    </div>
+
+
+      <div class="faq-block">
+        <h2>Frequently asked questions</h2>
+        
+        <div class="faq-item">
+          <h4>What is an event taxonomy in analytics?</h4>
+          <p>An event taxonomy is the organized system of event names, property definitions, naming conventions, and documentation that governs how user actions are tracked in your analytics platform. A good taxonomy is consistent (all events follow the same naming pattern), complete (all important user actions are covered), and documented (any analyst can look up what any event means, what properties it carries, and who owns it).</p>
+        </div>
+        <div class="faq-item">
+          <h4>What is the best naming convention for analytics events?</h4>
+          <p>Object-Action in Title Case (e.g., 'Dashboard Created,' 'Report Exported,' 'Experiment Paused') is widely recommended as the most readable and scalable convention for product analytics events. It clearly describes what happened, sorts sensibly alphabetically by object, and scales naturally as the product grows. Avoid mixing naming conventions within the same taxonomy — consistency matters more than which specific convention you choose.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How many events should a SaaS product track?</h4>
+          <p>Most mature SaaS products have between 50 and 150 intentionally defined core events. Fewer than 30 events usually means important user behaviors are not being tracked. More than 300 events is often a sign of instrumentation sprawl — low-value events and duplicate events added over time without taxonomy governance. Quality and consistency of events matters far more than quantity.</p>
+        </div>
+      </div>
+
+    <div class="related-section">
+      <h2>More from the blog</h2>
+      <div class="card-grid card-grid-2">
+        
+          <a href="/blog/amplitude-vs-google-analytics-4/" class="card-link">
+            <div class="card">
+              <span class="tag">Tool Comparison</span>
+              <h3>Amplitude vs. Google Analytics 4: Which Is Right for Your Growth Team?</h3>
+              <p>GA4 is free and already installed on most sites. Amplitude costs money and requires setup. So why do serious growth team...</p>
+              <span class="card-cta">Read post →</span>
+            </div>
+          </a>
+          <a href="/blog/mixpanel-vs-amplitude/" class="card-link">
+            <div class="card">
+              <span class="tag">Tool Comparison</span>
+              <h3>Mixpanel vs. Amplitude: Which Product Analytics Tool Is Right for Your Team?</h3>
+              <p>Mixpanel and Amplitude are the two most widely used product analytics tools, and the honest answer to 'which is better' ...</p>
+              <span class="card-cta">Read post →</span>
+            </div>
+          </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand-col">
+        <a href="/" class="footer-logo">Growth Analytics <span>Engine</span></a>
+        <p>A free resource by <a href="https://adasight.com" target="_blank" rel="noopener">Adasight</a> — built by <a href="https://www.linkedin.com/in/gregor-spielmann/" target="_blank" rel="noopener">Gregor Spielmann</a>, growth analytics and experimentation specialist.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="/tools/analytics-maturity/">Maturity Assessment</a></li>
+          <li><a href="/tools/sample-size-calculator/">Sample Size Calculator</a></li>
+          <li><a href="/tools/experimentation-roi/">ROI Calculator</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Content</h4>
+        <ul>
+          <li><a href="/guides/">All Guides</a></li>
+          <li><a href="/blog/">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Adasight</h4>
+        <ul>
+          <li><a href="https://adasight.com" target="_blank" rel="noopener">adasight.com</a></li>
+          <li><a href="https://www.linkedin.com/in/gregor-spielmann/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Growth Analytics Engine · A free resource by Adasight</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -241,8 +241,19 @@ def generate_blog_index(posts):
     featured = posts[0]
     rest = posts[1:]
 
+    # Collect unique tags for filter buttons
+    all_tags = []
+    for post in posts:
+        if post['tag'] not in all_tags:
+            all_tags.append(post['tag'])
+
+    filter_buttons = '<button class="blog-filter-btn active" data-filter="all">All</button>\n'
+    for tag in all_tags:
+        filter_buttons += f'      <button class="blog-filter-btn" data-filter="{tag}">{tag}</button>\n'
+
+    featured_tag_slug = featured['tag'].lower().replace(' ', '-')
     featured_html = f"""
-  <section class="blog-featured">
+  <section class="blog-featured" data-category="{featured['tag']}">
     <div class="container">
       <a href="/blog/{featured['slug']}/" class="blog-featured-link">
         <div class="blog-featured-inner">
@@ -258,15 +269,14 @@ def generate_blog_index(posts):
     </div>
   </section>"""
 
-    # Rest of posts as 2-col list
-    rest_cards = ""
-    for post in rest:
-        # Truncate at word boundary around 160 chars
+    # All posts as filterable 2-col grid (including featured so filter works across all)
+    all_cards = ""
+    for post in posts:
         excerpt = post['intro']
         if len(excerpt) > 160:
             excerpt = excerpt[:160].rsplit(' ', 1)[0] + '…'
-        rest_cards += f"""
-        <a href="/blog/{post['slug']}/" class="blog-card-link">
+        all_cards += f"""
+        <a href="/blog/{post['slug']}/" class="blog-card-link" data-category="{post['tag']}">
           <article class="blog-card">
             <div class="blog-card-meta">
               <span class="tag">{post['tag']}</span>
@@ -277,6 +287,40 @@ def generate_blog_index(posts):
             <span class="blog-card-cta">Read post →</span>
           </article>
         </a>"""
+
+    filter_js = """
+  <script>
+    (function() {
+      var btns = document.querySelectorAll('.blog-filter-btn');
+      var cards = document.querySelectorAll('.blog-card-link');
+      var noResults = document.getElementById('blog-no-results');
+
+      btns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var filter = this.getAttribute('data-filter');
+
+          // Update active button
+          btns.forEach(function(b) { b.classList.remove('active'); });
+          this.classList.add('active');
+
+          // Filter cards
+          var visible = 0;
+          cards.forEach(function(card) {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.style.display = '';
+              visible++;
+            } else {
+              card.style.display = 'none';
+            }
+          });
+
+          if (noResults) {
+            noResults.style.display = visible === 0 ? 'block' : 'none';
+          }
+        });
+      });
+    })();
+  </script>"""
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -302,18 +346,20 @@ def generate_blog_index(posts):
     </div>
   </div>
 
-{featured_html}
-
   <section class="blog-list-section">
     <div class="container">
-      <h2 class="blog-list-heading">More posts</h2>
-      <div class="blog-list">
-{rest_cards}
+      <div class="blog-filters">
+      {filter_buttons}
       </div>
+      <div class="blog-list" id="blog-list">
+{all_cards}
+      </div>
+      <p id="blog-no-results" style="display:none; color: var(--text-muted); padding: 2rem 0;">No posts in this category yet.</p>
     </div>
   </section>
 
 {FOOTER}
+{filter_js}
 </body>
 </html>"""
     return html

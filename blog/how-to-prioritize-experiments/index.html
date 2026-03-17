@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Prioritize Experiments: ICE vs PIE vs RICE Scoring Compared — Growth Analytics Engine</title>
+  <meta name="description" content="ICE, PIE, and RICE are three frameworks for prioritizing A/B tests and experiments. Here's how each works and which approach fits your growth team's workflow.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Inter:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script src="/assets/js/analytics.js" defer></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How to Prioritize Experiments: ICE, PIE, and RICE Frameworks Compared",
+  "description": "ICE, PIE, and RICE are three frameworks for prioritizing A/B tests and experiments. Here's how each works and which approach fits your growth team's workflow.",
+  "author": {
+    "@type": "Person",
+    "name": "Gregor Spielmann",
+    "url": "https://adasight.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Adasight",
+    "url": "https://adasight.com"
+  },
+  "datePublished": "March 2026",
+  "url": "https://growthanalyticsengine.com/blog/how-to-prioritize-experiments/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the ICE scoring model for experiments?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ICE stands for Impact, Confidence, and Ease. Each experiment idea is scored 1-10 on each dimension: Impact (how large a metric improvement would success produce), Confidence (how likely is this to work based on data or evidence), and Ease (how little effort is required to implement and run it). The three scores are multiplied together to produce a priority score. ICE is simple, fast, and better than gut-feel prioritization \u2014 its main limitation is that it doesn't account for the volume of users affected."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the RICE framework for prioritization?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RICE stands for Reach, Impact, Confidence, and Effort. Unlike ICE's 1-10 scoring, RICE uses actual estimates: Reach (users affected per time period), Impact (a multiplier for how much this moves the needle per user), Confidence (a percentage reflecting evidence quality), and Effort (person-months of work). RICE score = (Reach \u00d7 Impact \u00d7 Confidence) / Effort. RICE produces more rigorous prioritization but requires real data to be meaningful."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you build an experiment backlog?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An experiment backlog should contain: a hypothesis statement ('We believe that [change] will cause [outcome] because [evidence]'), the primary metric and guardrail metrics for the test, an estimated sample size requirement, an effort estimate, and a priority score. Review the backlog in a weekly experimentation meeting, promote the highest-priority ready items to 'in flight,' and retrospectively tag each completed experiment with the actual outcome. The historical record of what worked and didn't is as valuable as the current backlog."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <svg class="nav-logo-mark" width="30" height="22" viewBox="0 0 30 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="3.5" cy="18.5" r="3.5" fill="#2F7A62"/>
+          <circle cx="15" cy="11" r="3.5" fill="#2F7A62" opacity="0.75"/>
+          <circle cx="26.5" cy="3.5" r="3.5" fill="#2F7A62" opacity="0.5"/>
+          <line x1="3.5" y1="18.5" x2="15" y2="11" stroke="#2F7A62" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="15" y1="11" x2="26.5" y2="3.5" stroke="#2F7A62" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span class="nav-logo-text">Growth Analytics <em>Engine</em></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/tools/">Free Tools</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="https://adasight.com" target="_blank" rel="noopener">Adasight ↗</a></li>
+      </ul>
+      <a href="/tools/analytics-maturity/" class="btn nav-cta">Free Assessment →</a>
+    </div>
+  </nav>
+
+  <main class="guide-page">
+    <div class="guide-meta">
+      <span class="tag">Experimentation</span>
+      <span class="author">By Gregor Spielmann, Adasight</span>
+      <time>March 2026</time>
+    </div>
+
+    <h1>How to Prioritize Experiments: ICE, PIE, and RICE Frameworks Compared</h1>
+
+    <p class="guide-intro">Most growth teams have more experiment ideas than they have traffic or engineering bandwidth to run them. Prioritization frameworks prevent the loudest voice in the room from winning. ICE, PIE, and RICE are the three most widely used scoring systems — here's how each works and what each one gets right and wrong.</p>
+
+    <div class="guide-content">
+
+      <div class="guide-tool-cta">
+        <p>🧮 <strong>Free tool:</strong> Sample Size Calculator — no signup required</p>
+        <a href="/tools/sample-size-calculator/" class="btn btn-accent">Open tool →</a>
+      </div>
+
+      <h2>ICE: the fastest prioritization method</h2>
+      <p>ICE stands for Impact, Confidence, Ease. Each experiment idea is scored 1-10 on each dimension, and the scores are multiplied (or averaged, depending on your team's preference). Impact: how large a metric improvement would a successful version of this experiment produce? Confidence: how confident are you that this experiment will produce a positive result, based on data, user research, or proven patterns? Ease: how simple is this to implement — low engineering effort, no design work, can be done this sprint? ICE is fast to run (a team can score 20 ideas in 30 minutes) and gives a rough prioritization that's better than gut feel. Its weakness: it doesn't explicitly account for the volume of users affected, which means a high-scoring ICE experiment might actually affect very few users if it's deep in the product funnel.</p>
+      <h2>PIE: ICE with reach built in</h2>
+      <p>PIE stands for Potential, Importance, Ease. Potential is similar to ICE's Impact but focuses on how much improvement there is relative to the current state (high-potential experiments are on pages or flows that are currently underperforming their benchmark). Importance captures how important the affected user segment is — an experiment on your highest-traffic onboarding screen is more important than one on your account settings page, even if both have similar conversion improvement potential. Ease is the same as ICE. PIE was developed by Widerfunnel and is especially useful for teams running CRO experiments on marketing and landing pages where page-level traffic data makes Importance easy to quantify.</p>
+      <h2>RICE: the most rigorous framework</h2>
+      <p>RICE stands for Reach, Impact, Confidence, Effort. Reach is the number of users affected per time period — not a 1-10 score but an actual estimate: 'this experiment affects users in the onboarding flow, which 2,000 users per month go through.' Impact is a multiplier (0.25, 0.5, 1, 2, 3) for how much this moves the needle per user affected. Confidence is a percentage (100% = definitive data, 80% = strong data, 50% = gut feel). Effort is person-months of engineering and design work. RICE score = (Reach × Impact × Confidence) / Effort. The output is comparable across experiments — a RICE score of 1,200 vs. 350 gives you a clear ranking. The tradeoff: RICE takes longer to score carefully, and the estimates for Reach and Impact require real data to be meaningful.</p>
+      <h2>Which framework should your team use?</h2>
+      <p>The right choice depends on your stage and experimentation velocity. Early-stage (under 5 experiments/month): use ICE or PIE — the overhead of RICE isn't worth it, and the main benefit is simply making the prioritization conversation explicit rather than gut-driven. Mid-stage (5-20 experiments/month): add a RICE-style Reach estimate to your ICE scores. Just having a column for 'users affected per month' dramatically improves prioritization quality. High-velocity (20+ experiments/month): implement full RICE with real Reach data pulled from your analytics tool. At this velocity, the difference between high-RICE and low-RICE experiments meaningfully compounds over time. Regardless of framework: always track the outcome of prioritization decisions. If your top-scored experiments consistently underperform your lower-scored ones, your scoring calibration is off.</p>
+      <h2>Avoiding the most common prioritization mistakes</h2>
+      <p>The most common mistake with prioritization frameworks is scoring ideas with scores that reflect personal enthusiasm rather than actual data. Impact scores of 8-10 are assigned to ideas the team is excited about, and low scores are assigned to ideas they're skeptical of — the framework becomes a rationalization of pre-existing preferences rather than an objective ranking tool. Two practices that counteract this: have multiple team members score ideas independently before comparing scores (disagreements reveal where assumptions differ), and require that any score above 7 for Impact or Confidence be backed by a specific data point or research source. The discipline of sourcing your scores is most of the value of the framework.</p>
+    </div>
+
+    <div class="cta-block">
+      <h3>Need expert help with growth analytics?</h3>
+      <p>Adasight works with scaling D2C and SaaS companies to build the analytics foundations and experimentation programs that drive measurable growth.</p>
+      <a href="https://adasight.com" target="_blank" rel="noopener">Talk to Adasight →</a>
+    </div>
+
+
+      <div class="faq-block">
+        <h2>Frequently asked questions</h2>
+        
+        <div class="faq-item">
+          <h4>What is the ICE scoring model for experiments?</h4>
+          <p>ICE stands for Impact, Confidence, and Ease. Each experiment idea is scored 1-10 on each dimension: Impact (how large a metric improvement would success produce), Confidence (how likely is this to work based on data or evidence), and Ease (how little effort is required to implement and run it). The three scores are multiplied together to produce a priority score. ICE is simple, fast, and better than gut-feel prioritization — its main limitation is that it doesn't account for the volume of users affected.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What is the RICE framework for prioritization?</h4>
+          <p>RICE stands for Reach, Impact, Confidence, and Effort. Unlike ICE's 1-10 scoring, RICE uses actual estimates: Reach (users affected per time period), Impact (a multiplier for how much this moves the needle per user), Confidence (a percentage reflecting evidence quality), and Effort (person-months of work). RICE score = (Reach × Impact × Confidence) / Effort. RICE produces more rigorous prioritization but requires real data to be meaningful.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How do you build an experiment backlog?</h4>
+          <p>An experiment backlog should contain: a hypothesis statement ('We believe that [change] will cause [outcome] because [evidence]'), the primary metric and guardrail metrics for the test, an estimated sample size requirement, an effort estimate, and a priority score. Review the backlog in a weekly experimentation meeting, promote the highest-priority ready items to 'in flight,' and retrospectively tag each completed experiment with the actual outcome. The historical record of what worked and didn't is as valuable as the current backlog.</p>
+        </div>
+      </div>
+
+    <div class="related-section">
+      <h2>More from the blog</h2>
+      <div class="card-grid card-grid-2">
+        
+          <a href="/blog/amplitude-vs-google-analytics-4/" class="card-link">
+            <div class="card">
+              <span class="tag">Tool Comparison</span>
+              <h3>Amplitude vs. Google Analytics 4: Which Is Right for Your Growth Team?</h3>
+              <p>GA4 is free and already installed on most sites. Amplitude costs money and requires setup. So why do serious growth team...</p>
+              <span class="card-cta">Read post →</span>
+            </div>
+          </a>
+          <a href="/blog/mixpanel-vs-amplitude/" class="card-link">
+            <div class="card">
+              <span class="tag">Tool Comparison</span>
+              <h3>Mixpanel vs. Amplitude: Which Product Analytics Tool Is Right for Your Team?</h3>
+              <p>Mixpanel and Amplitude are the two most widely used product analytics tools, and the honest answer to 'which is better' ...</p>
+              <span class="card-cta">Read post →</span>
+            </div>
+          </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand-col">
+        <a href="/" class="footer-logo">Growth Analytics <span>Engine</span></a>
+        <p>A free resource by <a href="https://adasight.com" target="_blank" rel="noopener">Adasight</a> — built by <a href="https://www.linkedin.com/in/gregor-spielmann/" target="_blank" rel="noopener">Gregor Spielmann</a>, growth analytics and experimentation specialist.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="/tools/analytics-maturity/">Maturity Assessment</a></li>
+          <li><a href="/tools/sample-size-calculator/">Sample Size Calculator</a></li>
+          <li><a href="/tools/experimentation-roi/">ROI Calculator</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Content</h4>
+        <ul>
+          <li><a href="/guides/">All Guides</a></li>
+          <li><a href="/blog/">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Adasight</h4>
+        <ul>
+          <li><a href="https://adasight.com" target="_blank" rel="noopener">adasight.com</a></li>
+          <li><a href="https://www.linkedin.com/in/gregor-spielmann/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Growth Analytics Engine · A free resource by Adasight</p>
+    </div>
+  </footer>
+
+</body>
+</html>

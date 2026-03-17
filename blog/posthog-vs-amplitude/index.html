@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PostHog vs. Amplitude (2026): Open-Source vs. Enterprise Product Analytics — Growth Analytics Engine</title>
+  <meta name="description" content="PostHog is open-source and self-hostable. Amplitude is enterprise-grade SaaS. Here's how they compare on features, data control, pricing, and analytics depth.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Inter:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script src="/assets/js/analytics.js" defer></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "PostHog vs. Amplitude: Open-Source vs. Enterprise Product Analytics",
+  "description": "PostHog is open-source and self-hostable. Amplitude is enterprise-grade SaaS. Here's how they compare on features, data control, pricing, and analytics depth.",
+  "author": {
+    "@type": "Person",
+    "name": "Gregor Spielmann",
+    "url": "https://adasight.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Adasight",
+    "url": "https://adasight.com"
+  },
+  "datePublished": "March 2026",
+  "url": "https://growthanalyticsengine.com/blog/posthog-vs-amplitude/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is PostHog a good alternative to Amplitude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For teams with data privacy constraints, open-source preferences, or cost sensitivity, yes. PostHog's analytics capabilities have matured significantly and cover most standard product analytics use cases. For teams that need the deepest behavioral cohort analysis, Amplitude's advanced features still lead. The best way to evaluate is to run a proof of concept with your actual data and your team's most common analysis workflows."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can PostHog be self-hosted?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes \u2014 self-hosting is one of PostHog's primary value propositions. You can run PostHog on your own infrastructure (AWS, GCP, or any Kubernetes environment), keeping all your event data within your own systems. PostHog publishes detailed self-hosting documentation and provides a community for self-hosted deployments. Note that self-hosting requires engineering capacity for infrastructure management."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between PostHog and Mixpanel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PostHog and Mixpanel are both product analytics tools but with different philosophies. PostHog is open-source, self-hostable, and broader in scope (analytics + feature flags + session replay + A/B testing in one platform). Mixpanel is a cloud-only SaaS product focused specifically on product analytics with a strong emphasis on flexible event querying. PostHog appeals to engineering-led teams; Mixpanel appeals to analyst and product teams that prefer a purpose-built analytics interface."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <svg class="nav-logo-mark" width="30" height="22" viewBox="0 0 30 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="3.5" cy="18.5" r="3.5" fill="#2F7A62"/>
+          <circle cx="15" cy="11" r="3.5" fill="#2F7A62" opacity="0.75"/>
+          <circle cx="26.5" cy="3.5" r="3.5" fill="#2F7A62" opacity="0.5"/>
+          <line x1="3.5" y1="18.5" x2="15" y2="11" stroke="#2F7A62" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="15" y1="11" x2="26.5" y2="3.5" stroke="#2F7A62" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span class="nav-logo-text">Growth Analytics <em>Engine</em></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/tools/">Free Tools</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="https://adasight.com" target="_blank" rel="noopener">Adasight ↗</a></li>
+      </ul>
+      <a href="/tools/analytics-maturity/" class="btn nav-cta">Free Assessment →</a>
+    </div>
+  </nav>
+
+  <main class="guide-page">
+    <div class="guide-meta">
+      <span class="tag">Tool Comparison</span>
+      <span class="author">By Gregor Spielmann, Adasight</span>
+      <time>March 2026</time>
+    </div>
+
+    <h1>PostHog vs. Amplitude: Open-Source vs. Enterprise Product Analytics</h1>
+
+    <p class="guide-intro">PostHog has emerged as the most credible open-source alternative to Amplitude and Mixpanel, combining product analytics, session replay, feature flags, and A/B testing in a single platform. For teams with data residency requirements, privacy constraints, or cost sensitivity, it's a genuine contender. Here's how the two tools compare in 2026.</p>
+
+    <div class="guide-content">
+
+      <div class="guide-tool-cta">
+        <p>🧮 <strong>Free tool:</strong> Analytics Maturity Assessment — no signup required</p>
+        <a href="/tools/analytics-maturity/" class="btn btn-accent">Open tool →</a>
+      </div>
+
+      <h2>What PostHog offers that Amplitude doesn't</h2>
+      <p>PostHog's primary differentiators are self-hosting, all-in-one tooling, and open-source transparency. Self-hosting means your event data never leaves your infrastructure — a compelling proposition for companies in regulated industries (healthcare, finance, legal) or with strong data residency requirements. All-in-one means PostHog combines product analytics, session replay, feature flags, A/B experiments, surveys, and data pipelines in a single tool with a single SDK. For early-stage teams that would otherwise need Amplitude + LaunchDarkly + FullStory + a survey tool, PostHog's breadth is a meaningful operational simplification. Open-source means you can read and audit the code — important for security-sensitive organizations.</p>
+      <h2>What Amplitude offers that PostHog doesn't</h2>
+      <p>Amplitude's analytical depth is meaningfully greater than PostHog's for complex behavioral analysis. Amplitude's cohort analysis, behavioral segmentation, and Compass (correlation analysis) are more sophisticated and more powerful for teams doing advanced product analytics work. Amplitude also has a more mature data governance layer (Data catalog, Schema enforcement), which matters at scale when data quality issues become expensive. Amplitude's integrations ecosystem — with Salesforce, HubSpot, Braze, and dozens of data warehouse tools — is broader and more production-tested. For enterprise teams that need analytics to drive both product decisions and downstream marketing or sales workflows, Amplitude's integration layer is a real advantage.</p>
+      <h2>Pricing comparison: where PostHog wins on cost</h2>
+      <p>PostHog's cloud pricing is event-volume based with a generous free tier (1M events/month free in 2026). Self-hosted PostHog is free at any scale — you pay for infrastructure rather than per-event fees. This makes PostHog the clear cost winner for high-volume consumer apps where event volumes are in the billions per month, or for companies where per-event Amplitude pricing becomes a budget constraint. Amplitude's pricing scales with monthly tracked users (MTUs) and feature tiers, and can become significant at enterprise scale. The TCO comparison is nuanced: self-hosting PostHog requires engineering time for infrastructure management, which has a real cost that doesn't appear in the tool's licensing fee.</p>
+      <h2>Which type of team should choose each tool</h2>
+      <p>Choose PostHog if: you're an engineer-led company that values open-source tooling, you have data residency or privacy requirements that make cloud-based analytics tools difficult, you need feature flags and A/B testing alongside analytics and want a single-tool solution, or you're early-stage and cost-sensitive. Choose Amplitude if: you're building a systematic growth analytics practice and need best-in-class behavioral cohort analysis, you have downstream data workflows that depend on analytics platform integrations, or your team's primary use case is product analytics at scale with strong data governance requirements.</p>
+    </div>
+
+    <div class="cta-block">
+      <h3>Need expert help with growth analytics?</h3>
+      <p>Adasight works with scaling D2C and SaaS companies to build the analytics foundations and experimentation programs that drive measurable growth.</p>
+      <a href="https://adasight.com" target="_blank" rel="noopener">Talk to Adasight →</a>
+    </div>
+
+
+      <div class="faq-block">
+        <h2>Frequently asked questions</h2>
+        
+        <div class="faq-item">
+          <h4>Is PostHog a good alternative to Amplitude?</h4>
+          <p>For teams with data privacy constraints, open-source preferences, or cost sensitivity, yes. PostHog's analytics capabilities have matured significantly and cover most standard product analytics use cases. For teams that need the deepest behavioral cohort analysis, Amplitude's advanced features still lead. The best way to evaluate is to run a proof of concept with your actual data and your team's most common analysis workflows.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Can PostHog be self-hosted?</h4>
+          <p>Yes — self-hosting is one of PostHog's primary value propositions. You can run PostHog on your own infrastructure (AWS, GCP, or any Kubernetes environment), keeping all your event data within your own systems. PostHog publishes detailed self-hosting documentation and provides a community for self-hosted deployments. Note that self-hosting requires engineering capacity for infrastructure management.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What is the difference between PostHog and Mixpanel?</h4>
+          <p>PostHog and Mixpanel are both product analytics tools but with different philosophies. PostHog is open-source, self-hostable, and broader in scope (analytics + feature flags + session replay + A/B testing in one platform). Mixpanel is a cloud-only SaaS product focused specifically on product analytics with a strong emphasis on flexible event querying. PostHog appeals to engineering-led teams; Mixpanel appeals to analyst and product teams that prefer a purpose-built analytics interface.</p>
+        </div>
+      </div>
+
+    <div class="related-section">
+      <h2>More from the blog</h2>
+      <div class="card-grid card-grid-2">
+        
+          <a href="/blog/amplitude-vs-google-analytics-4/" class="card-link">
+            <div class="card">
+              <span class="tag">Tool Comparison</span>
+              <h3>Amplitude vs. Google Analytics 4: Which Is Right for Your Growth Team?</h3>
+              <p>GA4 is free and already installed on most sites. Amplitude costs money and requires setup. So why do serious growth team...</p>
+              <span class="card-cta">Read post →</span>
+            </div>
+          </a>
+          <a href="/blog/mixpanel-vs-amplitude/" class="card-link">
+            <div class="card">
+              <span class="tag">Tool Comparison</span>
+              <h3>Mixpanel vs. Amplitude: Which Product Analytics Tool Is Right for Your Team?</h3>
+              <p>Mixpanel and Amplitude are the two most widely used product analytics tools, and the honest answer to 'which is better' ...</p>
+              <span class="card-cta">Read post →</span>
+            </div>
+          </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand-col">
+        <a href="/" class="footer-logo">Growth Analytics <span>Engine</span></a>
+        <p>A free resource by <a href="https://adasight.com" target="_blank" rel="noopener">Adasight</a> — built by <a href="https://www.linkedin.com/in/gregor-spielmann/" target="_blank" rel="noopener">Gregor Spielmann</a>, growth analytics and experimentation specialist.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="/tools/analytics-maturity/">Maturity Assessment</a></li>
+          <li><a href="/tools/sample-size-calculator/">Sample Size Calculator</a></li>
+          <li><a href="/tools/experimentation-roi/">ROI Calculator</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Content</h4>
+        <ul>
+          <li><a href="/guides/">All Guides</a></li>
+          <li><a href="/blog/">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Adasight</h4>
+        <ul>
+          <li><a href="https://adasight.com" target="_blank" rel="noopener">adasight.com</a></li>
+          <li><a href="https://www.linkedin.com/in/gregor-spielmann/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Growth Analytics Engine · A free resource by Adasight</p>
+    </div>
+  </footer>
+
+</body>
+</html>
