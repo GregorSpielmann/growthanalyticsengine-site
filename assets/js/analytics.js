@@ -11,7 +11,7 @@
  *   cta_clicked              — any Adasight CTA link clicked
  */
 
-const AMPLITUDE_API_KEY = 'YOUR_AMPLITUDE_API_KEY'; // ← replace this
+const AMPLITUDE_API_KEY = '8b02cbf05d32084ff00fd7ab27e1d4d5';
 
 (function() {
   // ── Load Amplitude SDK (v2 CDN) ──────────────────────────────────────────

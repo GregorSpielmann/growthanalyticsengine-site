@@ -237,6 +237,7 @@ def generate_guide_page(guide, all_guides):
 
 {FOOTER}
 
+  <script src="/assets/js/analytics.js" defer></script>
 </body>
 </html>"""
 
@@ -288,6 +289,7 @@ def generate_guides_index(guides):
   </section>
 
 {FOOTER}
+  <script src="/assets/js/analytics.js" defer></script>
 </body>
 </html>"""
     return html
